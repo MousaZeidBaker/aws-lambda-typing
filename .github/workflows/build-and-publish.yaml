@@ -1,0 +1,43 @@
+# This workflow builds and publishes package distribution to PyPI
+
+name: Build and Publish
+
+# Controls when the action will run
+on:
+  push:
+    branches:
+      - 'master'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build_and_publish:
+    name: Build and Publish job
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install dependencies
+        run: |
+          # Create and activate virtualenv
+          python3 -m venv .venv && source .venv/bin/activate
+          # Make sure to have the latest pip version installed
+          python -m pip install --upgrade pip
+          python -m pip install --upgrade setuptools wheel twine
+
+      - name: Build
+        run: |
+          source .venv/bin/activate
+          python setup.py sdist bdist_wheel
+
+      - name: Publish
+        run: |
+          source .venv/bin/activate
+          TWINE_USERNAME=__token__ TWINE_PASSWORD=${{ secrets.PYPI_API_TOKEN }} twine upload --non-interactive dist/*
