@@ -27,10 +27,10 @@ def handler(event: lambda_typing.SQSEvent, context: lambda_typing.Context) -> No
 
 ## Demo
 ### IDE autocomplete
-![ide_autocomplete](https://raw.githubusercontent.com/MousaZeidBaker/aws-lambda-typing/initial_branch/media/ide_autocomplete.gif)
+![ide_autocomplete](https://raw.githubusercontent.com/MousaZeidBaker/aws-lambda-typing/master/media/ide_autocomplete.gif)
 
 ### IDE code reference information
-![code_reference_information](https://raw.githubusercontent.com/MousaZeidBaker/aws-lambda-typing/initial_branch/media/code_reference_information.gif)
+![code_reference_information](https://raw.githubusercontent.com/MousaZeidBaker/aws-lambda-typing/master/media/code_reference_information.gif)
 
 ## Test
 Create and activate virtualenv
