@@ -28,5 +28,8 @@ setuptools.setup(
         'development'
     ],
     packages=setuptools.find_packages(exclude=["tests*"]),
+    package_data = {
+        'aws_lambda_typing': ['py.typed'],
+    },
     python_requires='>=3.8',
 )
