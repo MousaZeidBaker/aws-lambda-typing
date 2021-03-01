@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="aws-lambda-typing",
-    version="1.0.2",
+    version="1.0.3",
     description="A package that provides type hints for AWS Lambda event, context and response objects",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -28,5 +28,8 @@ setuptools.setup(
         'development'
     ],
     packages=setuptools.find_packages(exclude=["tests*"]),
+    package_data = {
+        'aws_lambda_typing': ['py.typed'],
+    },
     python_requires='>=3.8',
 )
