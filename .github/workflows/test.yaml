@@ -2,40 +2,42 @@
 
 name: Test
 
-# Controls when the action will run
+# controls when the action will run
 on:
   pull_request:
     branches:
       - '*'
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  test:
-    name: Test job
+  publish_testpypi:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    environment: testpypi
     steps:
-      - name: Checkout repository
+      - name: checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up Python 3.8
+      - name: set up python 3.8
         uses: actions/setup-python@v2
         with:
           python-version: 3.8
 
-      - name: Install dependencies
-        run: |
-          # Create and activate virtualenv
-          python3 -m venv .venv && source .venv/bin/activate
-          # Make sure to have the latest pip version installed
-          python -m pip install --upgrade pip
-          pip install mypy
+      - name: set up poetry 1.1.7
+        uses: Gr1N/setup-poetry@v7
+        with:
+          poetry-version: 1.1.7
 
-      - name: Test
-        run: |
-          source .venv/bin/activate
-          # test to install our package in “editable” mode
-          pip install -e .
-          # Run tests
-          mypy tests
+      - name: install dependencies
+        run: poetry install
+
+      - name: test
+        run: mypy tests
+
+      - name: build
+        run: poetry build
+
+      - name: publish testpypi dry-run
+        env:
+          POETRY_REPOSITORIES_TESTPYPI_URL: https://test.pypi.org/legacy/
+          POETRY_HTTP_BASIC_TESTPYPI_USERNAME: __token__
+          POETRY_HTTP_BASIC_TESTPYPI_PASSWORD: ${{secrets.TESTPYPI_API_TOKEN}}
+        run: poetry publish -r testpypi --dry-run
