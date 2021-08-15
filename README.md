@@ -34,17 +34,20 @@ def handler(event: lambda_typing.SQSEvent, context: lambda_typing.Context) -> No
 ![code_reference_information](https://raw.githubusercontent.com/MousaZeidBaker/aws-lambda-typing/master/media/code_reference_information.gif)
 
 ## Test
-Create and activate virtualenv
+Install project dependencies
+```shell
+poetry install
+```
 
-`python3 -m venv .venv && source .venv/bin/activate`
-
-Install mypy
-
-`pip install mypy`
+Activate virtualenv
+```shell
+poetry shell
+```
 
 Run tests
-
-`mypy tests`
+```shell
+mypy tests
+```
 
 ## License
 ### The MIT License
