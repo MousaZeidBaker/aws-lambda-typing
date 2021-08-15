@@ -24,7 +24,7 @@ jobs:
       - name: install poetry 1.1.7
         uses: snok/install-poetry@v1
         with:
-          poetry-version: 1.1.7
+          version: 1.1.7
 
       - name: install dependencies
         run: poetry install
@@ -59,7 +59,7 @@ jobs:
       - name: install poetry 1.1.7
         uses: snok/install-poetry@v1
         with:
-          poetry-version: 1.1.7
+          version: 1.1.7
 
       - name: install dependencies
         run: poetry install
