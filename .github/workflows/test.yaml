@@ -13,31 +13,31 @@ jobs:
     runs-on: ubuntu-latest
     environment: testpypi
     steps:
-      - name: checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: set up python 3.8
+      - name: Set up python 3.8
         uses: actions/setup-python@v2
         with:
           python-version: 3.8
 
-      - name: install poetry 1.1.7
+      - name: Install poetry 1.1.7
         uses: snok/install-poetry@v1
         with:
           version: 1.1.7
 
-      - name: install dependencies
+      - name: Install dependencies
         run: poetry install
 
-      - name: test
+      - name: Test
         run: |
           source $(poetry env info --path)/bin/activate # activate virtual environment
           mypy tests
 
-      - name: build
+      - name: Build
         run: poetry build
 
-      - name: publish testpypi dry-run
+      - name: Publish testpypi dry-run
         env:
           POETRY_REPOSITORIES_TESTPYPI_URL: https://test.pypi.org/legacy/
           POETRY_HTTP_BASIC_TESTPYPI_USERNAME: __token__
