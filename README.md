@@ -1,6 +1,6 @@
 # AWS Lambda Typing
 
-![build](https://github.com/MousaZeidBaker/aws-lambda-typing/workflows/Build%20and%20Publish/badge.svg)
+![build](https://github.com/MousaZeidBaker/aws-lambda-typing/workflows/Publish/badge.svg)
 ![test](https://github.com/MousaZeidBaker/aws-lambda-typing/workflows/Test/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![pypi_v](https://img.shields.io/pypi/v/aws-lambda-typing.svg)](https://pypi.org/project/aws-lambda-typing)
