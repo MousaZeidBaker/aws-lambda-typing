@@ -65,7 +65,8 @@ jobs:
         run: poetry install
 
       - name: Test
-        run: mypy tests
+          source $(poetry env info --path)/bin/activate # activate virtual environment
+          mypy tests
 
       - name: Build
         run: poetry build
