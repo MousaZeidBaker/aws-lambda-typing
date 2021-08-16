@@ -1,9 +1,16 @@
 #!/usr/bin/env python
 
-import typing
+import sys
+
+if sys.version_info >= (3, 8):
+    from typing import List, Optional, TypedDict
+else:
+    from typing import List, Optional
+
+    from typing_extensions import TypedDict
 
 
-class Configuration(typing.TypedDict):
+class Configuration(TypedDict):
     """
     Configuration
 
@@ -17,7 +24,7 @@ class Configuration(typing.TypedDict):
     UserParameters: str
 
 
-class ActionConfiguration(typing.TypedDict):
+class ActionConfiguration(TypedDict):
     """
     ActionConfiguration
 
@@ -28,7 +35,7 @@ class ActionConfiguration(typing.TypedDict):
     configuration: Configuration
 
 
-class S3Location(typing.TypedDict):
+class S3Location(TypedDict):
     """
     S3Location
 
@@ -42,7 +49,7 @@ class S3Location(typing.TypedDict):
     objectKey: str
 
 
-class ArtifactLocation(typing.TypedDict):
+class ArtifactLocation(TypedDict):
     """
     ArtifactLocation
 
@@ -58,7 +65,7 @@ class ArtifactLocation(typing.TypedDict):
     s3Location: S3Location
 
 
-class Artifact(typing.TypedDict):
+class Artifact(TypedDict):
     """
     Artifact
 
@@ -66,17 +73,17 @@ class Artifact(typing.TypedDict):
     ----------
     name: str
 
-    revision: typing.Optional[str]
+    revision: Optional[str]
 
     location: :py:class:`ArtifactLocation`
     """
 
     name: str
-    revision: typing.Optional[str]
+    revision: Optional[str]
     location: ArtifactLocation
 
 
-class ArtifactCredentials(typing.TypedDict):
+class ArtifactCredentials(TypedDict):
     """
     ArtifactCredentials
 
@@ -97,7 +104,7 @@ class ArtifactCredentials(typing.TypedDict):
     expirationTime: int
 
 
-class EncryptionKey(typing.TypedDict):
+class EncryptionKey(TypedDict):
     """
     EncryptionKey
 
@@ -112,7 +119,7 @@ class EncryptionKey(typing.TypedDict):
     type: str
 
 
-class Data(typing.TypedDict, total=False):
+class Data(TypedDict, total=False):
     """
     Data
 
@@ -120,25 +127,25 @@ class Data(typing.TypedDict, total=False):
     ----------
     actionConfiguration: :py:class:`ActionConfiguration`
 
-    inputArtifacts: typing.List[:py:class:`Artifact`]
+    inputArtifacts: List[:py:class:`Artifact`]
 
-    outputArtifacts: typing.List[:py:class:`Artifact`]
+    outputArtifacts: List[:py:class:`Artifact`]
 
     artifactCredentials: :py:class:`ArtifactCredentials`
 
-    encryptionKey: typing.Optional[:py:class:`EncryptionKey`]
+    encryptionKey: Optional[:py:class:`EncryptionKey`]
 
-    continuationToken: typing.Optional[str]
+    continuationToken: Optional[str]
     """
     actionConfiguration: ActionConfiguration
-    inputArtifacts: typing.List[Artifact]
-    outputArtifacts: typing.List[Artifact]
+    inputArtifacts: List[Artifact]
+    outputArtifacts: List[Artifact]
     artifactCredentials: ArtifactCredentials
-    encryptionKey: typing.Optional[EncryptionKey]
-    continuationToken: typing.Optional[str]
+    encryptionKey: Optional[EncryptionKey]
+    continuationToken: Optional[str]
 
 
-class CodePipelineJob(typing.TypedDict):
+class CodePipelineJob(TypedDict):
     """
     CodePipelineJob https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-invoke-lambda-function.html
 
@@ -159,6 +166,6 @@ class CodePipelineJob(typing.TypedDict):
 """
 CodePipelineEvent https://docs.aws.amazon.com/lambda/latest/dg/services-codepipeline.html
 """
-CodePipelineEvent = typing.TypedDict('CodePipelineEvent', {
+CodePipelineEvent = TypedDict('CodePipelineEvent', {
     'CodePipeline.job': CodePipelineJob
 })

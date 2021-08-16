@@ -1,9 +1,16 @@
 #!/usr/bin/env python
 
-import typing
+import sys
+
+if sys.version_info >= (3, 8):
+    from typing import List, Optional, Set, TypedDict
+else:
+    from typing import List, Optional, Set
+
+    from typing_extensions import TypedDict
 
 
-class MQMessageDestination(typing.TypedDict):
+class MQMessageDestination(TypedDict):
     """
     MQMessageDestination
 
@@ -15,7 +22,7 @@ class MQMessageDestination(typing.TypedDict):
     physicalname: str
 
 
-class MQMessage(typing.TypedDict, total=False):
+class MQMessage(TypedDict, total=False):
     """
     MQMessage
 
@@ -46,15 +53,15 @@ class MQMessage(typing.TypedDict, total=False):
     messageType: str
     data: str
     connectionId: str
-    redelivered: typing.Optional[bool]
-    persistent: typing.Optional[bool]
+    redelivered: Optional[bool]
+    persistent: Optional[bool]
     destination: MQMessageDestination
     timestamp: int
     brokerInTime: int
     brokerOutTime: int
 
 
-class MQEvent(typing.TypedDict):
+class MQEvent(TypedDict):
     """
     MQEvent https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html
 
@@ -64,9 +71,9 @@ class MQEvent(typing.TypedDict):
 
     eventSourceArn: str
 
-    messages: typing.Set[typing.List[MQMessage]]
+    messages: Set[List[MQMessage]]
     """
 
     eventSource: str
     eventSourceArn: str
-    messages: typing.Set[typing.List[MQMessage]]
+    messages: Set[List[MQMessage]]

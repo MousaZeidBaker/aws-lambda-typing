@@ -1,9 +1,16 @@
 #!/usr/bin/env python
 
-import typing
+import sys
+
+if sys.version_info >= (3, 8):
+    from typing import List, TypedDict
+else:
+    from typing import List
+
+    from typing_extensions import TypedDict
 
 
-class KinesisStreamKinesis(typing.TypedDict):
+class KinesisStreamKinesis(TypedDict):
     """
     KinesisStreamKinesis
 
@@ -27,7 +34,7 @@ class KinesisStreamKinesis(typing.TypedDict):
     approximateArrivalTimestamp: float
 
 
-class KinesisStreamRecord(typing.TypedDict):
+class KinesisStreamRecord(TypedDict):
     """
     KinesisStreamRecord
 
@@ -60,13 +67,13 @@ class KinesisStreamRecord(typing.TypedDict):
     eventSourceARN: str
 
 
-class KinesisStreamEvent(typing.TypedDict):
+class KinesisStreamEvent(TypedDict):
     """
     KinesisStreamEvent https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html
 
     Attributes:
     ----------
-    records: typing.List[:py:class:`KinesisStreamRecord`]
+    records: List[:py:class:`KinesisStreamRecord`]
     """
 
-    records: typing.List[KinesisStreamRecord]
+    records: List[KinesisStreamRecord]

@@ -1,9 +1,16 @@
 #!/usr/bin/env python
 
-import typing
+import sys
+
+if sys.version_info >= (3, 8):
+    from typing import List, Literal, TypedDict
+else:
+    from typing import List
+
+    from typing_extensions import Literal, TypedDict
 
 
-class S3BatchResponseResult(typing.TypedDict):
+class S3BatchResponseResult(TypedDict):
     """
     S3BatchRequestTask
 
@@ -21,7 +28,7 @@ class S3BatchResponseResult(typing.TypedDict):
     resultString: str
 
 
-class S3BatchResponse(typing.TypedDict):
+class S3BatchResponse(TypedDict):
     """
     S3BatchResponse https://docs.aws.amazon.com/lambda/latest/dg/services-s3-batch.html
 
@@ -29,14 +36,14 @@ class S3BatchResponse(typing.TypedDict):
     ----------
     invocationSchemaVersion: str
 
-    treatMissingKeysAs: typing.Literal['Succeeded', 'TemporaryFailure', 'PermanentFailure']
+    treatMissingKeysAs: Literal['Succeeded', 'TemporaryFailure', 'PermanentFailure']
 
     invocationId: str
 
-    results: typing.List[:py:class:`S3BatchResponseResult`]
+    results: List[:py:class:`S3BatchResponseResult`]
     """
 
     invocationSchemaVersion: str
-    treatMissingKeysAs: typing.Literal['Succeeded', 'TemporaryFailure', 'PermanentFailure']
+    treatMissingKeysAs: Literal['Succeeded', 'TemporaryFailure', 'PermanentFailure']
     invocationId: str
-    results: typing.List[S3BatchResponseResult]
+    results: List[S3BatchResponseResult]

@@ -1,9 +1,16 @@
 #!/usr/bin/env python
 
-import typing
+import sys
+
+if sys.version_info >= (3, 8):
+    from typing import List, TypedDict
+else:
+    from typing import List
+
+    from typing_extensions import TypedDict
 
 
-class LogEvent(typing.TypedDict):
+class LogEvent(TypedDict):
     """
     LogEvent
 
@@ -21,7 +28,7 @@ class LogEvent(typing.TypedDict):
     message: str
 
 
-class CloudWatchLogsDecodedData(typing.TypedDict):
+class CloudWatchLogsDecodedData(TypedDict):
     """
     CloudWatchLogsDecodedData https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SubscriptionFilters.html
 
@@ -37,20 +44,20 @@ class CloudWatchLogsDecodedData(typing.TypedDict):
 
     logStream: str
 
-    subscriptionFilters: typing.List[str]
+    subscriptionFilters: List[str]
 
-    logEvents: typing.List[LogEvent]
+    logEvents: List[LogEvent]
     """
 
     messageType: str
     owner: str
     logGroup: str
     logStream: str
-    subscriptionFilters: typing.List[str]
-    logEvents: typing.List[LogEvent]
+    subscriptionFilters: List[str]
+    logEvents: List[LogEvent]
 
 
-class AWSLogs(typing.TypedDict):
+class AWSLogs(TypedDict):
     """
     AWSLogs
 
@@ -63,7 +70,7 @@ class AWSLogs(typing.TypedDict):
     data: str
 
 
-class CloudWatchLogsEvent(typing.TypedDict):
+class CloudWatchLogsEvent(TypedDict):
     """
     CloudWatchLogsEvent https://docs.aws.amazon.com/lambda/latest/dg/services-cloudwatchlogs.html
 

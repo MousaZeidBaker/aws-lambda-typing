@@ -1,9 +1,16 @@
 #!/usr/bin/env python
 
-import typing
+import sys
+
+if sys.version_info >= (3, 8):
+    from typing import Dict, List, Literal, Optional, TypedDict
+else:
+    from typing import Dict, List, Optional
+
+    from typing_extensions import Literal, TypedDict
 
 
-class SQSAttributes(typing.TypedDict, total=False):
+class SQSAttributes(TypedDict, total=False):
     """
     SQSAttributes
 
@@ -17,25 +24,25 @@ class SQSAttributes(typing.TypedDict, total=False):
 
     ApproximateFirstReceiveTimestamp: str
 
-    SequenceNumber: typing.Optional[str]
+    SequenceNumber: Optional[str]
         Only in FIFO queues
 
-    MessageGroupId: typing.Optional[str]
+    MessageGroupId: Optional[str]
         Only in FIFO queues
 
-    MessageDeduplicationId: typing.Optional[str]
+    MessageDeduplicationId: Optional[str]
         Only in FIFO queues
     """
     ApproximateReceiveCount: str
     SentTimestamp: str
     SenderId: str
     ApproximateFirstReceiveTimestamp: str
-    SequenceNumber: typing.Optional[str]
-    MessageGroupId: typing.Optional[str]
-    MessageDeduplicationId: typing.Optional[str]
+    SequenceNumber: Optional[str]
+    MessageGroupId: Optional[str]
+    MessageDeduplicationId: Optional[str]
 
 
-class SQSMessageAttribute(typing.TypedDict):
+class SQSMessageAttribute(TypedDict):
     """
     SQSMessageAttribute https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_MessageAttributeValue.html
 
@@ -43,16 +50,16 @@ class SQSMessageAttribute(typing.TypedDict):
     ----------
     BinaryValue: str
 
-    DataType: typing.Literal['String', 'Number', 'Binary']
+    DataType: Literal['String', 'Number', 'Binary']
 
     StringValue: str
     """
     BinaryValue: str
-    DataType: typing.Literal['String', 'Number', 'Binary']
+    DataType: Literal['String', 'Number', 'Binary']
     StringValue: str
 
 
-class SQSMessage(typing.TypedDict):
+class SQSMessage(TypedDict):
     """
     SQSMessage https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_Message.html
 
@@ -66,7 +73,7 @@ class SQSMessage(typing.TypedDict):
 
     attributes: :py:class:`SQSAttributes`
 
-    messageAttributes: typing.Dict[str, :py:class:`SQSMessageAttribute`]
+    messageAttributes: Dict[str, :py:class:`SQSMessageAttribute`]
 
     md5OfBody: str
 
@@ -81,20 +88,20 @@ class SQSMessage(typing.TypedDict):
     receiptHandle: str
     body: str
     attributes: SQSAttributes
-    messageAttributes: typing.Dict[str, SQSMessageAttribute]
+    messageAttributes: Dict[str, SQSMessageAttribute]
     md5OfBody: str
     eventSource: str
     eventSourceARN: str
     awsRegion: str
 
 
-class SQSEvent(typing.TypedDict):
+class SQSEvent(TypedDict):
     """
     SQSEvent https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html
 
     Attributes:
     ----------
-    Records: typing.List[:py:class:`SQSMessage`]
+    Records: List[:py:class:`SQSMessage`]
     """
 
-    Records: typing.List[SQSMessage]
+    Records: List[SQSMessage]

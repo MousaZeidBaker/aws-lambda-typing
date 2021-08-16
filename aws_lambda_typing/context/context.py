@@ -1,10 +1,17 @@
 #!/usr/bin/env python
 
 import abc
-import typing
+import sys
+
+if sys.version_info >= (3, 8):
+    from typing import Dict, TypedDict
+else:
+    from typing import Dict
+
+    from typing_extensions import TypedDict
 
 
-class Identity(typing.TypedDict):
+class Identity(TypedDict):
     """
     Identity
 
@@ -21,7 +28,7 @@ class Identity(typing.TypedDict):
     cognito_identity_pool_id: str
 
 
-class Client(typing.TypedDict):
+class Client(TypedDict):
     """
     Client
 
@@ -45,7 +52,7 @@ class Client(typing.TypedDict):
     app_package_name: str
 
 
-class ClientContext(typing.TypedDict):
+class ClientContext(TypedDict):
     """
     ClientContext
 
@@ -53,16 +60,16 @@ class ClientContext(typing.TypedDict):
     ----------
     client: :py:class:`Client`
 
-    custom: typing.Dict
+    custom: Dict
         A dict of custom values set by the mobile client application
 
-    env: typing.Dict
+    env: Dict
         A dict of environment information provided by the AWS SDK
     """
 
     client: Client
-    custom: typing.Dict
-    env: typing.Dict
+    custom: Dict
+    env: Dict
 
 
 class Context(metaclass=abc.ABCMeta):
