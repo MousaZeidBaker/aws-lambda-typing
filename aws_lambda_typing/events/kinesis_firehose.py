@@ -1,6 +1,13 @@
 #!/usr/bin/env python
 
-from typing import List, TypedDict
+import sys
+
+if sys.version_info >= (3, 8):
+    from typing import List, TypedDict
+else:
+    from typing import List
+
+    from typing_extensions import TypedDict
 
 
 class KinesisFirehoseKinesisRecordMetadata(TypedDict):

@@ -1,6 +1,13 @@
 #!/usr/bin/env python
 
-from typing import Any, Dict, List, Literal, Optional, TypedDict
+import sys
+
+if sys.version_info >= (3, 8):
+    from typing import Any, Dict, List, Literal, Optional, TypedDict
+else:
+    from typing import Any, Dict, List, Optional
+
+    from typing_extensions import Literal, TypedDict
 
 
 class AttributeValue(TypedDict, total=False):

@@ -1,7 +1,14 @@
 #!/usr/bin/env python
 
 import abc
-from typing import Dict, TypedDict
+import sys
+
+if sys.version_info >= (3, 8):
+    from typing import Dict, TypedDict
+else:
+    from typing import Dict
+
+    from typing_extensions import TypedDict
 
 
 class Identity(TypedDict):

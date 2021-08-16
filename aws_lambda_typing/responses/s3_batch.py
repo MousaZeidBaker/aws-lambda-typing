@@ -1,6 +1,13 @@
 #!/usr/bin/env python
 
-from typing import List, Literal, TypedDict
+import sys
+
+if sys.version_info >= (3, 8):
+    from typing import List, Literal, TypedDict
+else:
+    from typing import List
+
+    from typing_extensions import Literal, TypedDict
 
 
 class S3BatchResponseResult(TypedDict):

@@ -1,6 +1,13 @@
 #!/usr/bin/env python
 
-from typing import List, Optional, Set, TypedDict
+import sys
+
+if sys.version_info >= (3, 8):
+    from typing import List, Optional, Set, TypedDict
+else:
+    from typing import List, Optional, Set
+
+    from typing_extensions import TypedDict
 
 
 class MQMessageDestination(TypedDict):

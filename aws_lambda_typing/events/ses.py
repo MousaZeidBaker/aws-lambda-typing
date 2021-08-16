@@ -1,6 +1,13 @@
 #!/usr/bin/env python
 
-from typing import Any, Dict, Final, List, Literal, Optional, TypedDict, Union
+import sys
+
+if sys.version_info >= (3, 8):
+    from typing import Any, Dict, Final, List, Literal, Optional, TypedDict, Union
+else:
+    from typing import Any, Dict, List, Optional, Union
+
+    from typing_extensions import Final, Literal, TypedDict
 
 
 class SESMailHeader(TypedDict):
