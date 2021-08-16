@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-import typing
+from typing import TypedDict
 
 
-class ConfigEvent(typing.TypedDict):
+class ConfigEvent(TypedDict):
     """
     MQEvent https://docs.aws.amazon.com/lambda/latest/dg/services-config.html
 

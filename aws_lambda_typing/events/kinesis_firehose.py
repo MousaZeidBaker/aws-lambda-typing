@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-import typing
+from typing import List, TypedDict
 
 
-class KinesisFirehoseKinesisRecordMetadata(typing.TypedDict):
+class KinesisFirehoseKinesisRecordMetadata(TypedDict):
     """
     KinesisFirehoseKinesisRecordMetadata
 
@@ -27,7 +27,7 @@ class KinesisFirehoseKinesisRecordMetadata(typing.TypedDict):
     subsequenceNumber: str
 
 
-class KinesisFirehoseRecord(typing.TypedDict):
+class KinesisFirehoseRecord(TypedDict):
     """
     KinesisFirehoseRecord
 
@@ -48,7 +48,7 @@ class KinesisFirehoseRecord(typing.TypedDict):
     kinesisRecordMetadata: KinesisFirehoseKinesisRecordMetadata
 
 
-class KinesisFirehoseEvent(typing.TypedDict):
+class KinesisFirehoseEvent(TypedDict):
     """
     KinesisFirehoseEvent https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html
 
@@ -60,10 +60,10 @@ class KinesisFirehoseEvent(typing.TypedDict):
 
     region: str
 
-    records: typing.List[:py:class:`KinesisFirehoseRecord`]
+    records: List[:py:class:`KinesisFirehoseRecord`]
     """
 
     invocationId: str
     deliveryStreamArn: str
     region: str
-    records: typing.List[KinesisFirehoseRecord]
+    records: List[KinesisFirehoseRecord]

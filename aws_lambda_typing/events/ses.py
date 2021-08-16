@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-import typing
+from typing import Any, Dict, Final, List, Literal, Optional, TypedDict, Union
 
 
-class SESMailHeader(typing.TypedDict):
+class SESMailHeader(TypedDict):
     """
     SESReceiptStatus
 
@@ -18,21 +18,21 @@ class SESMailHeader(typing.TypedDict):
     value: str
 
 
-SESMailCommonHeaders: typing.Final = typing.TypedDict('SESMailCommonHeaders', {
+SESMailCommonHeaders: Final = TypedDict('SESMailCommonHeaders', {
     'returnPath': str,
-    'from': typing.Optional[typing.List[str]],
+    'from': Optional[List[str]],
     'date': str,
-    'to': typing.Optional[typing.List[str]],
-    'cc': typing.Optional[typing.List[str]],
-    'bcc': typing.Optional[typing.List[str]],
-    'sender': typing.Optional[typing.List[str]],
-    'replyTo': typing.Optional[typing.List[str]],
+    'to': Optional[List[str]],
+    'cc': Optional[List[str]],
+    'bcc': Optional[List[str]],
+    'sender': Optional[List[str]],
+    'replyTo': Optional[List[str]],
     'messageId': str,
     'subject': str
 }, total=False)
 
 
-class SESMail(typing.TypedDict):
+class SESMail(TypedDict):
     """
     SESReceiptStatus
 
@@ -44,81 +44,81 @@ class SESMail(typing.TypedDict):
 
     messageId: str
 
-    destination: typing.List[str]
+    destination: List[str]
 
     headersTruncated: bool
 
-    headers: typing.List[:py:class:`SESMailHeader`]
+    headers: List[:py:class:`SESMailHeader`]
 
     commonHeaders: :py:const:`SESMailCommonHeaders`
     """
     timestamp: str
     source: str
     messageId: str
-    destination: typing.List[str]
+    destination: List[str]
     headersTruncated: bool
-    headers: typing.List[SESMailHeader]
+    headers: List[SESMailHeader]
     commonHeaders: SESMailCommonHeaders
 
 
-class SESReceiptStatus(typing.TypedDict):
+class SESReceiptStatus(TypedDict):
     """
     SESReceiptStatus
 
     Attributes:
     ----------
     status: :py:class:`SESReceiptStatusEnum`
-    status: typing.Literal['PASS', 'FAIL', 'GRAY']
+    status: Literal['PASS', 'FAIL', 'GRAY']
     """
 
-    status: typing.Literal['PASS', 'FAIL', 'GRAY']
+    status: Literal['PASS', 'FAIL', 'GRAY']
 
 
-class SESReceiptS3Action(typing.TypedDict, total=False):
+class SESReceiptS3Action(TypedDict, total=False):
     """
     SESReceiptS3Action
 
     Attributes:
     ----------
-    type: typing.Literal['S3']
+    type: Literal['S3']
 
-    topicArn: typing.Optional[str]
+    topicArn: Optional[str]
 
     bucketName: str
 
     objectKey: str
     """
 
-    type: typing.Literal['S3']
-    topicArn: typing.Optional[str]
+    type: Literal['S3']
+    topicArn: Optional[str]
     bucketName: str
     objectKey: str
 
 
-class SESReceiptSnsAction(typing.TypedDict, total=False):
+class SESReceiptSnsAction(TypedDict, total=False):
     """
     SESReceiptSnsAction
 
     Attributes:
     ----------
-    type: typing.Literal['SNS']
+    type: Literal['SNS']
 
     topicArn: str
     """
 
-    type: typing.Literal['SNS']
+    type: Literal['SNS']
     topicArn: str
 
 
-class SESReceiptBounceAction(typing.TypedDict, total=False):
+class SESReceiptBounceAction(TypedDict, total=False):
     """
     SESReceiptBounceAction
 
     Attributes:
     ----------
-    type: typing.Literal['Bounce']
+    type: Literal['Bounce']
 
-    topicArn: typing.Optional[str]
+    topicArn: Optional[str]
 
     smtpReplyCode: str
 
@@ -129,69 +129,69 @@ class SESReceiptBounceAction(typing.TypedDict, total=False):
     sender: str
     """
 
-    type: typing.Literal['Bounce']
-    topicArn: typing.Optional[str]
+    type: Literal['Bounce']
+    topicArn: Optional[str]
     smtpReplyCode: str
     statusCode: str
     message: str
     sender: str
 
 
-class SESReceiptLambdaAction(typing.TypedDict, total=False):
+class SESReceiptLambdaAction(TypedDict, total=False):
     """
     SESReceiptLambdaAction
 
     Attributes:
     ----------
-    type: typing.Literal['Lambda']
+    type: Literal['Lambda']
 
-    topicArn: typing.Optional[str]
+    topicArn: Optional[str]
 
     functionArn: str
 
     invocationType: str
     """
 
-    type: typing.Literal['Lambda']
-    topicArn: typing.Optional[str]
+    type: Literal['Lambda']
+    topicArn: Optional[str]
     functionArn: str
     invocationType: str
 
 
-class SESReceiptStopAction(typing.TypedDict, total=False):
+class SESReceiptStopAction(TypedDict, total=False):
     """
     SESReceiptStopAction
 
     Attributes:
     ----------
-    type: typing.Literal['Stop']
+    type: Literal['Stop']
 
-    topicArn: typing.Optional[str]
+    topicArn: Optional[str]
     """
 
-    type: typing.Literal['Stop']
-    topicArn: typing.Optional[str]
+    type: Literal['Stop']
+    topicArn: Optional[str]
 
 
-class SESReceiptWorkMailAction(typing.TypedDict, total=False):
+class SESReceiptWorkMailAction(TypedDict, total=False):
     """
     SESReceiptWorkMailAction
 
     Attributes:
     ----------
-    type: typing.Literal['WorkMail']
+    type: Literal['WorkMail']
 
-    topicArn: typing.Optional[str]
+    topicArn: Optional[str]
 
     organizationArn: str
     """
 
-    type: typing.Literal['WorkMail']
-    topicArn: typing.Optional[str]
+    type: Literal['WorkMail']
+    topicArn: Optional[str]
     organizationArn: str
 
 
-class SESReceipt(typing.TypedDict, total=False):
+class SESReceipt(TypedDict, total=False):
     """
     SESReceipt
 
@@ -217,32 +217,32 @@ class SESReceipt(typing.TypedDict, total=False):
 
     dmarcVerdict: :py:class:`SESReceiptStatus`
 
-    dmarcPolicy: typing.Literal['none', 'quarantine', 'reject']
+    dmarcPolicy: Literal['none', 'quarantine', 'reject']
     """
-    recipients: typing.List[str]
+    recipients: List[str]
     timestamp: str
     spamVerdict: SESReceiptStatus
     dkimVerdict: SESReceiptStatus
     processingTimeMillis: int
-    action: typing.Union[
-        typing.Union[
-            typing.Union[SESReceiptS3Action, SESReceiptSnsAction],
-            typing.Union[SESReceiptBounceAction, SESReceiptLambdaAction],
+    action: Union[
+        Union[
+            Union[SESReceiptS3Action, SESReceiptSnsAction],
+            Union[SESReceiptBounceAction, SESReceiptLambdaAction],
         ],
-        typing.Union[
-            typing.Union[SESReceiptStopAction, SESReceiptWorkMailAction],
+        Union[
+            Union[SESReceiptStopAction, SESReceiptWorkMailAction],
             # Workaround for no type inference for dicts in union,
             # see https://github.com/python/mypy/issues/6463#issuecomment-467019931
-            typing.Dict[str, typing.Any]
+            Dict[str, Any]
         ]
     ]
     spfVerdict: SESReceiptStatus
     virusVerdict: SESReceiptStatus
     dmarcVerdict: SESReceiptStatus
-    dmarcPolicy: typing.Literal['none', 'quarantine', 'reject']
+    dmarcPolicy: Literal['none', 'quarantine', 'reject']
 
 
-class SESMessage(typing.TypedDict):
+class SESMessage(TypedDict):
     """
     SESMessage https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-notifications-contents.html
 
@@ -257,7 +257,7 @@ class SESMessage(typing.TypedDict):
     receipt: SESReceipt
 
 
-class SESEventRecord(typing.TypedDict):
+class SESEventRecord(TypedDict):
     """
     SESEventRecord
 
@@ -275,13 +275,13 @@ class SESEventRecord(typing.TypedDict):
     eventSource: str
 
 
-class SESEvent(typing.TypedDict):
+class SESEvent(TypedDict):
     """
     SESEvent https://docs.aws.amazon.com/lambda/latest/dg/services-ses.html
 
     Attributes:
     ----------
-    Records: typing.List[:py:class:`SESEventRecord`]
+    Records: List[:py:class:`SESEventRecord`]
     """
 
-    Records: typing.List[SESEventRecord]
+    Records: List[SESEventRecord]

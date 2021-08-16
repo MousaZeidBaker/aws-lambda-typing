@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-import typing
+from typing import Dict, List, TypedDict
 
 
-class SNSMessageAttribute(typing.TypedDict):
+class SNSMessageAttribute(TypedDict):
     """
     SNSMessageAttribute https://docs.aws.amazon.com/sns/latest/api/API_MessageAttributeValue.html
 
@@ -17,7 +17,7 @@ class SNSMessageAttribute(typing.TypedDict):
     Value: str
 
 
-class SNSMessage(typing.TypedDict):
+class SNSMessage(TypedDict):
     """
     SNSMessage
 
@@ -35,7 +35,7 @@ class SNSMessage(typing.TypedDict):
 
     Message: str
 
-    MessageAttributes: typing.Dict[str, :py:class:`SNSMessageAttribute`]
+    MessageAttributes: Dict[str, :py:class:`SNSMessageAttribute`]
 
     Type: str
 
@@ -52,14 +52,14 @@ class SNSMessage(typing.TypedDict):
     SigningCertUrl: str
     MessageId: str
     Message: str
-    MessageAttributes: typing.Dict[str, SNSMessageAttribute]
+    MessageAttributes: Dict[str, SNSMessageAttribute]
     Type: str
     UnsubscribeUrl: str
     TopicArn: str
     Subject: str
 
 
-class SNSEventRecord(typing.TypedDict):
+class SNSEventRecord(TypedDict):
     """
     SNSEventRecord
 
@@ -80,13 +80,13 @@ class SNSEventRecord(typing.TypedDict):
     Sns: SNSMessage
 
 
-class SNSEvent(typing.TypedDict):
+class SNSEvent(TypedDict):
     """
     SNSEvent https://docs.aws.amazon.com/lambda/latest/dg/with-sns.html
 
     Attributes:
     ----------
-    Records: typing.List[:py:class:`SNSEventRecord`]
+    Records: List[:py:class:`SNSEventRecord`]
     """
 
-    Records: typing.List[SNSEventRecord]
+    Records: List[SNSEventRecord]

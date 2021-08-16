@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
-import typing
+from typing import Dict, List, TypedDict
+
 
 """
 CloudWatchEventsMessageEvent https://docs.aws.amazon.com/lambda/latest/dg/services-cloudwatchevents.html
@@ -8,7 +9,7 @@ CloudWatchEventsMessageEvent https://docs.aws.amazon.com/lambda/latest/dg/servic
 Other CloudWatch Events Event Examples: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/EventTypes.html
 
 """
-CloudWatchEventsMessageEvent = typing.TypedDict('CloudWatchEventsMessageEvent', {
+CloudWatchEventsMessageEvent = TypedDict('CloudWatchEventsMessageEvent', {
     'version': str,
     'id': str,
     'detail-type': str,
@@ -16,6 +17,6 @@ CloudWatchEventsMessageEvent = typing.TypedDict('CloudWatchEventsMessageEvent', 
     'account': str,
     'time': str,
     'region': str,
-    'resources': typing.List[str],
-    'detail': typing.Dict,
+    'resources': List[str],
+    'detail': Dict,
 })

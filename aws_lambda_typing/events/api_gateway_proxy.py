@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import typing
+from typing import Dict, List, Optional, TypedDict
 
 
 """
@@ -10,61 +10,61 @@ import typing
 """
 
 
-class RequestContextIdentity(typing.TypedDict, total=False):
+class RequestContextIdentity(TypedDict, total=False):
     """
     RequestContextIdentity https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html
 
     Attributes:
     ----------
-    accountId: typing.Optional[str]
+    accountId: Optional[str]
 
-    accessKey: typing.Optional[str]
+    accessKey: Optional[str]
 
-    apiKey: typing.Optional[str]
+    apiKey: Optional[str]
 
-    apiKeyId: typing.Optional[str]
+    apiKeyId: Optional[str]
 
-    caller: typing.Optional[str]
+    caller: Optional[str]
 
-    cognitoAuthenticationProvider: typing.Optional[str]
+    cognitoAuthenticationProvider: Optional[str]
 
-    cognitoAuthenticationType: typing.Optional[str]
+    cognitoAuthenticationType: Optional[str]
 
-    cognitoIdentityId: typing.Optional[str]
+    cognitoIdentityId: Optional[str]
 
-    cognitoIdentityPoolId: typing.Optional[str]
+    cognitoIdentityPoolId: Optional[str]
 
-    principalOrgId: typing.Optional[str]
+    principalOrgId: Optional[str]
 
     sourceIp: str
 
-    clientCert: typing.Optional[typing.Dict]
+    clientCert: Optional[Dict]
 
-    user: typing.Optional[str]
+    user: Optional[str]
 
-    userAgent: typing.Optional[str]
+    userAgent: Optional[str]
 
-    userArn: typing.Optional[str]
+    userArn: Optional[str]
     """
 
-    accountId: typing.Optional[str]
-    accessKey: typing.Optional[str]
-    apiKey: typing.Optional[str]
-    apiKeyId: typing.Optional[str]
-    caller: typing.Optional[str]
-    cognitoAuthenticationProvider: typing.Optional[str]
-    cognitoAuthenticationType: typing.Optional[str]
-    cognitoIdentityId: typing.Optional[str]
-    cognitoIdentityPoolId: typing.Optional[str]
-    principalOrgId: typing.Optional[str]
+    accountId: Optional[str]
+    accessKey: Optional[str]
+    apiKey: Optional[str]
+    apiKeyId: Optional[str]
+    caller: Optional[str]
+    cognitoAuthenticationProvider: Optional[str]
+    cognitoAuthenticationType: Optional[str]
+    cognitoIdentityId: Optional[str]
+    cognitoIdentityPoolId: Optional[str]
+    principalOrgId: Optional[str]
     sourceIp: str
-    clientCert: typing.Optional[typing.Dict]
-    user: typing.Optional[str]
-    userAgent: typing.Optional[str]
-    userArn: typing.Optional[str]
+    clientCert: Optional[Dict]
+    user: Optional[str]
+    userAgent: Optional[str]
+    userArn: Optional[str]
 
 
-class RequestContextV1(typing.TypedDict, total=False):
+class RequestContextV1(TypedDict, total=False):
     """
     RequestContextV1 https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html
 
@@ -74,13 +74,13 @@ class RequestContextV1(typing.TypedDict, total=False):
 
     apiId: str
 
-    authorizer: typing.Dict
+    authorizer: Dict
 
-    domainName: typing.Optional[str]
+    domainName: Optional[str]
 
-    domainPrefix: typing.Optional[str]
+    domainPrefix: Optional[str]
 
-    extendedRequestId: typing.Optional[str]
+    extendedRequestId: Optional[str]
 
     httpMethod: str
 
@@ -92,7 +92,7 @@ class RequestContextV1(typing.TypedDict, total=False):
 
     requestId: str
 
-    requestTime: typing.Optional[str]
+    requestTime: Optional[str]
 
     requestTimeEpoch: int
 
@@ -105,23 +105,23 @@ class RequestContextV1(typing.TypedDict, total=False):
 
     accountId: str
     apiId: str
-    authorizer: typing.Dict
-    domainName: typing.Optional[str]
-    domainPrefix: typing.Optional[str]
-    extendedRequestId: typing.Optional[str]
+    authorizer: Dict
+    domainName: Optional[str]
+    domainPrefix: Optional[str]
+    extendedRequestId: Optional[str]
     httpMethod: str
     identity: RequestContextIdentity
     path: str
     protocol: str
     requestId: str
-    requestTime: typing.Optional[str]
+    requestTime: Optional[str]
     requestTimeEpoch: int
     resourceId: str
     resourcePath: str
     stage: str
 
 
-class APIGatewayProxyEventV1(typing.TypedDict):
+class APIGatewayProxyEventV1(TypedDict):
     """
     APIGatewayProxyEventV1 https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
 
@@ -137,17 +137,17 @@ class APIGatewayProxyEventV1(typing.TypedDict):
 
     requestContext: :py:class:`RequestContextV1`
 
-    headers: typing.Dict[str, str]
+    headers: Dict[str, str]
 
-    multiValueHeaders: typing.Dict[str, typing.List[str]]
+    multiValueHeaders: Dict[str, List[str]]
 
-    queryStringParameters: typing.Dict[str, str]
+    queryStringParameters: Dict[str, str]
 
-    multiValueQueryStringParameters: typing.Dict[str, typing.List[str]]
+    multiValueQueryStringParameters: Dict[str, List[str]]
 
-    pathParameters: typing.Dict[str, str]
+    pathParameters: Dict[str, str]
 
-    stageVariables: typing.Dict[str, str]
+    stageVariables: Dict[str, str]
 
     body: str
 
@@ -158,17 +158,17 @@ class APIGatewayProxyEventV1(typing.TypedDict):
     path: str
     httpMethod: str
     requestContext: RequestContextV1
-    headers: typing.Dict[str, str]
-    multiValueHeaders: typing.Dict[str, typing.List[str]]
-    queryStringParameters: typing.Dict[str, str]
-    multiValueQueryStringParameters: typing.Dict[str, typing.List[str]]
-    pathParameters: typing.Dict[str, str]
-    stageVariables: typing.Dict[str, str]
+    headers: Dict[str, str]
+    multiValueHeaders: Dict[str, List[str]]
+    queryStringParameters: Dict[str, str]
+    multiValueQueryStringParameters: Dict[str, List[str]]
+    pathParameters: Dict[str, str]
+    stageVariables: Dict[str, str]
     body: str
     isBase64Encoded: bool
 
 
-class APIGatewayProxyResponseV1(typing.TypedDict):
+class APIGatewayProxyResponseV1(TypedDict):
     """
     APIGatewayProxyResponseV1 https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
 
@@ -180,17 +180,17 @@ class APIGatewayProxyResponseV1(typing.TypedDict):
 
     statusCode: int
 
-    headers: typing.Dict[str, str]
+    headers: Dict[str, str]
 
-    multiValueHeaders: typing.Dict[str, typing.List[str]]
+    multiValueHeaders: Dict[str, List[str]]
 
     body: str
     """
 
     isBase64Encoded: bool
     statusCode: int
-    headers: typing.Dict[str, str]
-    multiValueHeaders: typing.Dict[str, typing.List[str]]
+    headers: Dict[str, str]
+    multiValueHeaders: Dict[str, List[str]]
     body: str
 
 
@@ -201,7 +201,7 @@ class APIGatewayProxyResponseV1(typing.TypedDict):
 """
 
 
-class ClientCert(typing.TypedDict):
+class ClientCert(TypedDict):
     """
     ClientCert
 
@@ -215,17 +215,17 @@ class ClientCert(typing.TypedDict):
 
     serialNumber: str
 
-    validity: typing.Dict
+    validity: Dict
     """
 
     clientCertPem: str
     subjectDN: str
     issuerDN: str
     serialNumber: str
-    validity: typing.Dict
+    validity: Dict
 
 
-class Authentication(typing.TypedDict):
+class Authentication(TypedDict):
     """
     Authentication
 
@@ -238,20 +238,20 @@ class Authentication(typing.TypedDict):
     clientCert: ClientCert
 
 
-class JWT(typing.TypedDict):
+class JWT(TypedDict):
     """
     JWT
 
     Attributes:
     ----------
 
-    claims: typing.Dict[str, str]
+    claims: Dict[str, str]
     """
 
-    claims: typing.Dict[str, str]
+    claims: Dict[str, str]
 
 
-class Authorizer(typing.TypedDict):
+class Authorizer(TypedDict):
     """
     Authorizer
 
@@ -262,10 +262,10 @@ class Authorizer(typing.TypedDict):
     """
 
     jwt: JWT
-    scopes: typing.List[str]
+    scopes: List[str]
 
 
-class HTTP(typing.TypedDict):
+class HTTP(TypedDict):
     """
     HTPP
 
@@ -290,7 +290,7 @@ class HTTP(typing.TypedDict):
     userAgent: str
 
 
-class RequestContextV2(typing.TypedDict, total=False):
+class RequestContextV2(TypedDict, total=False):
     """
     RequestContextV2 https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
 
@@ -300,13 +300,13 @@ class RequestContextV2(typing.TypedDict, total=False):
 
     apiId: str
 
-    authentication: typing.Optional[:py:class:`Authentication`]
+    authentication: Optional[:py:class:`Authentication`]
 
-    authorizer: typing.Optional[:py:class:`Authorizer`]
+    authorizer: Optional[:py:class:`Authorizer`]
 
-    domainName: typing.Optional[str]
+    domainName: Optional[str]
 
-    domainPrefix: typing.Optional[str]
+    domainPrefix: Optional[str]
 
     http: :py:class:`HTTP`
 
@@ -323,10 +323,10 @@ class RequestContextV2(typing.TypedDict, total=False):
 
     accountId: str
     apiId: str
-    authentication: typing.Optional[Authentication]
-    authorizer: typing.Optional[Authorizer]
-    domainName: typing.Optional[str]
-    domainPrefix: typing.Optional[str]
+    authentication: Optional[Authentication]
+    authorizer: Optional[Authorizer]
+    domainName: Optional[str]
+    domainPrefix: Optional[str]
     http: HTTP
     requestId: str
     routeKey: str
@@ -335,7 +335,7 @@ class RequestContextV2(typing.TypedDict, total=False):
     timeEpoch: int
 
 
-class APIGatewayProxyEventV2(typing.TypedDict, total=False):
+class APIGatewayProxyEventV2(TypedDict, total=False):
     """
     APIGatewayProxyEventV2 https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
 
@@ -351,38 +351,38 @@ class APIGatewayProxyEventV2(typing.TypedDict, total=False):
 
     rawQueryString: str
 
-    cookies: typing.Optional[typing.List[str]]
+    cookies: Optional[List[str]]
 
-    headers: typing.Dict[str, str]
+    headers: Dict[str, str]
 
-    queryStringParameters: typing.Dict[str, str]
+    queryStringParameters: Dict[str, str]
 
     requestContext: :py:class:`RequestContextV2`
 
     body: str
 
-    pathParameters: typing.Dict[str, str]
+    pathParameters: Dict[str, str]
 
     isBase64Encoded: bool
 
-    stageVariables: typing.Dict[str, str]
+    stageVariables: Dict[str, str]
     """
 
     version: str
     routeKey: str
     rawPath: str
     rawQueryString: str
-    cookies: typing.Optional[typing.List[str]]
-    headers: typing.Dict[str, str]
-    queryStringParameters: typing.Dict[str, str]
+    cookies: Optional[List[str]]
+    headers: Dict[str, str]
+    queryStringParameters: Dict[str, str]
     requestContext: RequestContextV2
     body: str
-    pathParameters: typing.Dict[str, str]
+    pathParameters: Dict[str, str]
     isBase64Encoded: bool
-    stageVariables: typing.Dict[str, str]
+    stageVariables: Dict[str, str]
 
 
-class APIGatewayProxyResponseV2(typing.TypedDict):
+class APIGatewayProxyResponseV2(TypedDict):
     """
     APIGatewayProxyResponseV1 https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
 
@@ -390,19 +390,19 @@ class APIGatewayProxyResponseV2(typing.TypedDict):
 
     Attributes:
     ----------
-    cookies: typing.List[str]
+    cookies: List[str]
 
     isBase64Encoded: bool
 
     statusCode: int
 
-    headers: typing.Dict[str, str]
+    headers: Dict[str, str]
 
     body: str
     """
 
-    cookies: typing.List[str]
+    cookies: List[str]
     isBase64Encoded: bool
     statusCode: int
-    headers: typing.Dict[str, str]
+    headers: Dict[str, str]
     body: str

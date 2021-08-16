@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-import typing
+from typing import List, Optional, TypedDict
 
 
-class S3UserIdentity(typing.TypedDict):
+class S3UserIdentity(TypedDict):
     """
     S3UserIdentity
 
@@ -15,7 +15,7 @@ class S3UserIdentity(typing.TypedDict):
     principalId: str
 
 
-class S3RequestParameters(typing.TypedDict):
+class S3RequestParameters(TypedDict):
     """
     S3RequestParameters
 
@@ -27,13 +27,13 @@ class S3RequestParameters(typing.TypedDict):
     sourceIPAddress: str
 
 
-S3ResponseElements = typing.TypedDict('S3ResponseElements', {
+S3ResponseElements = TypedDict('S3ResponseElements', {
     'x-amz-request-id': str,
     'x-amz-id-2': str
 }, total=False)
 
 
-class S3OwnerIdentity(typing.TypedDict):
+class S3OwnerIdentity(TypedDict):
     """
     S3OwnerIdentity
 
@@ -45,7 +45,7 @@ class S3OwnerIdentity(typing.TypedDict):
     principalId: str
 
 
-class S3Bucket(typing.TypedDict):
+class S3Bucket(TypedDict):
     """
     S3Bucket
 
@@ -63,7 +63,7 @@ class S3Bucket(typing.TypedDict):
     arn: str
 
 
-class S3Object(typing.TypedDict, total=False):
+class S3Object(TypedDict, total=False):
     """
     S3OwnerIdentity
 
@@ -75,7 +75,7 @@ class S3Object(typing.TypedDict, total=False):
 
     eTag: str
 
-    versionId: typing.Optional[str]
+    versionId: Optional[str]
 
     sequencer: str
     """
@@ -83,11 +83,11 @@ class S3Object(typing.TypedDict, total=False):
     key: str
     size: int
     eTag: str
-    versionId: typing.Optional[str]
+    versionId: Optional[str]
     sequencer: str
 
 
-class S3(typing.TypedDict):
+class S3(TypedDict):
     """
     S3
 
@@ -108,7 +108,7 @@ class S3(typing.TypedDict):
     object: S3Object
 
 
-class S3GlacierEventDataRestoreEventData(typing.TypedDict):
+class S3GlacierEventDataRestoreEventData(TypedDict):
     """
     S3GlacierEventData
 
@@ -123,7 +123,7 @@ class S3GlacierEventDataRestoreEventData(typing.TypedDict):
     lifecycleRestoreStorageClass: str
 
 
-class S3GlacierEventData(typing.TypedDict):
+class S3GlacierEventData(TypedDict):
     """
     S3GlacierEventData
 
@@ -135,7 +135,7 @@ class S3GlacierEventData(typing.TypedDict):
     restoreEventData: S3GlacierEventDataRestoreEventData
 
 
-class S3EventRecord(typing.TypedDict, total=False):
+class S3EventRecord(TypedDict, total=False):
     """
     S3EventRecord https://docs.aws.amazon.com/AmazonS3/latest/dev/notification-content-structure.html
 
@@ -159,7 +159,7 @@ class S3EventRecord(typing.TypedDict, total=False):
 
     s3: :py:class:`S3`
 
-    glacierEventData: typing.Optional[:py:class:`S3GlacierEventData`]
+    glacierEventData: Optional[:py:class:`S3GlacierEventData`]
     """
 
     eventVersion: str
@@ -171,16 +171,16 @@ class S3EventRecord(typing.TypedDict, total=False):
     requestParameters: S3RequestParameters
     responseElements: S3ResponseElements
     s3: S3
-    glacierEventData: typing.Optional[S3GlacierEventData]
+    glacierEventData: Optional[S3GlacierEventData]
 
 
-class S3Event(typing.TypedDict):
+class S3Event(TypedDict):
     """
     S3Event https://docs.aws.amazon.com/lambda/latest/dg/with-s3.html
 
     Attributes:
     ----------
-    Records: typing.List[:py:class:`S3EventRecord`]
+    Records: List[:py:class:`S3EventRecord`]
     """
 
-    Records: typing.List[S3EventRecord]
+    Records: List[S3EventRecord]

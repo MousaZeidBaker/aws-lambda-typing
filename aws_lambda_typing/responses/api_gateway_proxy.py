@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
-import typing
-
+from typing import Dict, List, TypedDict
 
 """
 ###############################################################################
@@ -10,7 +9,7 @@ import typing
 """
 
 
-class APIGatewayProxyResponseV1(typing.TypedDict):
+class APIGatewayProxyResponseV1(TypedDict):
     """
     APIGatewayProxyResponseV1 https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
 
@@ -22,17 +21,17 @@ class APIGatewayProxyResponseV1(typing.TypedDict):
 
     statusCode: int
 
-    headers: typing.Dict[str, str]
+    headers: Dict[str, str]
 
-    multiValueHeaders: typing.Dict[str, typing.List[str]]
+    multiValueHeaders: Dict[str, List[str]]
 
     body: str
     """
 
     isBase64Encoded: bool
     statusCode: int
-    headers: typing.Dict[str, str]
-    multiValueHeaders: typing.Dict[str, typing.List[str]]
+    headers: Dict[str, str]
+    multiValueHeaders: Dict[str, List[str]]
     body: str
 
 
@@ -43,7 +42,7 @@ class APIGatewayProxyResponseV1(typing.TypedDict):
 """
 
 
-class APIGatewayProxyResponseV2(typing.TypedDict):
+class APIGatewayProxyResponseV2(TypedDict):
     """
     APIGatewayProxyResponseV1 https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
 
@@ -51,19 +50,19 @@ class APIGatewayProxyResponseV2(typing.TypedDict):
 
     Attributes:
     ----------
-    cookies: typing.List[str]
+    cookies: List[str]
 
     isBase64Encoded: bool
 
     statusCode: int
 
-    headers: typing.Dict[str, str]
+    headers: Dict[str, str]
 
     body: str
     """
 
-    cookies: typing.List[str]
+    cookies: List[str]
     isBase64Encoded: bool
     statusCode: int
-    headers: typing.Dict[str, str]
+    headers: Dict[str, str]
     body: str
