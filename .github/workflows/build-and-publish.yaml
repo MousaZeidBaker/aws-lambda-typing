@@ -1,45 +1,77 @@
 # This workflow builds and publishes package distribution to PyPI
 
-name: Build and Publish
+name: Publish
 
-# Controls when the action will run
+# controls when the action will run
 on:
   push:
     branches:
       - 'master'
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build_and_publish:
-    name: Build and Publish job
+  publish_testpypi:
     runs-on: ubuntu-latest
-    environment:
-      name: prod
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    environment: testpypi
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up Python 3.8
+      - name: Set up python 3.8
         uses: actions/setup-python@v2
         with:
           python-version: 3.8
 
+      - name: Install poetry 1.1.7
+        uses: snok/install-poetry@v1
+        with:
+          version: 1.1.7
+
       - name: Install dependencies
+        run: poetry install
+
+      - name: Test
         run: |
-          # Create and activate virtualenv
-          python3 -m venv .venv && source .venv/bin/activate
-          # Make sure to have the latest pip version installed
-          python -m pip install --upgrade pip
-          python -m pip install --upgrade setuptools wheel twine
+          source $(poetry env info --path)/bin/activate # activate virtual environment
+          mypy tests
 
       - name: Build
-        run: |
-          source .venv/bin/activate
-          python setup.py sdist bdist_wheel
+        run: poetry build
 
-      - name: Publish
-        run: |
-          source .venv/bin/activate
-          TWINE_USERNAME=__token__ TWINE_PASSWORD=${{ secrets.PYPI_API_TOKEN }} twine upload --non-interactive dist/*
+      - name: Publish testpypi
+        env:
+          POETRY_REPOSITORIES_TESTPYPI_URL: https://test.pypi.org/legacy/
+          POETRY_HTTP_BASIC_TESTPYPI_USERNAME: __token__
+          POETRY_HTTP_BASIC_TESTPYPI_PASSWORD: ${{secrets.TESTPYPI_API_TOKEN}}
+        run: poetry publish -r testpypi
+
+  publish_pypi:
+    runs-on: ubuntu-latest
+    environment: pypi
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install poetry 1.1.7
+        uses: snok/install-poetry@v1
+        with:
+          version: 1.1.7
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Test
+        run: mypy tests
+
+      - name: Build
+        run: poetry build
+
+      - name: Publish pypi
+        env:
+          POETRY_HTTP_BASIC_PYPI_USERNAME: __token__
+          POETRY_HTTP_BASIC_PYPI_PASSWORD: ${{secrets.PYPI_API_TOKEN}}
+        run: poetry publish

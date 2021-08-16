@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "aws-lambda-typing"
+version = "1.0.4"
+description = "A package that provides type hints for AWS Lambda event, context and response objects"
+authors = ["Mousa Zeid Baker"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/MousaZeidBaker/aws-lambda-typing"
+repository = "https://github.com/MousaZeidBaker/aws-lambda-typing"
+keywords=[
+    'typing',
+    'type hints',
+    'aws',
+    'lambda',
+    'serverless',
+    'development'
+]
+classifiers=[
+    'Development Status :: 5 - Production/Stable',
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+include = [
+    "LICENSE",
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+mypy = "^0.910"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
