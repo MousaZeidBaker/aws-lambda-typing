@@ -163,9 +163,13 @@ class CodePipelineJob(TypedDict):
     data: Data
 
 
-"""
-CodePipelineEvent https://docs.aws.amazon.com/lambda/latest/dg/services-codepipeline.html
-"""
 CodePipelineEvent = TypedDict('CodePipelineEvent', {
     'CodePipeline.job': CodePipelineJob
 })
+"""
+CodePipelineEvent https://docs.aws.amazon.com/lambda/latest/dg/services-codepipeline.html
+
+Attributes:
+----------
+CodePipeline.job: :py:class:`CodePipelineJob`
+"""

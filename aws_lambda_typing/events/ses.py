@@ -37,6 +37,31 @@ SESMailCommonHeaders: Final = TypedDict('SESMailCommonHeaders', {
     'messageId': str,
     'subject': str
 }, total=False)
+"""
+SESMailCommonHeaders
+
+Attributes:
+----------
+returnPath: str
+
+from: Optional[List[str]]
+
+date: str
+
+to: Optional[List[str]]
+
+cc: Optional[List[str]]
+
+bcc: Optional[List[str]]
+
+sender: Optional[List[str]]
+
+replyTo: Optional[List[str]]
+
+messageId: str
+
+subject: str
+"""
 
 
 class SESMail(TypedDict):

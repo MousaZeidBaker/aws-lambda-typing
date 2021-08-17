@@ -38,6 +38,15 @@ S3ResponseElements = TypedDict('S3ResponseElements', {
     'x-amz-request-id': str,
     'x-amz-id-2': str
 }, total=False)
+"""
+S3ResponseElements
+
+Attributes:
+----------
+x-amz-request-id: str
+
+x-amz-id-2: str
+"""
 
 
 class S3OwnerIdentity(TypedDict):
