@@ -175,32 +175,6 @@ class APIGatewayProxyEventV1(TypedDict):
     isBase64Encoded: bool
 
 
-class APIGatewayProxyResponseV1(TypedDict):
-    """
-    APIGatewayProxyResponseV1 https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
-
-    Lambda function response format https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
-
-    Attributes:
-    ----------
-    isBase64Encoded: bool
-
-    statusCode: int
-
-    headers: Dict[str, str]
-
-    multiValueHeaders: Dict[str, List[str]]
-
-    body: str
-    """
-
-    isBase64Encoded: bool
-    statusCode: int
-    headers: Dict[str, str]
-    multiValueHeaders: Dict[str, List[str]]
-    body: str
-
-
 """
 ###############################################################################
 ###             HTTP API integration payload format version 2.0             ###
@@ -387,29 +361,3 @@ class APIGatewayProxyEventV2(TypedDict, total=False):
     pathParameters: Dict[str, str]
     isBase64Encoded: bool
     stageVariables: Dict[str, str]
-
-
-class APIGatewayProxyResponseV2(TypedDict):
-    """
-    APIGatewayProxyResponseV1 https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
-
-    Lambda function response format https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
-
-    Attributes:
-    ----------
-    cookies: List[str]
-
-    isBase64Encoded: bool
-
-    statusCode: int
-
-    headers: Dict[str, str]
-
-    body: str
-    """
-
-    cookies: List[str]
-    isBase64Encoded: bool
-    statusCode: int
-    headers: Dict[str, str]
-    body: str

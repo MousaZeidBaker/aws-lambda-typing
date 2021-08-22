@@ -1,8 +1,8 @@
-import aws_lambda_typing as lambda_typing
+from aws_lambda_typing.events import S3Event
 
 
 def test_s3_event() -> None:
-    dummy: lambda_typing.S3Event = {
+    event: S3Event = {
         "Records": [
             {
                 "eventVersion": "2.1",

@@ -1,8 +1,8 @@
-import aws_lambda_typing as lambda_typing
+from aws_lambda_typing.events import DynamoDBStreamEvent
 
 
 def test_dynamodb_stream_event() -> None:
-    dummy: lambda_typing.DynamoDBStreamEvent = {
+    event: DynamoDBStreamEvent = {
         "Records": [
             {
                 "eventID": "1",

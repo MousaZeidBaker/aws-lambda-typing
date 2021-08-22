@@ -1,8 +1,8 @@
-import aws_lambda_typing as lambda_typing
+from aws_lambda_typing.events import KinesisStreamEvent
 
 
 def test_kinesis_stream_event() -> None:
-    dummy: lambda_typing.KinesisStreamEvent = {
+    event: KinesisStreamEvent = {
         "records": [
             {
                 "kinesis": {

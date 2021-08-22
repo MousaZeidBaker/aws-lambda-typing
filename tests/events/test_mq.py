@@ -1,8 +1,8 @@
-import aws_lambda_typing as lambda_typing
+from aws_lambda_typing.events import MQEvent
 
 
 def test_mq_event() -> None:
-    dummy: lambda_typing.MQEvent = {
+    event: MQEvent = {
         "eventSource": "aws:amq",
         "eventSourceArn": "arn:aws:mq:us-west-2:112556298976:broker:test:b-9bcfa592-423a-4942-879d-eb284b418fc8",
         "messages": {

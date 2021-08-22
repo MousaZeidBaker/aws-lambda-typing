@@ -1,8 +1,9 @@
-import aws_lambda_typing as lambda_typing
+from aws_lambda_typing.events import (APIGatewayProxyEventV1,
+                                      APIGatewayProxyEventV2)
 
 
 def test_api_gateway_proxy_event_v1() -> None:
-    dummy: lambda_typing.APIGatewayProxyEventV1 = {
+    event: APIGatewayProxyEventV1 = {
         "resource": "/",
         "path": "/",
         "httpMethod": "GET",
@@ -106,7 +107,7 @@ def test_api_gateway_proxy_event_v1() -> None:
 
 
 def test_api_gateway_proxy_event_v2() -> None:
-    dummy: lambda_typing.APIGatewayProxyEventV2 = {
+    event: APIGatewayProxyEventV2 = {
         "version": "2.0",
         "routeKey": "ANY /nodejs-apig-function-1G3XMPLZXVXYI",
         "rawPath": "/default/nodejs-apig-function-1G3XMPLZXVXYI",

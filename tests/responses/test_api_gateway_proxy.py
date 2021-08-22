@@ -1,8 +1,9 @@
-import aws_lambda_typing as lambda_typing
+from aws_lambda_typing.responses import (APIGatewayProxyResponseV1,
+                                         APIGatewayProxyResponseV2)
 
 
 def test_api_gateway_proxy_event_v1() -> None:
-    dummy: lambda_typing.APIGatewayProxyResponseV1 = {
+    response: APIGatewayProxyResponseV1 = {
         "statusCode": 200,
         "headers": {
             "Content-Type": "application/json"
@@ -16,7 +17,7 @@ def test_api_gateway_proxy_event_v1() -> None:
 
 
 def test_api_gateway_proxy_event_v2() -> None:
-    dummy: lambda_typing.APIGatewayProxyResponseV2 = {
+    response: APIGatewayProxyResponseV2 = {
         "cookies": [],
         "isBase64Encoded": False,
         "statusCode": 200,

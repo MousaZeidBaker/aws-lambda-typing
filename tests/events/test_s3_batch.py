@@ -1,8 +1,8 @@
-import aws_lambda_typing as lambda_typing
+from aws_lambda_typing.events import S3BatchEvent
 
 
 def test_s3_batch_event() -> None:
-    dummy: lambda_typing.S3BatchEvent = {
+    event: S3BatchEvent = {
         "invocationSchemaVersion": "1.0",
         "invocationId": "YXNkbGZqYWRmaiBhc2RmdW9hZHNmZGpmaGFzbGtkaGZza2RmaAo",
         "job": {
