@@ -1,8 +1,8 @@
-import aws_lambda_typing as lambda_typing
+from aws_lambda_typing.events import SESEvent
 
 
 def test_ses_event() -> None:
-    dummy: lambda_typing.SESEvent = {
+    event: SESEvent = {
         "Records": [
             {
                 "eventVersion": "1.0",

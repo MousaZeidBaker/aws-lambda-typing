@@ -1,8 +1,8 @@
-import aws_lambda_typing as lambda_typing
+from aws_lambda_typing.events import SQSEvent
 
 
 def test_sqs_event_standard_queue() -> None:
-    event: lambda_typing.SQSEvent = {
+    event: SQSEvent = {
         "Records": [
             {
                 "messageId": "059f36b4-87a3-44ab-83d2-661975830a7d",
@@ -41,7 +41,7 @@ def test_sqs_event_standard_queue() -> None:
 
 
 def test_sqs_event_fifo_queue() -> None:
-    dummy: lambda_typing.SQSEvent = {
+    event: SQSEvent = {
         "Records": [
             {
                 "messageId": "11d6ee51-4cc7-4302-9e22-7cd8afdaadf5",

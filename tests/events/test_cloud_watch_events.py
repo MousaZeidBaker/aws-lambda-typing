@@ -1,8 +1,8 @@
-import aws_lambda_typing as lambda_typing
+from aws_lambda_typing.events import CloudWatchEventsMessageEvent
 
 
 def test_cloud_watch_events_message_event() -> None:
-    dummy: lambda_typing.CloudWatchEventsMessageEvent = {
+    event: CloudWatchEventsMessageEvent = {
         "version": "0",
         "id": "fe8d3c65-xmpl-c5c3-2c87-81584709a377",
         "detail-type": "RDS DB Instance Event",

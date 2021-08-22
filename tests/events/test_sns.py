@@ -1,8 +1,8 @@
-import aws_lambda_typing as lambda_typing
+from aws_lambda_typing.events import SNSEvent
 
 
 def test_sns_event() -> None:
-    dummy: lambda_typing.SNSEvent = {
+    event: SNSEvent = {
         "Records": [
             {
                 "EventVersion": "1.0",
@@ -27,7 +27,7 @@ def test_sns_event() -> None:
                     },
                     "Type": "Notification",
                     "UnsubscribeUrl": "https://sns.us-east-2.amazonaws.com/?Action=Unsubscribe&amp;SubscriptionArn=arn:aws:sns:us-east-2:123456789012:test-lambda:21be56ed-a058-49f5-8c98-aedd2564c486",
-                    "TopicArn":"arn:aws:sns:us-east-2:123456789012:sns-lambda",
+                    "TopicArn": "arn:aws:sns:us-east-2:123456789012:sns-lambda",
                     "Subject": "TestInvoke"
                 }
             }

@@ -1,8 +1,8 @@
-import aws_lambda_typing as lambda_typing
+from aws_lambda_typing.events import KinesisFirehoseEvent
 
 
 def test_kinesis_firehose_event() -> None:
-    dummy: lambda_typing.KinesisFirehoseEvent = {
+    event: KinesisFirehoseEvent = {
         "invocationId": "invoked123",
         "deliveryStreamArn": "aws:lambda:events",
         "region": "us-west-2",

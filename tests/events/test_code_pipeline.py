@@ -1,8 +1,8 @@
-import aws_lambda_typing as lambda_typing
+from aws_lambda_typing.events import CodePipelineEvent
 
 
 def test_code_pipeline_event() -> None:
-    dummy: lambda_typing.CodePipelineEvent = {
+    event: CodePipelineEvent = {
         "CodePipeline.job": {
             "id": "c0d76431-b0e7-xmpl-97e3-e8ee786eb6f6",
             "accountId": "123456789012",
