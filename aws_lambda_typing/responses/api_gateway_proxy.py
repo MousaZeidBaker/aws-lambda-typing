@@ -12,7 +12,7 @@ else:
 
 """
 ###############################################################################
-###             Lambda function response format version 1.0             ###
+###             Lambda function response format version 1.0                 ###
 ###############################################################################
 """
 
@@ -45,14 +45,14 @@ class APIGatewayProxyResponseV1(TypedDict):
 
 """
 ###############################################################################
-###             Lambda function response format version 2.0             ###
+###             Lambda function response format version 2.0                 ###
 ###############################################################################
 """
 
 
 class APIGatewayProxyResponseV2(TypedDict):
     """
-    APIGatewayProxyResponseV1 https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
+    APIGatewayProxyResponseV2 https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
 
     Lambda function response format https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
 
