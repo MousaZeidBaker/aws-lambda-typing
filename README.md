@@ -2,10 +2,10 @@
 
 ![build](https://github.com/MousaZeidBaker/aws-lambda-typing/workflows/Publish/badge.svg)
 ![test](https://github.com/MousaZeidBaker/aws-lambda-typing/workflows/Test/badge.svg)
-![LICENSE](https://img.shields.io/badge/License-MIT-yellow.svg)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 ![python_version](https://img.shields.io/badge/python-%3E=3.6-blue.svg)
-![pypi_v](https://img.shields.io/pypi/v/aws-lambda-typing.svg)
-![pypi_dm](https://img.shields.io/pypi/dm/aws-lambda-typing.svg)
+[![pypi_v](https://img.shields.io/pypi/v/aws-lambda-typing.svg)](https://pypi.org/project/aws-lambda-typing)
+[![pypi_dm](https://img.shields.io/pypi/dm/aws-lambda-typing.svg)](https://pypi.org/project/aws-lambda-typing)
 
 A package that provides type hints for AWS Lambda event, context and response
 objects. It's a convenient way to get autocomplete and type hints built into
@@ -20,7 +20,8 @@ third party tools such as type checkers, IDEs, linters, etc.
   - [Events](#events)
   - [Responses](#responses)
 - [Test](#test)
-- [License](#license)
+- [Contributing](#contributing)
+- [Issues](#issues)
 
 ## Usage
 ### Example: AWS SQS event
@@ -83,6 +84,9 @@ Run tests
 mypy tests
 ```
 
-## License
-### The MIT License
-![LICENSE](https://img.shields.io/badge/License-MIT-yellow.svg)
+## Contributing
+Contributions are welcome via pull requests.
+
+## Issues
+If you encounter any problems, please file an [issue](https://github.com/MousaZeidBaker/aws-lambda-typing/issues) along with a
+detailed description.
