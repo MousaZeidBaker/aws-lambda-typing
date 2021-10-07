@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import sys
+from typing import Any, Union
 
 if sys.version_info >= (3, 8):
     from typing import Dict, List, TypedDict
@@ -50,7 +51,7 @@ class APIGatewayProxyResponseV1(TypedDict):
 """
 
 
-class APIGatewayProxyResponseV2(TypedDict):
+class _APIGatewayProxyResponseV2(TypedDict, total=False):
     """
     APIGatewayProxyResponseV2 https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
 
@@ -74,3 +75,10 @@ class APIGatewayProxyResponseV2(TypedDict):
     statusCode: int
     headers: Dict[str, str]
     body: str
+
+
+APIGatewayProxyResponseV2 = Union[
+    _APIGatewayProxyResponseV2,
+    dict[str, Any],
+    str,
+]
