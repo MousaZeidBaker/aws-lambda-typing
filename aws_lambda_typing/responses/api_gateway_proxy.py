@@ -77,8 +77,13 @@ class _APIGatewayProxyResponseV2(TypedDict, total=False):
     body: str
 
 
+SimpleJSON = Union[
+    str,
+    List["SimpleJSON"],
+    Dict[str, "SimpleJSON"],
+]
+
 APIGatewayProxyResponseV2 = Union[
     _APIGatewayProxyResponseV2,
-    dict[str, Any],
-    str,
+    SimpleJSON
 ]
