@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import sys
-from typing import Any, Union
 
 if sys.version_info >= (3, 8):
     from typing import Dict, List, TypedDict
