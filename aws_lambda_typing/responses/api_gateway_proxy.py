@@ -51,7 +51,7 @@ class APIGatewayProxyResponseV1(TypedDict):
 """
 
 
-class _APIGatewayProxyResponseV2(TypedDict, total=False):
+class APIGatewayProxyResponseV2(TypedDict, total=False):
     """
     APIGatewayProxyResponseV2 https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
 
@@ -75,15 +75,3 @@ class _APIGatewayProxyResponseV2(TypedDict, total=False):
     statusCode: int
     headers: Dict[str, str]
     body: str
-
-
-SimpleJSON = Union[
-    str,
-    List["SimpleJSON"],
-    Dict[str, "SimpleJSON"],
-]
-
-APIGatewayProxyResponseV2 = Union[
-    _APIGatewayProxyResponseV2,
-    SimpleJSON
-]
