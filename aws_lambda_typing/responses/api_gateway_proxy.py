@@ -50,7 +50,7 @@ class APIGatewayProxyResponseV1(TypedDict):
 """
 
 
-class APIGatewayProxyResponseV2(TypedDict):
+class APIGatewayProxyResponseV2(TypedDict, total=False):
     """
     APIGatewayProxyResponseV2 https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
 
