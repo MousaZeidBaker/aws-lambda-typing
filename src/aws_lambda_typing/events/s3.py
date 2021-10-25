@@ -34,10 +34,14 @@ class S3RequestParameters(TypedDict):
     sourceIPAddress: str
 
 
-S3ResponseElements = TypedDict('S3ResponseElements', {
-    'x-amz-request-id': str,
-    'x-amz-id-2': str
-}, total=False)
+S3ResponseElements = TypedDict(
+    "S3ResponseElements",
+    {
+        "x-amz-request-id": str,
+        "x-amz-id-2": str,
+    },
+    total=False,
+)
 """
 S3ResponseElements
 
@@ -153,7 +157,8 @@ class S3GlacierEventData(TypedDict):
 
 class S3EventRecord(TypedDict, total=False):
     """
-    S3EventRecord https://docs.aws.amazon.com/AmazonS3/latest/dev/notification-content-structure.html
+    S3EventRecord
+    https://docs.aws.amazon.com/AmazonS3/latest/dev/notification-content-structure.html
 
     Attributes:
     ----------

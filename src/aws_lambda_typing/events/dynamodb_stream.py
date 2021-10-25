@@ -12,7 +12,8 @@ else:
 
 class AttributeValue(TypedDict, total=False):
     """
-    AttributeValue https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_AttributeValue.html
+    AttributeValue
+    https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_AttributeValue.html
 
     Attributes:
     ----------
@@ -51,7 +52,8 @@ class AttributeValue(TypedDict, total=False):
 
 class StreamRecord(TypedDict, total=False):
     """
-    StreamRecord https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_StreamRecord.html
+    StreamRecord
+    https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_StreamRecord.html
 
     Attributes:
     ----------
@@ -67,7 +69,8 @@ class StreamRecord(TypedDict, total=False):
 
     SizeBytes: int
 
-    StreamViewType: Literal['KEYS_ONLY', 'NEW_IMAGE', 'OLD_IMAGE', 'NEW_AND_OLD_IMAGES']
+    StreamViewType: Literal['KEYS_ONLY', 'NEW_IMAGE', 'OLD_IMAGE',
+    'NEW_AND_OLD_IMAGES']
     """
 
     ApproximateCreationDateTime: Optional[int]
@@ -76,12 +79,18 @@ class StreamRecord(TypedDict, total=False):
     OldImage: Optional[Dict[str, AttributeValue]]
     SequenceNumber: str
     SizeBytes: int
-    StreamViewType: Literal['KEYS_ONLY', 'NEW_IMAGE', 'OLD_IMAGE', 'NEW_AND_OLD_IMAGES']
+    StreamViewType: Literal[
+        "KEYS_ONLY",
+        "NEW_IMAGE",
+        "OLD_IMAGE",
+        "NEW_AND_OLD_IMAGES",
+    ]
 
 
 class DynamodbRecord(TypedDict, total=False):
     """
-    DynamodbRecord https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_Record.html
+    DynamodbRecord
+    https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_Record.html
 
     Attributes:
     ----------
@@ -105,7 +114,7 @@ class DynamodbRecord(TypedDict, total=False):
     awsRegion: str
     dynamodb: StreamRecord
     eventID: str
-    eventName: Literal['INSERT', 'MODIFY', 'REMOVE']
+    eventName: Literal["INSERT", "MODIFY", "REMOVE"]
     eventSource: str
     eventSourceARN: str
     eventVersion: str
@@ -114,7 +123,8 @@ class DynamodbRecord(TypedDict, total=False):
 
 class DynamoDBStreamEvent(TypedDict):
     """
-    DynamoDBStreamEvent https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html
+    DynamoDBStreamEvent
+    https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html
 
     Attributes:
     ----------

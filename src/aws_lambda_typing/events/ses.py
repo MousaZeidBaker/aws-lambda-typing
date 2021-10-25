@@ -3,7 +3,16 @@
 import sys
 
 if sys.version_info >= (3, 8):
-    from typing import Any, Dict, Final, List, Literal, Optional, TypedDict, Union
+    from typing import (
+        Any,
+        Dict,
+        Final,
+        List,
+        Literal,
+        Optional,
+        TypedDict,
+        Union,
+    )
 else:
     from typing import Any, Dict, List, Optional, Union
 
@@ -25,18 +34,22 @@ class SESMailHeader(TypedDict):
     value: str
 
 
-SESMailCommonHeaders: Final = TypedDict('SESMailCommonHeaders', {
-    'returnPath': str,
-    'from': Optional[List[str]],
-    'date': str,
-    'to': Optional[List[str]],
-    'cc': Optional[List[str]],
-    'bcc': Optional[List[str]],
-    'sender': Optional[List[str]],
-    'replyTo': Optional[List[str]],
-    'messageId': str,
-    'subject': str
-}, total=False)
+SESMailCommonHeaders: Final = TypedDict(
+    "SESMailCommonHeaders",
+    {
+        "returnPath": str,
+        "from": Optional[List[str]],
+        "date": str,
+        "to": Optional[List[str]],
+        "cc": Optional[List[str]],
+        "bcc": Optional[List[str]],
+        "sender": Optional[List[str]],
+        "replyTo": Optional[List[str]],
+        "messageId": str,
+        "subject": str,
+    },
+    total=False,
+)
 """
 SESMailCommonHeaders
 
@@ -84,6 +97,7 @@ class SESMail(TypedDict):
 
     commonHeaders: :py:const:`SESMailCommonHeaders`
     """
+
     timestamp: str
     source: str
     messageId: str
@@ -99,11 +113,15 @@ class SESReceiptStatus(TypedDict):
 
     Attributes:
     ----------
-    status: :py:class:`SESReceiptStatusEnum`
-    status: Literal['PASS', 'FAIL', 'GRAY']
+    status: :py:class:`SESReceiptStatusEnum` status: Literal['PASS', 'FAIL',
+    'GRAY']
     """
 
-    status: Literal['PASS', 'FAIL', 'GRAY']
+    status: Literal[
+        "PASS",
+        "FAIL",
+        "GRAY",
+    ]
 
 
 class SESReceiptS3Action(TypedDict, total=False):
@@ -121,7 +139,7 @@ class SESReceiptS3Action(TypedDict, total=False):
     objectKey: str
     """
 
-    type: Literal['S3']
+    type: Literal["S3"]
     topicArn: Optional[str]
     bucketName: str
     objectKey: str
@@ -138,7 +156,7 @@ class SESReceiptSnsAction(TypedDict, total=False):
     topicArn: str
     """
 
-    type: Literal['SNS']
+    type: Literal["SNS"]
     topicArn: str
 
 
@@ -161,7 +179,7 @@ class SESReceiptBounceAction(TypedDict, total=False):
     sender: str
     """
 
-    type: Literal['Bounce']
+    type: Literal["Bounce"]
     topicArn: Optional[str]
     smtpReplyCode: str
     statusCode: str
@@ -184,7 +202,7 @@ class SESReceiptLambdaAction(TypedDict, total=False):
     invocationType: str
     """
 
-    type: Literal['Lambda']
+    type: Literal["Lambda"]
     topicArn: Optional[str]
     functionArn: str
     invocationType: str
@@ -201,7 +219,7 @@ class SESReceiptStopAction(TypedDict, total=False):
     topicArn: Optional[str]
     """
 
-    type: Literal['Stop']
+    type: Literal["Stop"]
     topicArn: Optional[str]
 
 
@@ -218,7 +236,7 @@ class SESReceiptWorkMailAction(TypedDict, total=False):
     organizationArn: str
     """
 
-    type: Literal['WorkMail']
+    type: Literal["WorkMail"]
     topicArn: Optional[str]
     organizationArn: str
 
@@ -239,9 +257,12 @@ class SESReceipt(TypedDict, total=False):
 
     processingTimeMillis: int
 
-    action: Union[:py:class:`SESReceiptS3Action`, :py:class:`SESReceiptSnsAction`,
-                          :py:class:`SESReceiptBounceAction`, :py:class:`SESReceiptLambdaAction`,
-                          :py:class:`SESReceiptStopAction`, :py:class:`SESReceiptWorkMailAction`]]
+    action: Union[:py:class:`SESReceiptS3Action`,
+                          :py:class:`SESReceiptSnsAction`,
+                          :py:class:`SESReceiptBounceAction`,
+                          :py:class:`SESReceiptLambdaAction`,
+                          :py:class:`SESReceiptStopAction`,
+                          :py:class:`SESReceiptWorkMailAction`]]
 
     spfVerdict: :py:class:`SESReceiptStatus`
 
@@ -251,6 +272,7 @@ class SESReceipt(TypedDict, total=False):
 
     dmarcPolicy: Literal['none', 'quarantine', 'reject']
     """
+
     recipients: List[str]
     timestamp: str
     spamVerdict: SESReceiptStatus
@@ -263,20 +285,25 @@ class SESReceipt(TypedDict, total=False):
         ],
         Union[
             Union[SESReceiptStopAction, SESReceiptWorkMailAction],
-            # Workaround for no type inference for dicts in union,
-            # see https://github.com/python/mypy/issues/6463#issuecomment-467019931
-            Dict[str, Any]
-        ]
+            # Workaround for no type inference for dicts in union, see
+            # https://github.com/python/mypy/issues/6463#issuecomment-467019931
+            Dict[str, Any],
+        ],
     ]
     spfVerdict: SESReceiptStatus
     virusVerdict: SESReceiptStatus
     dmarcVerdict: SESReceiptStatus
-    dmarcPolicy: Literal['none', 'quarantine', 'reject']
+    dmarcPolicy: Literal[
+        "none",
+        "quarantine",
+        "reject",
+    ]
 
 
 class SESMessage(TypedDict):
     """
-    SESMessage https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-notifications-contents.html
+    SESMessage
+    https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-notifications-contents.html
 
     Attributes:
     ----------

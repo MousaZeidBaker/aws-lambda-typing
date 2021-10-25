@@ -20,6 +20,7 @@ class Configuration(TypedDict):
 
     UserParameters: str
     """
+
     FunctionName: str
     UserParameters: str
 
@@ -32,6 +33,7 @@ class ActionConfiguration(TypedDict):
     ----------
     configuration: :py:class:`Configuration`
     """
+
     configuration: Configuration
 
 
@@ -45,6 +47,7 @@ class S3Location(TypedDict):
 
     objectKey: str
     """
+
     bucketName: str
     objectKey: str
 
@@ -55,8 +58,7 @@ class ArtifactLocation(TypedDict):
 
     Attributes:
     ----------
-    type: str
-        S3 locations will use the "S3" type.
+    type: str S3 locations will use the "S3" type.
 
     s3Location: :py:class:`S3Location`
     """
@@ -137,6 +139,7 @@ class Data(TypedDict, total=False):
 
     continuationToken: Optional[str]
     """
+
     actionConfiguration: ActionConfiguration
     inputArtifacts: List[Artifact]
     outputArtifacts: List[Artifact]
@@ -147,7 +150,8 @@ class Data(TypedDict, total=False):
 
 class CodePipelineJob(TypedDict):
     """
-    CodePipelineJob https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-invoke-lambda-function.html
+    CodePipelineJob
+    https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-invoke-lambda-function.html
 
     Attributes:
     ----------
@@ -163,11 +167,12 @@ class CodePipelineJob(TypedDict):
     data: Data
 
 
-CodePipelineEvent = TypedDict('CodePipelineEvent', {
-    'CodePipeline.job': CodePipelineJob
-})
+CodePipelineEvent = TypedDict(
+    "CodePipelineEvent", {"CodePipeline.job": CodePipelineJob}
+)
 """
-CodePipelineEvent https://docs.aws.amazon.com/lambda/latest/dg/services-codepipeline.html
+CodePipelineEvent
+https://docs.aws.amazon.com/lambda/latest/dg/services-codepipeline.html
 
 Attributes:
 ----------

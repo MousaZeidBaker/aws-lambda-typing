@@ -10,7 +10,7 @@ def test_code_pipeline_event() -> None:
                 "actionConfiguration": {
                     "configuration": {
                         "FunctionName": "my-function",
-                        "UserParameters": "{\"KEY\": \"VALUE\"}"
+                        "UserParameters": '{"KEY": "VALUE"}',
                     }
                 },
                 "inputArtifacts": [
@@ -20,10 +20,10 @@ def test_code_pipeline_event() -> None:
                         "location": {
                             "type": "S3",
                             "s3Location": {
-                                "bucketName": "us-west-2-123456789012-my-pipeline",
-                                "objectKey": "my-pipeline/test-api-2/TdOSFRV"
-                            }
-                        }
+                                "bucketName": "us-west-2-123456789012-my-pipeline",  # noqa: E501
+                                "objectKey": "my-pipeline/test-api-2/TdOSFRV",
+                            },
+                        },
                     }
                 ],
                 "outputArtifacts": [
@@ -33,18 +33,18 @@ def test_code_pipeline_event() -> None:
                         "location": {
                             "type": "S3",
                             "s3Location": {
-                                "bucketName": "us-west-2-123456789012-my-pipeline",
-                                "objectKey": "my-pipeline/invokeOutp/D0YHsJn"
-                            }
-                        }
+                                "bucketName": "us-west-2-123456789012-my-pipeline",  # noqa: E501
+                                "objectKey": "my-pipeline/invokeOutp/D0YHsJn",
+                            },
+                        },
                     }
                 ],
                 "artifactCredentials": {
                     "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
                     "secretAccessKey": "6CGtmAa3lzWtV7a...",
                     "sessionToken": "IQoJb3JpZ2luX2VjEA...",
-                    "expirationTime": 1575493418000
-                }
-            }
+                    "expirationTime": 1575493418000,
+                },
+            },
         }
     }

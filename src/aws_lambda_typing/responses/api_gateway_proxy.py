@@ -19,9 +19,11 @@ else:
 
 class APIGatewayProxyResponseV1(TypedDict):
     """
-    APIGatewayProxyResponseV1 https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
+    APIGatewayProxyResponseV1
+    https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
 
-    Lambda function response format https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
+    Lambda function response format
+    https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
 
     Attributes:
     ----------
@@ -52,9 +54,11 @@ class APIGatewayProxyResponseV1(TypedDict):
 
 class APIGatewayProxyResponseV2(TypedDict, total=False):
     """
-    APIGatewayProxyResponseV2 https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
+    APIGatewayProxyResponseV2
+    https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
 
-    Lambda function response format https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
+    Lambda function response format
+    https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
 
     Attributes:
     ----------

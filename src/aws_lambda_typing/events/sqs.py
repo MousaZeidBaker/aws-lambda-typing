@@ -24,15 +24,13 @@ class SQSAttributes(TypedDict, total=False):
 
     ApproximateFirstReceiveTimestamp: str
 
-    SequenceNumber: Optional[str]
-        Only in FIFO queues
+    SequenceNumber: Optional[str] Only in FIFO queues
 
-    MessageGroupId: Optional[str]
-        Only in FIFO queues
+    MessageGroupId: Optional[str] Only in FIFO queues
 
-    MessageDeduplicationId: Optional[str]
-        Only in FIFO queues
+    MessageDeduplicationId: Optional[str] Only in FIFO queues
     """
+
     ApproximateReceiveCount: str
     SentTimestamp: str
     SenderId: str
@@ -44,7 +42,8 @@ class SQSAttributes(TypedDict, total=False):
 
 class SQSMessageAttribute(TypedDict):
     """
-    SQSMessageAttribute https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_MessageAttributeValue.html
+    SQSMessageAttribute
+    https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_MessageAttributeValue.html
 
     Attributes:
     ----------
@@ -54,14 +53,20 @@ class SQSMessageAttribute(TypedDict):
 
     StringValue: str
     """
+
     BinaryValue: str
-    DataType: Literal['String', 'Number', 'Binary']
+    DataType: Literal[
+        "String",
+        "Number",
+        "Binary",
+    ]
     StringValue: str
 
 
 class SQSMessage(TypedDict):
     """
-    SQSMessage https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_Message.html
+    SQSMessage
+    https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_Message.html
 
     Attributes:
     ----------

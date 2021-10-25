@@ -12,7 +12,8 @@ else:
 
 class SNSMessageAttribute(TypedDict):
     """
-    SNSMessageAttribute https://docs.aws.amazon.com/sns/latest/api/API_MessageAttributeValue.html
+    SNSMessageAttribute
+    https://docs.aws.amazon.com/sns/latest/api/API_MessageAttributeValue.html
 
     Attributes:
     ----------
@@ -20,6 +21,7 @@ class SNSMessageAttribute(TypedDict):
 
     Value: str
     """
+
     Type: str
     Value: str
 

@@ -57,7 +57,8 @@ class KinesisFirehoseRecord(TypedDict):
 
 class KinesisFirehoseEvent(TypedDict):
     """
-    KinesisFirehoseEvent https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html
+    KinesisFirehoseEvent
+    https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html
 
     Attributes:
     ----------

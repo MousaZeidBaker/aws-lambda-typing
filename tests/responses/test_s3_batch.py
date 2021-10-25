@@ -10,7 +10,7 @@ def test_s3_batch_response() -> None:
             {
                 "taskId": "dGFza2lkZ29lc2hlcmUK",
                 "resultCode": "Succeeded",
-                "resultString": "['Alice', 'Bob']"
+                "resultString": "['Alice', 'Bob']",
             }
-        ]
+        ],
     }

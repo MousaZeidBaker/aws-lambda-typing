@@ -9,8 +9,8 @@
 
 A package that provides type hints for AWS Lambda event, context and response
 objects. It's a convenient way to get autocomplete and type hints built into
-IDEs. Type annotations are not checked at runtime but are only enforced by
-third party tools such as type checkers, IDEs, linters, etc.
+IDEs. Type annotations are not checked at runtime but are only enforced by third
+party tools such as type checkers, IDEs, linters, etc.
 
 ##### Table of Contents
 - [Usage](#usage)
@@ -93,5 +93,6 @@ mypy tests
 Contributions are welcome via pull requests.
 
 ## Issues
-If you encounter any problems, please file an [issue](https://github.com/MousaZeidBaker/aws-lambda-typing/issues) along with a
+If you encounter any problems, please file an
+[issue](https://github.com/MousaZeidBaker/aws-lambda-typing/issues) along with a
 detailed description.

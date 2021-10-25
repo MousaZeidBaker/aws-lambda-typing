@@ -17,11 +17,10 @@ class Identity(TypedDict):
 
     Attributes:
     ----------
-    cognito_identity_id: str
-        The authenticated Amazon Cognito identity
+    cognito_identity_id: str The authenticated Amazon Cognito identity
 
-    cognito_identity_pool_id: str
-        The Amazon Cognito identity pool that authorized the invocation
+    cognito_identity_pool_id: str The Amazon Cognito identity pool that
+        authorized the invocation
     """
 
     cognito_identity_id: str
@@ -60,11 +59,9 @@ class ClientContext(TypedDict):
     ----------
     client: :py:class:`Client`
 
-    custom: Dict
-        A dict of custom values set by the mobile client application
+    custom: Dict A dict of custom values set by the mobile client application
 
-    env: Dict
-        A dict of environment information provided by the AWS SDK
+    env: Dict A dict of environment information provided by the AWS SDK
     """
 
     client: Client
@@ -76,43 +73,39 @@ class Context(metaclass=abc.ABCMeta):
     """
     Context https://docs.aws.amazon.com/lambda/latest/dg/python-context.html
 
-    A context object is passed to your function by Lambda at runtime. This object provides methods and properties that
-    provide information about the invocation, function, and runtime environment.
+    A context object is passed to your function by Lambda at runtime. This
+    object provides methods and properties that provide information about the
+    invocation, function, and runtime environment.
 
     Attributes:
     ----------
-    function_name: str
-        The name of the Lambda function
+    function_name: str The name of the Lambda function
 
-    function_version: str
-        The version of the function
+    function_version: str The version of the function
 
-    invoked_function_arn: str
-        The Amazon Resource Name (ARN) that's used to invoke the function. Indicates if the invoker specified a version
-        number or alias
+    invoked_function_arn: str The Amazon Resource Name (ARN) that's used to
+        invoke the function. Indicates if the invoker specified a version number
+        or alias
 
-    memory_limit_in_mb: str
-        The amount of memory that's allocated for the function
+    memory_limit_in_mb: str The amount of memory that's allocated for the
+        function
 
-    aws_request_id: str
-        The identifier of the invocation request
+    aws_request_id: str The identifier of the invocation request
 
-    log_group_name: str
-        The log group for the function
+    log_group_name: str The log group for the function
 
-    log_stream_name: str
-        The log stream for the function instance
+    log_stream_name: str The log stream for the function instance
 
-    identity: :py:class:`Identity`
-        Information about the Amazon Cognito identity that authorized the request
+    identity: :py:class:`Identity` Information about the Amazon Cognito identity
+        that authorized the request
 
-    client_context: :py:class:`ClientContext`
-        Client context that's provided to Lambda by the client application
+    client_context: :py:class:`ClientContext` Client context that's provided to
+        Lambda by the client application
 
     Methods:
     -------
-    get_remaining_time_in_millis()
-        Returns the number of milliseconds left before the execution times out
+    get_remaining_time_in_millis() Returns the number of milliseconds left
+        before the execution times out
     """
 
     function_name: str
@@ -127,5 +120,6 @@ class Context(metaclass=abc.ABCMeta):
 
     @staticmethod
     def get_remaining_time_in_millis() -> int:
-        """Returns the number of milliseconds left before the execution times out"""
+        """Returns the number of milliseconds left before the execution times
+        out"""
         pass

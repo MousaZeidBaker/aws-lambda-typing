@@ -15,9 +15,9 @@ def test_kinesis_firehose_event() -> None:
                     "shardId": "shardId-000000000000",
                     "partitionKey": "4d1ad2b9-24f8-4b9d-a088-76e9947c317a",
                     "approximateArrivalTimestamp": "2012-04-23T18:25:43.511Z",
-                    "sequenceNumber": "49546986683135544286507457936321625675700192471156785154",
-                    "subsequenceNumber": ""
-                }
+                    "sequenceNumber": "49546986683135544286507457936321625675700192471156785154",  # noqa: E501
+                    "subsequenceNumber": "",
+                },
             },
             {
                 "data": "SGVsbG8gV29ybGQ=",
@@ -27,9 +27,9 @@ def test_kinesis_firehose_event() -> None:
                     "shardId": "shardId-000000000001",
                     "partitionKey": "4d1ad2b9-24f8-4b9d-a088-76e9947c318a",
                     "approximateArrivalTimestamp": "2012-04-23T19:25:43.511Z",
-                    "sequenceNumber": "49546986683135544286507457936321625675700192471156785155",
-                    "subsequenceNumber": ""
-                }
-            }
-        ]
+                    "sequenceNumber": "49546986683135544286507457936321625675700192471156785155",  # noqa: E501
+                    "subsequenceNumber": "",
+                },
+            },
+        ],
     }
