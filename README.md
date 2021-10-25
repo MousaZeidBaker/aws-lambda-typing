@@ -56,6 +56,7 @@ def handler(event: events.SQSEvent, context: context_.Context) -> None:
 - APIGatewayProxyEventV2
 - CloudWatchEventsMessageEvent
 - CloudWatchLogsEvent
+- CodeCommitMessageEvent
 - CodePipelineEvent
 - ConfigEvent
 - DynamoDBStreamEvent
