@@ -19,7 +19,8 @@ else:
 
 class RequestContextIdentity(TypedDict, total=False):
     """
-    RequestContextIdentity https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html
+    RequestContextIdentity
+    https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html
 
     Attributes:
     ----------
@@ -73,7 +74,8 @@ class RequestContextIdentity(TypedDict, total=False):
 
 class RequestContextV1(TypedDict, total=False):
     """
-    RequestContextV1 https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html
+    RequestContextV1
+    https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html
 
     Attributes:
     ----------
@@ -130,9 +132,11 @@ class RequestContextV1(TypedDict, total=False):
 
 class APIGatewayProxyEventV1(TypedDict):
     """
-    APIGatewayProxyEventV1 https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
+    APIGatewayProxyEventV1
+    https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
 
-    HTTP API integration payload format https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
+    HTTP API integration payload format
+    https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
 
     Attributes:
     ----------
@@ -273,7 +277,8 @@ class HTTP(TypedDict):
 
 class RequestContextV2(TypedDict, total=False):
     """
-    RequestContextV2 https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
+    RequestContextV2
+    https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
 
     Attributes:
     ----------
@@ -318,9 +323,11 @@ class RequestContextV2(TypedDict, total=False):
 
 class APIGatewayProxyEventV2(TypedDict, total=False):
     """
-    APIGatewayProxyEventV2 https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
+    APIGatewayProxyEventV2
+    https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
 
-    HTTP API integration payload format https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
+    HTTP API integration payload format
+    https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
 
     Attributes:
     ----------

@@ -69,7 +69,8 @@ class KinesisStreamRecord(TypedDict):
 
 class KinesisStreamEvent(TypedDict):
     """
-    KinesisStreamEvent https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html
+    KinesisStreamEvent
+    https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html
 
     Attributes:
     ----------

@@ -30,13 +30,15 @@ class S3BatchResponseResult(TypedDict):
 
 class S3BatchResponse(TypedDict):
     """
-    S3BatchResponse https://docs.aws.amazon.com/lambda/latest/dg/services-s3-batch.html
+    S3BatchResponse
+    https://docs.aws.amazon.com/lambda/latest/dg/services-s3-batch.html
 
     Attributes:
     ----------
     invocationSchemaVersion: str
 
-    treatMissingKeysAs: Literal['Succeeded', 'TemporaryFailure', 'PermanentFailure']
+    treatMissingKeysAs: Literal['Succeeded', 'TemporaryFailure',
+    'PermanentFailure']
 
     invocationId: str
 
@@ -44,6 +46,10 @@ class S3BatchResponse(TypedDict):
     """
 
     invocationSchemaVersion: str
-    treatMissingKeysAs: Literal['Succeeded', 'TemporaryFailure', 'PermanentFailure']
+    treatMissingKeysAs: Literal[
+        "Succeeded",
+        "TemporaryFailure",
+        "PermanentFailure",
+    ]
     invocationId: str
     results: List[S3BatchResponseResult]

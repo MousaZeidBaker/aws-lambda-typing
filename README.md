@@ -9,8 +9,8 @@
 
 A package that provides type hints for AWS Lambda event, context and response
 objects. It's a convenient way to get autocomplete and type hints built into
-IDEs. Type annotations are not checked at runtime but are only enforced by
-third party tools such as type checkers, IDEs, linters, etc.
+IDEs. Type annotations are not checked at runtime but are only enforced by third
+party tools such as type checkers, IDEs, linters, etc.
 
 ##### Table of Contents
 - [Usage](#usage)
@@ -73,7 +73,7 @@ def handler(event: events.SQSEvent, context: context_.Context) -> None:
 - APIGatewayProxyResponseV2
 - S3BatchResponse
 
-## Test
+## Develop
 Activate virtual environment
 ```shell
 poetry shell
@@ -84,14 +84,35 @@ Install dependencies
 poetry install --remove-untracked
 ```
 
+Install git hooks
+```shell
+pre-commit install --hook-type pre-commit
+```
+
 Run tests
 ```shell
-mypy tests
+pytest tests
+```
+
+Run linter
+```shell
+flake8 .
+```
+
+Format code
+```shell
+black .
+```
+
+Sort imports
+```shell
+isort .
 ```
 
 ## Contributing
 Contributions are welcome via pull requests.
 
 ## Issues
-If you encounter any problems, please file an [issue](https://github.com/MousaZeidBaker/aws-lambda-typing/issues) along with a
+If you encounter any problems, please file an
+[issue](https://github.com/MousaZeidBaker/aws-lambda-typing/issues) along with a
 detailed description.

@@ -30,13 +30,14 @@ class LogEvent(TypedDict):
 
 class CloudWatchLogsDecodedData(TypedDict):
     """
-    CloudWatchLogsDecodedData https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SubscriptionFilters.html
+    CloudWatchLogsDecodedData
+    https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SubscriptionFilters.html
 
     Attributes:
     ----------
-    messageType: str
-        Data messages will use the "DATA_MESSAGE" type. Sometimes CloudWatch Logs may emit Lambda records with a
-        "CONTROL_MESSAGE" type, mainly for checking if the destination is reachable.
+    messageType: str Data messages will use the "DATA_MESSAGE" type. Sometimes
+        CloudWatch Logs may emit Lambda records with a "CONTROL_MESSAGE" type,
+        mainly for checking if the destination is reachable.
 
     owner: str
 
@@ -63,8 +64,7 @@ class AWSLogs(TypedDict):
 
     Attributes:
     ----------
-    data: str
-        Base64 encoded and compressed with the gzip format.
+    data: str Base64 encoded and compressed with the gzip format.
     """
 
     data: str
@@ -72,7 +72,8 @@ class AWSLogs(TypedDict):
 
 class CloudWatchLogsEvent(TypedDict):
     """
-    CloudWatchLogsEvent https://docs.aws.amazon.com/lambda/latest/dg/services-cloudwatchlogs.html
+    CloudWatchLogsEvent
+    https://docs.aws.amazon.com/lambda/latest/dg/services-cloudwatchlogs.html
 
     Attributes:
     ----------
