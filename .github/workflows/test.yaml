@@ -29,6 +29,11 @@ jobs:
       - name: Install dependencies
         run: poetry install
 
+      - name: Lint
+        run: |
+          source $(poetry env info --path)/bin/activate # activate virtual environment
+          flake8 .
+
       - name: Test
         run: |
           source $(poetry env info --path)/bin/activate # activate virtual environment
