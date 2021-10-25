@@ -24,6 +24,9 @@ classifiers=[
 include = [
     "LICENSE",
 ]
+packages = [
+    { include = "aws_lambda_typing", from = "src" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.6"
