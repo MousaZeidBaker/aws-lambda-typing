@@ -1,6 +1,7 @@
 from .api_gateway_proxy import APIGatewayProxyEventV1, APIGatewayProxyEventV2
 from .cloud_watch_events import CloudWatchEventsMessageEvent
 from .cloud_watch_logs import CloudWatchLogsEvent
+from .code_commit import CodeCommitMessageEvent
 from .code_pipeline import CodePipelineEvent
 from .config import ConfigEvent
 from .dynamodb_stream import DynamoDBStreamEvent
