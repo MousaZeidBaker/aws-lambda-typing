@@ -74,9 +74,14 @@ def handler(event: events.SQSEvent, context: context_.Context) -> None:
 - S3BatchResponse
 
 ## Test
-Activate virtualenv & Install project dependencies
+Activate virtual environment
 ```shell
-poetry shell && poetry install
+poetry shell
+```
+
+Install dependencies
+```shell
+poetry install --remove-untracked
 ```
 
 Run tests
