@@ -73,7 +73,7 @@ def handler(event: events.SQSEvent, context: context_.Context) -> None:
 - APIGatewayProxyResponseV2
 - S3BatchResponse
 
-## Test
+## Develop
 Activate virtual environment
 ```shell
 poetry shell
@@ -84,9 +84,29 @@ Install dependencies
 poetry install --remove-untracked
 ```
 
+Install git hooks
+```shell
+pre-commit install --hook-type pre-commit
+```
+
 Run tests
 ```shell
-mypy tests
+pytest tests
+```
+
+Run linter
+```shell
+flake8 .
+```
+
+Format code
+```shell
+black .
+```
+
+Sort imports
+```shell
+isort .
 ```
 
 ## Contributing
