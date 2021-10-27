@@ -4,7 +4,7 @@ from aws_lambda_typing.events import (
 )
 
 
-def test_api_gateway_proxy_event_v1() -> None:
+def test_api_gateway_token_authorizer_event() -> None:
     event: APIGatewayTokenAuthorizerEvent = {
         "type": "TOKEN",
         "authorizationToken": "allow",
@@ -12,7 +12,7 @@ def test_api_gateway_proxy_event_v1() -> None:
     }
 
 
-def test_api_gateway_proxy_event_v2() -> None:
+def test_api_gateway_request_authorizer_event() -> None:
     event: APIGatewayRequestAuthorizerEvent = {
         "type": "REQUEST",
         "methodArn": "arn:aws:execute-api:us-east-1:123456789012:abcdef123/test/GET/request",  # noqa: E501
