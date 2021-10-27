@@ -4,4 +4,8 @@ from .api_gateway_proxy import (
 )
 from .s3_batch import S3BatchResponse
 
-__all__ = ["APIGatewayProxyResponseV1", "APIGatewayProxyResponseV2", "S3BatchResponse"]
+__all__ = [
+    "APIGatewayProxyResponseV1",
+    "APIGatewayProxyResponseV2",
+    "S3BatchResponse",
+]
