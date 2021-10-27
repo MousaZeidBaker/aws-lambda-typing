@@ -92,7 +92,7 @@ pre-commit install --hook-type pre-commit
 
 Run tests
 ```shell
-pytest tests
+mypy tests
 ```
 
 Run linter
