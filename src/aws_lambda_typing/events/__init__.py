@@ -3,6 +3,7 @@ from .api_gateway_authorizer import (
     APIGatewayTokenAuthorizerEvent,
 )
 from .api_gateway_proxy import APIGatewayProxyEventV1, APIGatewayProxyEventV2
+from .app_sync_resolver import AppSyncResolverEvent
 from .cloud_watch_events import CloudWatchEventsMessageEvent
 from .cloud_watch_logs import CloudWatchLogsEvent
 from .code_commit import CodeCommitMessageEvent
