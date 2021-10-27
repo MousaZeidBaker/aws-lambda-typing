@@ -52,6 +52,8 @@ def handler(event: events.SQSEvent, context: context_.Context) -> None:
 - Context
 
 ### Events
+- APIGatewayRequestAuthorizerEvent
+- APIGatewayTokenAuthorizerEvent
 - APIGatewayProxyEventV1
 - APIGatewayProxyEventV2
 - CloudWatchEventsMessageEvent
