@@ -54,7 +54,10 @@ def handler(event: events.SQSEvent, context: context_.Context) -> None:
 ### Events
 - APIGatewayProxyEventV1
 - APIGatewayProxyEventV2
-- CloudFormationEvent
+- CloudFormationCustomResourceCreateEvent
+- CloudFormationCustomResourceDeleteEvent
+- CloudFormationCustomResourceEvent
+- CloudFormationCustomResourceUpdateEvent
 - CloudWatchEventsMessageEvent
 - CloudWatchLogsEvent
 - CodeCommitMessageEvent
