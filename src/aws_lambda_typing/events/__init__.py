@@ -1,4 +1,5 @@
 from .api_gateway_proxy import APIGatewayProxyEventV1, APIGatewayProxyEventV2
+from .app_sync_resolver import AppSyncResolverEvent
 from .cloud_formation_custom_resource import (
     CloudFormationCustomResourceCreateEvent,
     CloudFormationCustomResourceDeleteEvent,
@@ -23,6 +24,7 @@ from .sqs import SQSEvent
 __all__ = [
     "APIGatewayProxyEventV1",
     "APIGatewayProxyEventV2",
+    "AppSyncResolverEvent",
     "CloudFormationCustomResourceCreateEvent",
     "CloudFormationCustomResourceDeleteEvent",
     "CloudFormationCustomResourceEvent",
