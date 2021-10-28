@@ -20,27 +20,3 @@ from .s3_batch import S3BatchEvent
 from .ses import SESEvent
 from .sns import SNSEvent
 from .sqs import SQSEvent
-
-__all__ = [
-    "APIGatewayProxyEventV1",
-    "APIGatewayProxyEventV2",
-    "AppSyncResolverEvent",
-    "CloudFormationCustomResourceCreateEvent",
-    "CloudFormationCustomResourceDeleteEvent",
-    "CloudFormationCustomResourceEvent",
-    "CloudFormationCustomResourceUpdateEvent",
-    "CloudWatchEventsMessageEvent",
-    "CloudWatchLogsEvent",
-    "CodeCommitMessageEvent",
-    "CodePipelineEvent",
-    "ConfigEvent",
-    "DynamoDBStreamEvent",
-    "KinesisFirehoseEvent",
-    "KinesisStreamEvent",
-    "MQEvent",
-    "S3Event",
-    "S3BatchEvent",
-    "SESEvent",
-    "SNSEvent",
-    "SQSEvent",
-]
