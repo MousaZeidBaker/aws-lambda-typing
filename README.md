@@ -52,6 +52,8 @@ def handler(event: events.SQSEvent, context: context_.Context) -> None:
 - Context
 
 ### Events
+- APIGatewayRequestAuthorizerEvent
+- APIGatewayTokenAuthorizerEvent
 - APIGatewayProxyEventV1
 - APIGatewayProxyEventV2
 - AppSyncResolverEvent
@@ -97,7 +99,7 @@ pre-commit install --hook-type pre-commit
 
 Run tests
 ```shell
-pytest tests
+mypy tests
 ```
 
 Run linter

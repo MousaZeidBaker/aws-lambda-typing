@@ -1,3 +1,7 @@
+from .api_gateway_authorizer import (
+    APIGatewayRequestAuthorizerEvent,
+    APIGatewayTokenAuthorizerEvent,
+)
 from .api_gateway_proxy import APIGatewayProxyEventV1, APIGatewayProxyEventV2
 from .app_sync_resolver import AppSyncResolverEvent
 from .cloud_formation_custom_resource import (
