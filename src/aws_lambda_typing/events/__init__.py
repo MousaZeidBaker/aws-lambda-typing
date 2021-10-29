@@ -1,21 +1,28 @@
 from .api_gateway_authorizer import (
-    APIGatewayRequestAuthorizerEvent,
-    APIGatewayTokenAuthorizerEvent,
+    APIGatewayRequestAuthorizerEvent as APIGatewayRequestAuthorizerEvent,
 )
-from .api_gateway_proxy import APIGatewayProxyEventV1, APIGatewayProxyEventV2
-from .app_sync_resolver import AppSyncResolverEvent
-from .cloud_formation_custom_resource import CloudFormationCustomResourceEvent
-from .cloud_watch_events import CloudWatchEventsMessageEvent
-from .cloud_watch_logs import CloudWatchLogsEvent
+from .api_gateway_authorizer import (
+    APIGatewayTokenAuthorizerEvent as APIGatewayTokenAuthorizerEvent,
+)
+from .api_gateway_proxy import APIGatewayProxyEventV1 as APIGatewayProxyEventV1
+from .api_gateway_proxy import APIGatewayProxyEventV2 as APIGatewayProxyEventV2
+from .app_sync_resolver import AppSyncResolverEvent as AppSyncResolverEvent
+from .cloud_formation_custom_resource import (
+    CloudFormationCustomResourceEvent as CloudFormationCustomResourceEvent,
+)
+from .cloud_watch_events import (
+    CloudWatchEventsMessageEvent as CloudWatchEventsMessageEvent,
+)
+from .cloud_watch_logs import CloudWatchLogsEvent as CloudWatchLogsEvent
 from .code_commit import CodeCommitMessageEvent
-from .code_pipeline import CodePipelineEvent
-from .config import ConfigEvent
-from .dynamodb_stream import DynamoDBStreamEvent
-from .kinesis_firehose import KinesisFirehoseEvent
-from .kinesis_stream import KinesisStreamEvent
-from .mq import MQEvent
-from .s3 import S3Event
-from .s3_batch import S3BatchEvent
-from .ses import SESEvent
-from .sns import SNSEvent
-from .sqs import SQSEvent
+from .code_pipeline import CodePipelineEvent as CodePipelineEvent
+from .config import ConfigEvent as ConfigEvent
+from .dynamodb_stream import DynamoDBStreamEvent as DynamoDBStreamEvent
+from .kinesis_firehose import KinesisFirehoseEvent as KinesisFirehoseEvent
+from .kinesis_stream import KinesisStreamEvent as KinesisStreamEvent
+from .mq import MQEvent as MQEvent
+from .s3 import S3Event as S3Event
+from .s3_batch import S3BatchEvent as S3BatchEvent
+from .ses import SESEvent as SESEvent
+from .sns import SNSEvent as SNSEvent
+from .sqs import SQSEvent as SQSEvent
