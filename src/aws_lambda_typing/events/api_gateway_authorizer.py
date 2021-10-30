@@ -6,9 +6,9 @@ from typing import Any
 if sys.version_info >= (3, 8):
     from typing import Dict, Literal, TypedDict
 else:
-    from typing import Dict, Literal
+    from typing import Dict
 
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, TypedDict
 
 
 class APIGatewayTokenAuthorizerEvent(TypedDict):
