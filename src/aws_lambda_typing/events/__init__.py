@@ -23,6 +23,9 @@ from .kinesis_stream import KinesisStreamEvent as KinesisStreamEvent
 from .mq import MQEvent as MQEvent
 from .s3 import S3Event as S3Event
 from .s3_batch import S3BatchEvent as S3BatchEvent
+from .secrets_manager import (
+    SecretsManagerRotationEvent as SecretsManagerRotationEvent,
+)
 from .ses import SESEvent as SESEvent
 from .sns import SNSEvent as SNSEvent
 from .sqs import SQSEvent as SQSEvent

@@ -69,6 +69,7 @@ def handler(event: events.SQSEvent, context: context_.Context) -> None:
 - MQEvent
 - S3Event
 - S3BatchEvent
+- SecretsManagerRotationEvent
 - SESEvent
 - SNSEvent
 - SQSEvent
