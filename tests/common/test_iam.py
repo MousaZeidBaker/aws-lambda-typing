@@ -5,7 +5,11 @@ def test_s3_batch_response() -> None:
     document: PolicyDocument = {
         "Version": "2012-10-17",
         "Statement": [
-            {"Effect": "Deny", "Action": "*", "Resource": "*"},
+            {
+                "Effect": "Deny",
+                "Action": "*",
+                "Resource": "*",
+            },
             {
                 "Effect": "Allow",
                 "Action": ["s3:ListAllMyBuckets", "s3:GetBucketLocation"],
