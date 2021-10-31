@@ -1,3 +1,4 @@
+from .api_gateway_authorizer import APIGatewayAuthorizerResponse
 from .api_gateway_proxy import (
     APIGatewayProxyResponseV1 as APIGatewayProxyResponseV1,
 )
