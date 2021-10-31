@@ -21,6 +21,7 @@ from .dynamodb_stream import DynamoDBStreamEvent as DynamoDBStreamEvent
 from .kinesis_firehose import KinesisFirehoseEvent as KinesisFirehoseEvent
 from .kinesis_stream import KinesisStreamEvent as KinesisStreamEvent
 from .mq import MQEvent as MQEvent
+from .msk import MSKEvent as MSKEvent
 from .s3 import S3Event as S3Event
 from .s3_batch import S3BatchEvent as S3BatchEvent
 from .secrets_manager import (

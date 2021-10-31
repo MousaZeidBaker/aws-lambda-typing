@@ -67,6 +67,7 @@ def handler(event: events.SQSEvent, context: context_.Context) -> None:
 - KinesisFirehoseEvent
 - KinesisStreamEvent
 - MQEvent
+- MSKEvent
 - S3Event
 - S3BatchEvent
 - SecretsManagerRotationEvent
