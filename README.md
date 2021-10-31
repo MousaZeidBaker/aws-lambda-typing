@@ -77,10 +77,14 @@ def handler(event: events.SQSEvent, context: context_.Context) -> None:
 - SQSEvent
 
 ### Responses
+- APIGatewayAuthorizerResponse
 - APIGatewayProxyResponseV1
 - APIGatewayProxyResponseV2
 - IoTPreProvisioningHookResponse
 - S3BatchResponse
+
+### Other
+- PolicyDocument
 
 ## Develop
 Activate virtual environment
