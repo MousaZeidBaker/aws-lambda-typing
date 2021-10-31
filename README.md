@@ -64,6 +64,7 @@ def handler(event: events.SQSEvent, context: context_.Context) -> None:
 - CodePipelineEvent
 - ConfigEvent
 - DynamoDBStreamEvent
+- IoTPreProvisioningHookEvent
 - KinesisFirehoseEvent
 - KinesisStreamEvent
 - MQEvent
@@ -78,6 +79,7 @@ def handler(event: events.SQSEvent, context: context_.Context) -> None:
 ### Responses
 - APIGatewayProxyResponseV1
 - APIGatewayProxyResponseV2
+- IoTPreProvisioningHookResponse
 - S3BatchResponse
 
 ## Develop

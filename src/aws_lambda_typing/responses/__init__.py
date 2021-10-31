@@ -4,4 +4,7 @@ from .api_gateway_proxy import (
 from .api_gateway_proxy import (
     APIGatewayProxyResponseV2 as APIGatewayProxyResponseV2,
 )
+from .iot import (
+    IoTPreProvisioningHookResponse as IoTPreProvisioningHookResponse,
+)
 from .s3_batch import S3BatchResponse as S3BatchResponse
