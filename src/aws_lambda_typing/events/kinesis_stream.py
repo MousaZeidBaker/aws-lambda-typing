@@ -74,7 +74,7 @@ class KinesisStreamEvent(TypedDict):
 
     Attributes:
     ----------
-    records: List[:py:class:`KinesisStreamRecord`]
+    Records: List[:py:class:`KinesisStreamRecord`]
     """
 
-    records: List[KinesisStreamRecord]
+    Records: List[KinesisStreamRecord]
