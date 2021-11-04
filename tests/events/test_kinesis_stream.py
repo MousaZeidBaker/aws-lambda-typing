@@ -3,7 +3,7 @@ from aws_lambda_typing.events import KinesisStreamEvent
 
 def test_kinesis_stream_event() -> None:
     event: KinesisStreamEvent = {
-        "records": [
+        "Records": [
             {
                 "kinesis": {
                     "kinesisSchemaVersion": "1.0",
