@@ -1,10 +1,9 @@
 #!/usr/bin/env python
 
 import sys
-from typing import Any
 
 if sys.version_info >= (3, 8):
-    from typing import Dict, Literal, TypedDict
+    from typing import Any, Dict, Literal, TypedDict
 else:
     from typing import Dict
 
