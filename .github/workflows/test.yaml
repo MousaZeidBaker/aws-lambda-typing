@@ -42,6 +42,18 @@ jobs:
           source $(poetry env info --path)/bin/activate # activate virtual environment
           mypy tests
 
+      - name: Validate Project Version
+        run: |
+          source $(poetry env info --path)/bin/activate # activate virtual environment
+          NEW_VERSION=$(poetry version --short)
+          git fetch --no-tags && git checkout master
+          OLD_VERSION=$(poetry version --short)
+          echo "NEW_VERSION ${NEW_VERSION} OLD_VERSION ${OLD_VERSION}"
+          if [[ "$NEW_VERSION" == "$OLD_VERSION" ]]; then
+            echo "Make sure to bump project version"
+            exit 1 # operation not permitted
+          fi
+
       - name: Build
         run: poetry build
 
