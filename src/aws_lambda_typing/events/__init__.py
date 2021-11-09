@@ -1,3 +1,4 @@
+from .alb import ALBEvent as ALBEvent
 from .api_gateway_authorizer import (
     APIGatewayRequestAuthorizerEvent as APIGatewayRequestAuthorizerEvent,
 )

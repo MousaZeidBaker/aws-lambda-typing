@@ -52,6 +52,7 @@ def handler(event: events.SQSEvent, context: context_.Context) -> None:
 - Context
 
 ### Events
+- ALBEvent
 - APIGatewayRequestAuthorizerEvent
 - APIGatewayTokenAuthorizerEvent
 - APIGatewayProxyEventV1
@@ -77,6 +78,7 @@ def handler(event: events.SQSEvent, context: context_.Context) -> None:
 - SQSEvent
 
 ### Responses
+- ALBResponse
 - APIGatewayAuthorizerResponse
 - APIGatewayProxyResponseV1
 - APIGatewayProxyResponseV2
