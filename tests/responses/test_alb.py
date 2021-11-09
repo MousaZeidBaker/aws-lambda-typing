@@ -1,7 +1,7 @@
 from aws_lambda_typing.responses import ALBResponse
 
 
-def test_app_sync_resolver_event() -> None:
+def test_alb_response() -> None:
     event: ALBResponse = {
         "isBase64Encoded": False,
         "statusCode": 200,

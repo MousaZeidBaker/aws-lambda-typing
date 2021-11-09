@@ -1,7 +1,7 @@
 from aws_lambda_typing.events import ALBEvent
 
 
-def test_app_sync_resolver_event() -> None:
+def test_alb_event() -> None:
     event: ALBEvent = {
         "requestContext": {
             "elb": {
