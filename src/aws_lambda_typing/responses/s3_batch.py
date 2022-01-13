@@ -9,6 +9,12 @@ else:
 
     from typing_extensions import Literal, TypedDict
 
+S3BatchResponseResultCode = Literal[
+    "Succeeded",
+    "TemporaryFailure",
+    "PermanentFailure",
+]
+
 
 class S3BatchResponseResult(TypedDict):
     """
@@ -18,13 +24,13 @@ class S3BatchResponseResult(TypedDict):
     ----------
     taskId: str
 
-    resultCode: str
+    resultCode: S3BatchResponseResultCode
 
     resultString: str
     """
 
     taskId: str
-    resultCode: str
+    resultCode: S3BatchResponseResultCode
     resultString: str
 
 
@@ -37,8 +43,7 @@ class S3BatchResponse(TypedDict):
     ----------
     invocationSchemaVersion: str
 
-    treatMissingKeysAs: Literal['Succeeded', 'TemporaryFailure',
-    'PermanentFailure']
+    treatMissingKeysAs: S3BatchResponseResultCode
 
     invocationId: str
 
@@ -46,10 +51,6 @@ class S3BatchResponse(TypedDict):
     """
 
     invocationSchemaVersion: str
-    treatMissingKeysAs: Literal[
-        "Succeeded",
-        "TemporaryFailure",
-        "PermanentFailure",
-    ]
+    treatMissingKeysAs: S3BatchResponseResultCode
     invocationId: str
     results: List[S3BatchResponseResult]
