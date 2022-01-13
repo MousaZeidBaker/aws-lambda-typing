@@ -98,9 +98,8 @@ class S3BatchResponse(TypedDict):
     ----------
     invocationSchemaVersion: str
 
-    treatMissingKeysAs: Literal[
-        "Succeeded", "TemporaryFailure", "PermanentFailure"
-    ]
+    treatMissingKeysAs: Literal["Succeeded", "TemporaryFailure",
+    "PermanentFailure"]
 
     invocationId: str
 
