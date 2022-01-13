@@ -1,8 +1,12 @@
-from aws_lambda_typing.events import CloudFormationCustomResourceEvent
+from aws_lambda_typing.events import (
+    CloudFormationCustomResourceCreate,
+    CloudFormationCustomResourceDelete,
+    CloudFormationCustomResourceUpdate,
+)
 
 
 def test_cloud_formation_custom_resource_create_event() -> None:
-    event: CloudFormationCustomResourceEvent = {
+    event: CloudFormationCustomResourceCreate = {
         "RequestType": "Create",
         "RequestId": "unique id for this create request",
         "ResponseURL": "pre-signed-url-for-create-response",
@@ -18,7 +22,7 @@ def test_cloud_formation_custom_resource_create_event() -> None:
 
 
 def test_cloud_formation_custom_resource_update_event() -> None:
-    event: CloudFormationCustomResourceEvent = {
+    event: CloudFormationCustomResourceUpdate = {
         "RequestType": "Update",
         "RequestId": "unique id for this update request",
         "ResponseURL": "pre-signed-url-for-update-response",
@@ -40,7 +44,7 @@ def test_cloud_formation_custom_resource_update_event() -> None:
 
 
 def test_cloud_formation_custom_resource_delete_event() -> None:
-    event: CloudFormationCustomResourceEvent = {
+    event: CloudFormationCustomResourceDelete = {
         "RequestType": "Delete",
         "RequestId": "unique id for this delete request",
         "ResponseURL": "pre-signed-url-for-delete-response",

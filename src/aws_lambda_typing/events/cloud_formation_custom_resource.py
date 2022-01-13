@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import sys
+from typing import Union
 
 if sys.version_info >= (3, 8):
     from typing import Any, Dict, Literal, TypedDict
@@ -17,8 +18,6 @@ class CloudFormationCustomResourceCommon(TypedDict):
 
     Attributes:
     ----------
-    RequestType: Literal["Create", "Update", "Delete"]
-
     RequestId: str
 
     ResponseURL: str
@@ -32,17 +31,28 @@ class CloudFormationCustomResourceCommon(TypedDict):
     ResourceProperties: Dict[str, Any]
     """
 
-    RequestType: Literal[
-        "Create",
-        "Update",
-        "Delete",
-    ]
     RequestId: str
     ResponseURL: str
     ResourceType: str
     LogicalResourceId: str
     StackId: str
     ResourceProperties: Dict[str, Any]
+
+
+class CloudFormationCustomResourceCreate(
+    CloudFormationCustomResourceCommon,
+    total=False,
+):
+    """
+    CloudFormationCustomResourceCreate
+    https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/crpg-ref-requesttypes-create.html
+
+    Attributes:
+    ----------
+    RequestType: Literal["Create"]
+    """
+
+    RequestType: Literal["Create"]
 
 
 class CloudFormationCustomResourceUpdate(
@@ -55,11 +65,14 @@ class CloudFormationCustomResourceUpdate(
 
     Attributes:
     ----------
+    RequestType: Literal["Update"]
+
     PhysicalResourceId: str
 
     OldResourceProperties: Dict[str, Any]
     """
 
+    RequestType: Literal["Update"]
     PhysicalResourceId: str
     OldResourceProperties: Dict[str, Any]
 
@@ -74,39 +87,17 @@ class CloudFormationCustomResourceDelete(
 
     Attributes:
     ----------
+    RequestType: Literal["Delete"]
+
     PhysicalResourceId: str
     """
 
+    RequestType: Literal["Delete"]
     PhysicalResourceId: str
 
 
-class CloudFormationCustomResourceEvent(
+CloudFormationCustomResourceEvent = Union[
+    CloudFormationCustomResourceCreate,
     CloudFormationCustomResourceUpdate,
     CloudFormationCustomResourceDelete,
-):
-    """
-    CloudFormationCustomResourceEvent
-    https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/crpg-ref-requesttypes.html
-
-    Attributes:
-    ----------
-    RequestType: Literal["Create", "Update", "Delete"]
-
-    RequestId: str
-
-    ResponseURL: str
-
-    ResourceType: str
-
-    LogicalResourceId: str
-
-    StackId: str
-
-    ResourceProperties: Dict[str, Any]
-
-    PhysicalResourceId: Optional[str] Only in Update/Delete events
-
-    OldResourceProperties: Optional[Dict[str, Any]] Only in Update events
-    """
-
-    pass
+]
