@@ -49,7 +49,7 @@ class CloudFormationCustomResourceCreate(
 
     Attributes:
     ----------
-    RequestType: Literal["Create"]
+    RequestType: Literal['Create']
     """
 
     RequestType: Literal["Create"]
@@ -65,7 +65,7 @@ class CloudFormationCustomResourceUpdate(
 
     Attributes:
     ----------
-    RequestType: Literal["Update"]
+    RequestType: Literal['Update']
 
     PhysicalResourceId: str
 
@@ -87,7 +87,7 @@ class CloudFormationCustomResourceDelete(
 
     Attributes:
     ----------
-    RequestType: Literal["Delete"]
+    RequestType: Literal['Delete']
 
     PhysicalResourceId: str
     """
