@@ -24,7 +24,7 @@ class S3BatchResponseResult(TypedDict):
     ----------
     taskId: str
 
-    resultCode: Literal["Succeeded", "TemporaryFailure", "PermanentFailure"]
+    resultCode: Literal['Succeeded', 'TemporaryFailure', 'PermanentFailure']
 
     resultString: str
     """
@@ -43,8 +43,8 @@ class S3BatchResponse(TypedDict):
     ----------
     invocationSchemaVersion: str
 
-    treatMissingKeysAs: Literal["Succeeded", "TemporaryFailure",
-    "PermanentFailure"]
+    treatMissingKeysAs: Literal['Succeeded', 'TemporaryFailure',
+    'PermanentFailure']
 
     invocationId: str
 
