@@ -97,3 +97,27 @@ CloudFormationCustomResourceEvent = Union[
     CloudFormationCustomResourceUpdate,
     CloudFormationCustomResourceDelete,
 ]
+"""
+CloudFormationCustomResourceEvent
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/crpg-ref-requesttypes.html
+
+Attributes:
+----------
+RequestType: Literal["Create", "Update", "Delete"]
+
+RequestId: str
+
+ResponseURL: str
+
+ResourceType: str
+
+LogicalResourceId: str
+
+StackId: str
+
+ResourceProperties: Dict[str, Any]
+
+PhysicalResourceId: str (only in "Update" and "Delete" events)
+
+OldResourceProperties: Dict[str, Any] (only in "Update" events)
+"""
