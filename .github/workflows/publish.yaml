@@ -37,6 +37,7 @@ jobs:
       - name: Test
         run: |
           source $(poetry env info --path)/bin/activate # activate virtual environment
+          mypy src
           mypy tests
 
       - name: Build
@@ -77,6 +78,7 @@ jobs:
       - name: Test
         run: |
           source $(poetry env info --path)/bin/activate # activate virtual environment
+          mypy src
           mypy tests
 
       - name: Build
