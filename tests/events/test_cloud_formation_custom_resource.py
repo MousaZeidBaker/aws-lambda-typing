@@ -6,7 +6,9 @@ from aws_lambda_typing.events import (
 )
 
 
-def handle_event(event: CloudFormationCustomResourceEvent) -> None:
+def test_handle_cloud_formation_custom_resource_event(
+    event: CloudFormationCustomResourceEvent,
+) -> None:
     if event["RequestType"] == "Update":
         # event is automatically narrowed to CloudFormationCustomResourceUpdate
         old_properties = event["OldResourceProperties"]
