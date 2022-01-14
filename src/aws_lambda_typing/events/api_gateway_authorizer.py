@@ -5,7 +5,7 @@ import sys
 if sys.version_info >= (3, 8):
     from typing import Any, Dict, Literal, TypedDict
 else:
-    from typing import Dict
+    from typing import Any, Dict
 
     from typing_extensions import Literal, TypedDict
 
