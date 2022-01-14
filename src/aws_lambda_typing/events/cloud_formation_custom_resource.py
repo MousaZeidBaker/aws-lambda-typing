@@ -40,7 +40,6 @@ class CloudFormationCustomResourceCommon(TypedDict):
 
 class CloudFormationCustomResourceCreate(
     CloudFormationCustomResourceCommon,
-    total=False,
 ):
     """
     CloudFormationCustomResourceCreate
@@ -56,7 +55,6 @@ class CloudFormationCustomResourceCreate(
 
 class CloudFormationCustomResourceUpdate(
     CloudFormationCustomResourceCommon,
-    total=False,
 ):
     """
     CloudFormationCustomResourceUpdate
@@ -78,7 +76,6 @@ class CloudFormationCustomResourceUpdate(
 
 class CloudFormationCustomResourceDelete(
     CloudFormationCustomResourceCommon,
-    total=False,
 ):
     """
     CloudFormationCustomResourceDelete
