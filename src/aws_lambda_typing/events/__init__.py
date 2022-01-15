@@ -9,13 +9,22 @@ from .api_gateway_proxy import APIGatewayProxyEventV1 as APIGatewayProxyEventV1
 from .api_gateway_proxy import APIGatewayProxyEventV2 as APIGatewayProxyEventV2
 from .app_sync_resolver import AppSyncResolverEvent as AppSyncResolverEvent
 from .cloud_formation_custom_resource import (
+    CloudFormationCustomResourceCreate as CloudFormationCustomResourceCreate,
+)
+from .cloud_formation_custom_resource import (
+    CloudFormationCustomResourceDelete as CloudFormationCustomResourceDelete,
+)
+from .cloud_formation_custom_resource import (
     CloudFormationCustomResourceEvent as CloudFormationCustomResourceEvent,
+)
+from .cloud_formation_custom_resource import (
+    CloudFormationCustomResourceUpdate as CloudFormationCustomResourceUpdate,
 )
 from .cloud_watch_events import (
     CloudWatchEventsMessageEvent as CloudWatchEventsMessageEvent,
 )
 from .cloud_watch_logs import CloudWatchLogsEvent as CloudWatchLogsEvent
-from .code_commit import CodeCommitMessageEvent
+from .code_commit import CodeCommitMessageEvent as CodeCommitMessageEvent
 from .code_pipeline import CodePipelineEvent as CodePipelineEvent
 from .config import ConfigEvent as ConfigEvent
 from .dynamodb_stream import DynamoDBStreamEvent as DynamoDBStreamEvent

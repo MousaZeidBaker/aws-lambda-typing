@@ -3,9 +3,9 @@
 import sys
 
 if sys.version_info >= (3, 8):
-    from typing import Any, Dict, Literal, TypedDict
+    from typing import Any, Dict, Literal, TypedDict, Union
 else:
-    from typing import Any, Dict
+    from typing import Any, Dict, Union
 
     from typing_extensions import Literal, TypedDict
 
@@ -17,8 +17,6 @@ class CloudFormationCustomResourceCommon(TypedDict):
 
     Attributes:
     ----------
-    RequestType: Literal["Create", "Update", "Delete"]
-
     RequestId: str
 
     ResponseURL: str
@@ -32,11 +30,6 @@ class CloudFormationCustomResourceCommon(TypedDict):
     ResourceProperties: Dict[str, Any]
     """
 
-    RequestType: Literal[
-        "Create",
-        "Update",
-        "Delete",
-    ]
     RequestId: str
     ResponseURL: str
     ResourceType: str
@@ -45,9 +38,23 @@ class CloudFormationCustomResourceCommon(TypedDict):
     ResourceProperties: Dict[str, Any]
 
 
+class CloudFormationCustomResourceCreate(
+    CloudFormationCustomResourceCommon,
+):
+    """
+    CloudFormationCustomResourceCreate
+    https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/crpg-ref-requesttypes-create.html
+
+    Attributes:
+    ----------
+    RequestType: Literal['Create']
+    """
+
+    RequestType: Literal["Create"]
+
+
 class CloudFormationCustomResourceUpdate(
     CloudFormationCustomResourceCommon,
-    total=False,
 ):
     """
     CloudFormationCustomResourceUpdate
@@ -55,18 +62,20 @@ class CloudFormationCustomResourceUpdate(
 
     Attributes:
     ----------
+    RequestType: Literal['Update']
+
     PhysicalResourceId: str
 
     OldResourceProperties: Dict[str, Any]
     """
 
+    RequestType: Literal["Update"]
     PhysicalResourceId: str
     OldResourceProperties: Dict[str, Any]
 
 
 class CloudFormationCustomResourceDelete(
     CloudFormationCustomResourceCommon,
-    total=False,
 ):
     """
     CloudFormationCustomResourceDelete
@@ -74,39 +83,41 @@ class CloudFormationCustomResourceDelete(
 
     Attributes:
     ----------
+    RequestType: Literal['Delete']
+
     PhysicalResourceId: str
     """
 
+    RequestType: Literal["Delete"]
     PhysicalResourceId: str
 
 
-class CloudFormationCustomResourceEvent(
+CloudFormationCustomResourceEvent = Union[
+    CloudFormationCustomResourceCreate,
     CloudFormationCustomResourceUpdate,
     CloudFormationCustomResourceDelete,
-):
-    """
-    CloudFormationCustomResourceEvent
-    https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/crpg-ref-requesttypes.html
+]
+"""
+CloudFormationCustomResourceEvent
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/crpg-ref-requesttypes.html
 
-    Attributes:
-    ----------
-    RequestType: Literal["Create", "Update", "Delete"]
+Attributes:
+----------
+RequestType: Literal["Create", "Update", "Delete"]
 
-    RequestId: str
+RequestId: str
 
-    ResponseURL: str
+ResponseURL: str
 
-    ResourceType: str
+ResourceType: str
 
-    LogicalResourceId: str
+LogicalResourceId: str
 
-    StackId: str
+StackId: str
 
-    ResourceProperties: Dict[str, Any]
+ResourceProperties: Dict[str, Any]
 
-    PhysicalResourceId: Optional[str] Only in Update/Delete events
+PhysicalResourceId: str (only in "Update" and "Delete" events)
 
-    OldResourceProperties: Optional[Dict[str, Any]] Only in Update events
-    """
-
-    pass
+OldResourceProperties: Dict[str, Any] (only in "Update" events)
+"""
