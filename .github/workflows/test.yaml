@@ -9,7 +9,7 @@ on:
       - '*'
 
 jobs:
-  publish_testpypi:
+  test:
     runs-on: ubuntu-latest
     environment: testpypi
     strategy:
