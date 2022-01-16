@@ -4,7 +4,7 @@ name: Update Dependencies
 on:
   schedule:
     - cron:  '0 6 1 * *' # at 06:00 on day-of-month 1
-  workflow_dispatch
+  workflow_dispatch: # enables manual trigger
 
 jobs:
   update_dependencies:
