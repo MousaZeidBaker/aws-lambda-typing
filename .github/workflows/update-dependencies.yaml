@@ -3,7 +3,7 @@ name: Update Dependencies
 # controls when the action will run
 on:
   schedule:
-    - cron:  '0 6 1 * *'
+    - cron:  '0 6 1 * *' # at 06:00 on day-of-month 1
 
 jobs:
   update_dependencies:
