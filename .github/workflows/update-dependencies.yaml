@@ -1,0 +1,43 @@
+name: Update Dependencies
+
+# controls when the action will run
+on:
+  schedule:
+    - cron:  '0 6 1 * *'
+
+jobs:
+  update_dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install poetry 1.1.12
+        uses: snok/install-poetry@v1
+        with:
+          version: 1.1.12
+
+      - name: Update dependencies
+        run: |
+          pip install poetryup
+          poetryup
+          if [ -n "$(git status --porcelain)" ]; then
+            # working tree NOT clean, bump project version
+            poetry version patch 
+          fi
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+            token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+            commit-message: Update dependencies
+            title: Update dependencies
+            labels: |
+              patch
+            branch: update-dependencies
+            delete-branch: true
