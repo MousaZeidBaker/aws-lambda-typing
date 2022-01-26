@@ -2,10 +2,10 @@
 
 ![build](https://github.com/MousaZeidBaker/aws-lambda-typing/workflows/Publish/badge.svg)
 ![test](https://github.com/MousaZeidBaker/aws-lambda-typing/workflows/Test/badge.svg)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 ![python_version](https://img.shields.io/badge/python-%3E=3.6-blue.svg)
-[![pypi_v](https://img.shields.io/pypi/v/aws-lambda-typing.svg)](https://pypi.org/project/aws-lambda-typing)
-[![pypi_dm](https://img.shields.io/pypi/dm/aws-lambda-typing.svg)](https://pypi.org/project/aws-lambda-typing)
+[![pypi_v](https://img.shields.io/pypi/v/aws-lambda-typing)](https://pypi.org/project/aws-lambda-typing)
+[![pypi_dm](https://img.shields.io/pypi/dm/aws-lambda-typing)](https://pypi.org/project/aws-lambda-typing)
 
 A package that provides type hints for AWS Lambda event, context and response
 objects. It's a convenient way to get autocomplete and type hints built into
