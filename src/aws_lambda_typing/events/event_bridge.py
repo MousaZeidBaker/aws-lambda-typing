@@ -30,22 +30,23 @@ https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html
 
 https://docs.aws.amazon.com/lambda/latest/dg/services-cloudwatchevents.html
 
-Args:
-    version: str
+Attributes:
+----------
+version: str
 
-    id: str
+id: str
 
-    detail-type: str
+detail-type: str
 
-    source: str
+source: str
 
-    account: str
+account: str
 
-    time: str
+time: str
 
-    region: str
+region: str
 
-    resources: List[str]
+resources: List[str]
 
-    detail: Dict
+detail: Dict
 """
