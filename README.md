@@ -65,6 +65,7 @@ def handler(event: events.SQSEvent, context: context_.Context) -> None:
 - CodePipelineEvent
 - ConfigEvent
 - DynamoDBStreamEvent
+- EventBridgeEvent
 - IoTPreProvisioningHookEvent
 - KinesisFirehoseEvent
 - KinesisStreamEvent
@@ -106,7 +107,7 @@ pre-commit install --hook-type pre-commit
 
 Run tests
 ```shell
-mypy tests
+mypy src tests
 ```
 
 Run linter

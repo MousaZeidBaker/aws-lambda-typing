@@ -28,6 +28,7 @@ from .code_commit import CodeCommitMessageEvent as CodeCommitMessageEvent
 from .code_pipeline import CodePipelineEvent as CodePipelineEvent
 from .config import ConfigEvent as ConfigEvent
 from .dynamodb_stream import DynamoDBStreamEvent as DynamoDBStreamEvent
+from .event_bridge import EventBridgeEvent as EventBridgeEvent
 from .iot import IoTPreProvisioningHookEvent as IoTPreProvisioningHookEvent
 from .kinesis_firehose import KinesisFirehoseEvent as KinesisFirehoseEvent
 from .kinesis_stream import KinesisStreamEvent as KinesisStreamEvent
