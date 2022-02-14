@@ -25,6 +25,9 @@ CloudWatchEventsMessageEvent = TypedDict(
     },
 )
 """
+Deprecated since version 2.10.0: use :py:class:`EventBridgeEvent` instead.
+----------
+
 CloudWatchEventsMessageEvent
 https://docs.aws.amazon.com/lambda/latest/dg/services-cloudwatchevents.html
 
