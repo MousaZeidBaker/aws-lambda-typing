@@ -10,8 +10,8 @@ else:
     from typing_extensions import TypedDict
 
 
-CloudWatchEventsMessageEvent = TypedDict(
-    "CloudWatchEventsMessageEvent",
+EventBridgeEvent = TypedDict(
+    "EventBridgeEvent",
     {
         "version": str,
         "id": str,
@@ -25,14 +25,10 @@ CloudWatchEventsMessageEvent = TypedDict(
     },
 )
 """
-Deprecated since version 2.10.0: use :py:class:`EventBridgeEvent` instead.
-----------
+EventBridgeEvent
+https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html
 
-CloudWatchEventsMessageEvent
 https://docs.aws.amazon.com/lambda/latest/dg/services-cloudwatchevents.html
-
-Other CloudWatch Events Event Examples:
-https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/EventTypes.html
 
 Attributes:
 ----------
