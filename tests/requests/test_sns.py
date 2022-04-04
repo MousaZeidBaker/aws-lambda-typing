@@ -9,7 +9,7 @@ def test_sns_publish() -> None:
             "string": {
                 "DataType": "string",
                 "StringValue": "string",
-                "BinaryValue": b"bytes"
+                "BinaryValue": b"bytes",
             }
         },
         "MessageDeduplicationId": "string",
@@ -20,6 +20,7 @@ def test_sns_publish() -> None:
         "TargetArn": "string",
         "TopicArn": "string",
     }
+
 
 def test_sns_publish_batch() -> None:
     request: SNSPublishBatch = {
@@ -32,7 +33,7 @@ def test_sns_publish_batch() -> None:
                     "string": {
                         "DataType": "string",
                         "StringValue": "string",
-                        "BinaryValue": b"bytes"
+                        "BinaryValue": b"bytes",
                     }
                 },
                 "MessageDeduplicationId": "string",
@@ -40,5 +41,5 @@ def test_sns_publish_batch() -> None:
                 "MessageStructure": "json",
                 "Subject": "string",
             }
-        ]
+        ],
     }
