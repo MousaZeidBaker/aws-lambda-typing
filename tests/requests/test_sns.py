@@ -1,5 +1,4 @@
-from aws_lambda_typing.requests import SNSPublish
-from aws_lambda_typing.requests import SNSPublishBatch
+from aws_lambda_typing.requests import SNSPublish, SNSPublishBatch
 
 
 def test_sns_publish() -> None:
