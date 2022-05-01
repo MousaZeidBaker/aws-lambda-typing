@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "aws-lambda-typing"
-version = "2.11.0"
+version = "2.11.1"
 description = "A package that provides type hints for AWS Lambda event, context and response objects"
 authors = ["Mousa Zeid Baker"]
 license = "MIT"
@@ -30,7 +30,7 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.6"
-typing-extensions = { version = "^4.0.1", python = "<3.8" }
+typing-extensions = { version = "^4.1.1", python = "<3.8" }
 
 [tool.poetry.dev-dependencies]
 mypy = "^0.910"
@@ -39,9 +39,9 @@ black = [
     {version = "^22.3.0", python = ">3.6.2"},
 ]
 flake8 = "^4.0.1"
-flake8-black = "^0.2.4"
+flake8-black = "^0.2.5"
 flake8-isort = "^4.1.1"
-flake8-eradicate = "^1.2.0"
+flake8-eradicate = "^1.2.1"
 isort = { version = "^5.10.1", python = "^3.6.1" }
 pre-commit = { version = "^2.17.0", python = "^3.6.1" }
 
