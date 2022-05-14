@@ -26,6 +26,7 @@ from .cloud_watch_events import (
 from .cloud_watch_logs import CloudWatchLogsEvent as CloudWatchLogsEvent
 from .code_commit import CodeCommitMessageEvent as CodeCommitMessageEvent
 from .code_pipeline import CodePipelineEvent as CodePipelineEvent
+from .cognito_custom_message import CognitoCustomMessage as CognitoCustomMessage
 from .config import ConfigEvent as ConfigEvent
 from .dynamodb_stream import DynamoDBStreamEvent as DynamoDBStreamEvent
 from .event_bridge import EventBridgeEvent as EventBridgeEvent
