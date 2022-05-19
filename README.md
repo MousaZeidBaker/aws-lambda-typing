@@ -79,6 +79,10 @@ def handler(event: events.SQSEvent, context: context_.Context) -> None:
 - SNSEvent
 - SQSEvent
 
+### Requests
+- SNSPublish
+- SNSPublishBatch
+
 ### Responses
 - ALBResponse
 - APIGatewayAuthorizerResponse
