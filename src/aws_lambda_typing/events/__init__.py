@@ -26,7 +26,30 @@ from .cloud_watch_events import (
 from .cloud_watch_logs import CloudWatchLogsEvent as CloudWatchLogsEvent
 from .code_commit import CodeCommitMessageEvent as CodeCommitMessageEvent
 from .code_pipeline import CodePipelineEvent as CodePipelineEvent
-from .cognito_custom_message import CognitoCustomMessage as CognitoCustomMessage
+from .cognito_custom_message import (
+    CognitoCustomMessageAdminCreateUserEvent as CognitoCustomMessageAdminCreateUserEvent,
+)
+from .cognito_custom_message import (
+    CognitoCustomMessageAuthenticationEvent as CognitoCustomMessageAuthenticationEvent,
+)
+from .cognito_custom_message import (
+    CognitoCustomMessageEvent as CognitoCustomMessageEvent,
+)
+from .cognito_custom_message import (
+    CognitoCustomMessageForgotPasswordEvent as CognitoCustomMessageForgotPasswordEvent,
+)
+from .cognito_custom_message import (
+    CognitoCustomMessageResendCodeEvent as CognitoCustomMessageResendCodeEvent,
+)
+from .cognito_custom_message import (
+    CognitoCustomMessageSignUpEvent as CognitoCustomMessageSignUpEvent,
+)
+from .cognito_custom_message import (
+    CognitoCustomMessageUpdateUserAttributeEvent as CognitoCustomMessageUpdateUserAttributeEvent,
+)
+from .cognito_custom_message import (
+    CognitoCustomMessageVerifyUserAttributeEvent as CognitoCustomMessageVerifyUserAttributeEvent,
+)
 from .config import ConfigEvent as ConfigEvent
 from .dynamodb_stream import DynamoDBStreamEvent as DynamoDBStreamEvent
 from .event_bridge import EventBridgeEvent as EventBridgeEvent

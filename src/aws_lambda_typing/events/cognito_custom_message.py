@@ -1,61 +1,62 @@
 #!/usr/bin/env python
 
 import sys
-from typing import Literal
 
 if sys.version_info >= (3, 8):
-    from typing import Dict, Optional, TypedDict
+    from typing import Any, Dict, Literal, Optional, TypedDict, Union
 else:
-    from typing import Dict, Optional
+    from typing import Any, Dict, Optional, Union
 
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, TypedDict
 
 
-class CognitoCustomMessageCallerContext(TypedDict):
+class CallerContext(TypedDict):
     """
-    CognitoCustomMessageCallerContext
+    CallerContext
 
     Attributes:
     ----------:
-    awsSdk: str
+    awsSdkVersion: str
+
     clientId: str
     """
 
-    awsSdk: str
+    awsSdkVersion: str
     clientId: str
 
 
-class CognitoCustomMessageRequestUserAttributes(TypedDict):
+class Request(TypedDict, total=False):
     """
-    CognitoCustomMessageRequestUserAttributes
+    Request
 
     Attributes:
     ----------:
-    phone_number_verified: bool
-    email_verified: bool
+    userAttributes: Dict[str, Any]
+
+    codeParameter: str
+
+    usernameParameter: str
+
+    clientMetadata: Optional[Dict[str, Any]]
     """
 
-    phone_number_verified: bool
-    email_verified: bool
+    userAttributes: Dict[str, Any]
+    codeParameter: str
+    usernameParameter: str
+    clientMetadata: Optional[Dict[str, Any]]
 
 
-class CognitoCustomMessageRequest(TypedDict):
+class Response(TypedDict):
     """
-    CognitoCustomMessageRequest
+    Response
 
     Attributes:
     ----------:
-    userAttributes: CognitoCustomMessageRequestUserAttributes
-    """
+    smsMessage: str
 
+    emailMessage: str
 
-class CognitoCustomMessageResponse(TypedDict):
-    """
-    CognitoCustomMessageResponse
-
-    Attributes:
-    ----------:
-    userAttributes: CognitoCustomMessageRequestUserAttributes
+    emailSubject: str
     """
 
     smsMessage: str
@@ -63,26 +64,178 @@ class CognitoCustomMessageResponse(TypedDict):
     emailSubject: str
 
 
-class CognitoCustomMessage(TypedDict):
+class CognitoCustomMessageCommon(TypedDict):
     """
-    CognitoCustomMessage
+    CognitoCustomMessageCommon
+    https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html#cognito-user-pools-lambda-trigger-syntax-shared
+
+    Attributes:
+    ----------
+    version: str
+
+    region: str
+
+    userPoolId: str
+
+    userName: str
+
+    callerContext: :py:class:`CallerContext`
+
+    request: :py:class:`Request`
+
+    response: :py:class:`Response`
+    """
+
+    version: str
+    region: str
+    userPoolId: str
+    userName: str
+    callerContext: CallerContext
+    request: Request
+    response: Response
+
+
+class CognitoCustomMessageSignUpEvent(
+    CognitoCustomMessageCommon,
+):
+    """
+    CognitoCustomMessageSignUpEvent
     https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-custom-message.html
 
     Attributes:
     ----------
-    triggerSource: str
+    triggerSource: Literal['CustomMessage_SignUp']
     """
 
-    version: int
-    triggerSource: Literal[
-        "CustomMessage_SignUp",
-        "CustomMessage_ResendCode",
-        "CustomMessage_ForgotPassword",
-        "CustomMessage_VerifyUserAttribute",
-    ]
-    region: str
-    userPoolId: str
-    userName: str
-    callerContext: CognitoCustomMessageCallerContext
-    request: CognitoCustomMessageRequest
-    response: CognitoCustomMessageResponse
+    triggerSource: Literal["CustomMessage_SignUp"]
+
+
+class CognitoCustomMessageAdminCreateUserEvent(
+    CognitoCustomMessageCommon,
+):
+    """
+    CognitoCustomMessageAdminCreateUserEvent
+    https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-custom-message.html
+
+    Attributes:
+    ----------
+    triggerSource: Literal['CustomMessage_AdminCreateUser']
+    """
+
+    triggerSource: Literal["CustomMessage_AdminCreateUser"]
+
+
+class CognitoCustomMessageResendCodeEvent(
+    CognitoCustomMessageCommon,
+):
+    """
+    CognitoCustomMessageResendCodeEvent
+    https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-custom-message.html
+
+    Attributes:
+    ----------
+    triggerSource: Literal['CustomMessage_ResendCode']
+    """
+
+    triggerSource: Literal["CustomMessage_ResendCode"]
+
+
+class CognitoCustomMessageForgotPasswordEvent(
+    CognitoCustomMessageCommon,
+):
+    """
+    CognitoCustomMessageForgotPasswordEvent
+    https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-custom-message.html
+
+    Attributes:
+    ----------
+    triggerSource: Literal['CustomMessage_ForgotPassword']
+    """
+
+    triggerSource: Literal["CustomMessage_ForgotPassword"]
+
+
+class CognitoCustomMessageUpdateUserAttributeEvent(
+    CognitoCustomMessageCommon,
+):
+    """
+    CognitoCustomMessageUpdateUserAttributeEvent
+    https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-custom-message.html
+
+    Attributes:
+    ----------
+    triggerSource: Literal['CustomMessage_UpdateUserAttribute']
+    """
+
+    triggerSource: Literal["CustomMessage_UpdateUserAttribute"]
+
+
+class CognitoCustomMessageVerifyUserAttributeEvent(
+    CognitoCustomMessageCommon,
+):
+    """
+    CognitoCustomMessageVerifyUserAttributeEvent
+    https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-custom-message.html
+
+    Attributes:
+    ----------
+    triggerSource: Literal['CustomMessage_VerifyUserAttribute']
+    """
+
+    triggerSource: Literal["CustomMessage_VerifyUserAttribute"]
+
+
+class CognitoCustomMessageAuthenticationEvent(
+    CognitoCustomMessageCommon,
+):
+    """
+    CognitoCustomMessageAuthenticationEvent
+    https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-custom-message.html
+
+    Attributes:
+    ----------
+    triggerSource: Literal['CustomMessage_Authentication']
+    """
+
+    triggerSource: Literal["CustomMessage_Authentication"]
+
+
+CognitoCustomMessageEvent = Union[
+    CognitoCustomMessageSignUpEvent,
+    CognitoCustomMessageAdminCreateUserEvent,
+    CognitoCustomMessageResendCodeEvent,
+    CognitoCustomMessageForgotPasswordEvent,
+    CognitoCustomMessageUpdateUserAttributeEvent,
+    CognitoCustomMessageVerifyUserAttributeEvent,
+    CognitoCustomMessageAuthenticationEvent,
+]
+"""
+CognitoCustomMessageEvent
+https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-custom-message.html
+
+Attributes:
+----------
+version: str
+
+triggerSource: Literal[
+    "CustomMessage_SignUp",
+    "CustomMessage_AdminCreateUser",
+    "CustomMessage_ResendCode",
+    "CustomMessage_ForgotPassword",
+    "CustomMessage_UpdateUserAttribute",
+    "CustomMessage_VerifyUserAttribute",
+    "CustomMessage_Authentication"
+]
+
+region: str
+
+userPoolId: str
+
+userName: str
+
+callerContext: :py:class:`CallerContext`
+
+request: :py:class:`Request`
+
+response: :py:class:`Response`
+"""

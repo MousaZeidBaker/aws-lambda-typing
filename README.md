@@ -63,6 +63,7 @@ def handler(event: events.SQSEvent, context: context_.Context) -> None:
 - CloudWatchLogsEvent
 - CodeCommitMessageEvent
 - CodePipelineEvent
+- CognitoCustomMessageEvent
 - ConfigEvent
 - DynamoDBStreamEvent
 - EventBridgeEvent
