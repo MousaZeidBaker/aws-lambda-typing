@@ -89,6 +89,7 @@ def handler(event: events.SQSEvent, context: context_.Context) -> None:
 - APIGatewayProxyResponseV1
 - APIGatewayProxyResponseV2
 - IoTPreProvisioningHookResponse
+- KinesisFirehoseTransformationResponse
 - S3BatchResponse
 
 ### Other

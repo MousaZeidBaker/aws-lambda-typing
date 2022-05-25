@@ -19,7 +19,7 @@ KinesisFirehoseTransformationResponseResultCode = Literal[
 
 class KinesisFirehoseTransformationResponseResult(TypedDict):
     """
-    KinesisFirehoseTransformationRequestTask
+    KinesisFirehoseTransformationResponseResult
 
     Attributes:
     ----------
