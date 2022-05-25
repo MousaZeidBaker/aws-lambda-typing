@@ -9,4 +9,7 @@ from .api_gateway_proxy import (
 from .iot import (
     IoTPreProvisioningHookResponse as IoTPreProvisioningHookResponse,
 )
+from .kinesis_firehose import (
+    KinesisFirehoseTransformationResponse as KinesisFirehoseTransformationResponse,
+)
 from .s3_batch import S3BatchResponse as S3BatchResponse
