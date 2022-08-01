@@ -3,9 +3,9 @@
 import sys
 
 if sys.version_info >= (3, 8):
-    from typing import Any, Dict, List, Literal, Optional, TypedDict
+    from typing import Any, Dict, List, Literal, TypedDict
 else:
-    from typing import Any, Dict, List, Optional
+    from typing import Any, Dict, List
 
     from typing_extensions import Literal, TypedDict
 
@@ -57,13 +57,13 @@ class StreamRecord(TypedDict, total=False):
 
     Attributes:
     ----------
-    ApproximateCreationDateTime: Optional[int]
+    ApproximateCreationDateTime: int
 
     Keys: Dict[str, :py:class:`AttributeValue`]
 
     NewImage: Dict[str, :py:class:`AttributeValue`]
 
-    OldImage: Optional[Dict[str, AttributeValue]]
+    OldImage: Dict[str, AttributeValue]
 
     SequenceNumber: str
 
@@ -73,10 +73,10 @@ class StreamRecord(TypedDict, total=False):
     'NEW_AND_OLD_IMAGES']
     """
 
-    ApproximateCreationDateTime: Optional[int]
+    ApproximateCreationDateTime: int
     Keys: Dict[str, AttributeValue]
     NewImage: Dict[str, AttributeValue]
-    OldImage: Optional[Dict[str, AttributeValue]]
+    OldImage: Dict[str, AttributeValue]
     SequenceNumber: str
     SizeBytes: int
     StreamViewType: Literal[
@@ -108,7 +108,7 @@ class DynamodbRecord(TypedDict, total=False):
 
     eventVersion: str
 
-    userIdentity: Optional[Any]
+    userIdentity: Any
     """
 
     awsRegion: str
@@ -118,7 +118,7 @@ class DynamodbRecord(TypedDict, total=False):
     eventSource: str
     eventSourceARN: str
     eventVersion: str
-    userIdentity: Optional[Any]
+    userIdentity: Any
 
 
 class DynamoDBStreamEvent(TypedDict):
