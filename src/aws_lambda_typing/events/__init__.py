@@ -66,3 +66,7 @@ from .secrets_manager import (
 from .ses import SESEvent as SESEvent
 from .sns import SNSEvent as SNSEvent
 from .sqs import SQSEvent as SQSEvent
+from .websocket import (
+    WebSocketRouteEvent as WebSocketRouteEvent,
+    WebSocketConnectEvent as WebSocketConnectEvent,
+)
