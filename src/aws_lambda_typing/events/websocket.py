@@ -73,10 +73,10 @@ class Error(TypedDict, total=False):
     validationErrorString: str
 
 
-class RequestContextRequiredAttributes(TypedDict):
+class _RequestContext(TypedDict):
     """
-    RequestContextRequiredAttributes required attributes only
-    https://peps.python.org/pep-0589/#totality
+    Base class for defining required attributes
+     - https://peps.python.org/pep-0589/#totality
 
     Attributes:
     ----------
@@ -125,7 +125,7 @@ class RequestContextRequiredAttributes(TypedDict):
     identity: Identity
 
 
-class RequestContext(RequestContextRequiredAttributes, total=False):
+class RequestContext(_RequestContext, total=False):
     """
     Attributes:
     ----------
@@ -139,26 +139,22 @@ class RequestContext(RequestContextRequiredAttributes, total=False):
     status: int
 
 
-class WebSocketEventCommonAttributes(TypedDict):
-    """
-    Attributes:
-    ----------
-    requestContext: :py:class:`RequestContext`
-
-    isBase64Encoded: bool
-    """
-
+class _WebSocketEvent(TypedDict):
     requestContext: RequestContext
     isBase64Encoded: bool
 
 
-class WebSocketConnectEvent(WebSocketEventCommonAttributes):
+class WebSocketConnectEvent(_WebSocketEvent):
     """
     WebSocketEvent https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html
     as sent to the $connect and $disconnect routes.
 
     Attributes:
     ----------
+    requestContext: :py:class:`RequestContext`
+
+    isBase64Encoded: bool
+
     headers: Dict[str, str]
 
     multiValueHeaders: Dict[str, List[str]]
@@ -174,13 +170,17 @@ class WebSocketConnectEvent(WebSocketEventCommonAttributes):
     multiValueQueryStringParameters: Dict[str, List[str]]
 
 
-class WebSocketRouteEvent(WebSocketEventCommonAttributes):
+class WebSocketRouteEvent(_WebSocketEvent):
     """
     WebSocketEvent https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html
     as send to custom routes and the $default route.
 
     Attributes:
     ----------
+    requestContext: :py:class:`RequestContext`
+
+    isBase64Encoded: bool
+
     body: str
     """
 
