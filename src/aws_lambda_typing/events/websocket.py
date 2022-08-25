@@ -76,7 +76,7 @@ class Error(TypedDict, total=False):
 class _RequestContext(TypedDict):
     """
     Base class for defining required attributes
-     - https://peps.python.org/pep-0589/#totality
+    https://peps.python.org/pep-0589/#totality
 
     Attributes:
     ----------
@@ -129,8 +129,11 @@ class RequestContext(_RequestContext, total=False):
     """
     Attributes:
     ----------
-    messageId: str - exists when eventType == 'MESSAGE'
+    messageId: str
+    - Exists when eventType == 'MESSAGE'
+
     error: :py:class:`Error`
+
     status: int
     """
 
@@ -146,7 +149,8 @@ class _WebSocketEvent(TypedDict):
 
 class WebSocketConnectEvent(_WebSocketEvent):
     """
-    WebSocketEvent https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html
+    WebSocketEvent
+     https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html
     as sent to the $connect and $disconnect routes.
 
     Attributes:
@@ -172,8 +176,9 @@ class WebSocketConnectEvent(_WebSocketEvent):
 
 class WebSocketRouteEvent(_WebSocketEvent):
     """
-    WebSocketEvent https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html
-    as send to custom routes and the $default route.
+    WebSocketEvent
+    https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html
+    as sent to custom routes and the $default route.
 
     Attributes:
     ----------
