@@ -13,7 +13,7 @@ else:
 class Principal(TypedDict, total=False):
     """
     Principal
-     - https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html
+    https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html
 
     Attributes:
     ----------
@@ -36,7 +36,7 @@ class Principal(TypedDict, total=False):
 class _Statement(TypedDict):
     """
     Base class used to define required attributes
-    - https://peps.python.org/pep-0589/#totality
+    https://peps.python.org/pep-0589/#totality
 
     """
 
@@ -49,40 +49,31 @@ class _Statement(TypedDict):
 class Statement(_Statement, total=False):
     """
     Statement
-     - https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_statement.html
+    https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_statement.html
 
     Attributes:
     ----------
     Effect: Literal["Allow", "Deny"]
-     - https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_effect.html
 
     Sid: str
-     - https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_sid.html
 
     Principal: Union[Literal["*"], :py:class:`Principal`]
-     - https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html
 
     NotPrincipal: :py:class:`Principal`
-     - https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notprincipal.html
 
     Action: Union[str, List[str]]
-     - https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_action.html
-     - At least one of Action/NotAction must be specified
+    - At least one of Action/NotAction must be specified
 
     NotAction: Union[str, List[str]]
-     - https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html
-     - At least one of Action/NotAction must be specified
+    - At least one of Action/NotAction must be specified
 
     Resource: Union[str, List[str]]
-     - https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_resource.html
-     - At least one of Resource/NotResource must be specified
+    - At least one of Resource/NotResource must be specified
 
     NotResource: Union[str, List[str]]
-     - https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notresource.html
-     - At least one of Resource/NotResource must be specified
+    - At least one of Resource/NotResource must be specified
 
     Condition: Dict[str, Dict[str, Union[str, List[str]]]]
-     - https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html
     """
 
     Sid: str
@@ -98,7 +89,7 @@ class Statement(_Statement, total=False):
 class _PolicyDocument(TypedDict):
     """
     Base class used to define required attributes
-     - https://peps.python.org/pep-0589/#totality
+    https://peps.python.org/pep-0589/#totality
     """
 
     Version: Literal["2012-10-17", "2008-10-17"]
@@ -108,18 +99,15 @@ class _PolicyDocument(TypedDict):
 class PolicyDocument(_PolicyDocument, total=False):
     """
     PolicyDocument
-     - https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html
+    https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html
 
     Attributes:
     ----------
     Version: Literal["2012-10-17", "2008-10-17"]
-     - https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html
 
     Statement: Union[:py:class:`Statement`, List[:py:class:`Statement`]]
-     - https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_statement.html
 
     Id: str
-     - https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_id.html
     """
 
     Id: str
