@@ -78,6 +78,8 @@ def handler(event: events.SQSEvent, context: context_.Context) -> None:
 - SESEvent
 - SNSEvent
 - SQSEvent
+- WebSocketConnectEvent
+- WebSocketRouteEvent
 
 ### Requests
 - SNSPublish
