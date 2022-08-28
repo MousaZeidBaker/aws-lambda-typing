@@ -1,4 +1,4 @@
-from aws_lambda_typing.events import WebSocketRouteEvent, WebSocketConnectEvent
+from aws_lambda_typing.events import WebSocketConnectEvent, WebSocketRouteEvent
 
 
 def test_websocket_route_event() -> None:
@@ -32,7 +32,7 @@ def test_websocket_connect_event() -> None:
     event: WebSocketConnectEvent = {
         "headers": {
             "Host": "ws.domain.io",
-            "Sec-WebSocket-Extensions": "permessage-deflate; client_max_window_bits",
+            "Sec-WebSocket-Extensions": "permessage-deflate; client_max_window_bits",  # noqa: E501
             "Sec-WebSocket-Key": "NysmUTUM1SWo5oeJuKHZhw==",
             "Sec-WebSocket-Version": "13",
             "X-Amzn-Trace-Id": "Root=1-62fb87cb-4dbfce250f33864344a762b9",
