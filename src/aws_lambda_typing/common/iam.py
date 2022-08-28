@@ -3,67 +3,111 @@
 import sys
 
 if sys.version_info >= (3, 8):
-    from typing import Dict, List, Literal, Optional, TypedDict, Union
+    from typing import Dict, List, Literal, TypedDict, Union
 else:
-    from typing import Dict, List, Optional, Union
+    from typing import Dict, List, Union
 
     from typing_extensions import Literal, TypedDict
 
 
-class Statement(TypedDict, total=False):
+class Principal(TypedDict, total=False):
+    """
+    Principal
+    https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html
+
+    Attributes:
+    ----------
+    AWS: Union[str, List[str]]
+
+    CanonicalUser: Union[str, List[str]]
+
+    Federated: Union[str, List[str]]
+
+    Service: Union[str, List[str]]
+
+    """
+
+    AWS: Union[str, List[str]]
+    CanonicalUser: Union[str, List[str]]
+    Federated: Union[str, List[str]]
+    Service: Union[str, List[str]]
+
+
+class _Statement(TypedDict):
+    """
+    Base class used to define required attributes
+    https://peps.python.org/pep-0589/#totality
+
+    """
+
+    Effect: Literal[
+        "Allow",
+        "Deny",
+    ]
+
+
+class Statement(_Statement, total=False):
     """
     Statement
     https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_statement.html
 
     Attributes:
     ----------
-    Principal: Optional[Union[str, List[str], Dict[str, Union[str, List[str]]]]]
+    Effect: Literal["Allow", "Deny"]
 
-    NotPrincipal: Optional[
-        Union[str, List[str], Dict[str, Union[str, List[str]]]]
-    ]
+    Sid: str
 
-    Action: Optional[Union[str, List[str]]]
+    Principal: Union[Literal["*"], :py:class:`Principal`]
 
-    NotAction: Optional[Union[str, List[str]]]
+    NotPrincipal: :py:class:`Principal`
 
-    Resource: Optional[Union[str, List[str]]]
+    Action: Union[str, List[str]]
+    - At least one of Action/NotAction must be specified
 
-    NotResource: Optional[Union[str, List[str]]]
+    NotAction: Union[str, List[str]]
+    - At least one of Action/NotAction must be specified
 
-    Condition: Optional[Dict[str, Dict[str, Union[str, List[str]]]]]
+    Resource: Union[str, List[str]]
+    - At least one of Resource/NotResource must be specified
+
+    NotResource: Union[str, List[str]]
+    - At least one of Resource/NotResource must be specified
+
+    Condition: Dict[str, Dict[str, Union[str, List[str]]]]
     """
 
-    Sid: Optional[str]
-    Effect: Literal[
-        "Allow",
-        "Deny",
-    ]
-    Principal: Optional[Union[str, List[str], Dict[str, Union[str, List[str]]]]]
-    NotPrincipal: Optional[
-        Union[str, List[str], Dict[str, Union[str, List[str]]]]
-    ]
-    Action: Optional[Union[str, List[str]]]
-    NotAction: Optional[Union[str, List[str]]]
-    Resource: Optional[Union[str, List[str]]]
-    NotResource: Optional[Union[str, List[str]]]
-    Condition: Optional[Dict[str, Dict[str, Union[str, List[str]]]]]
+    Sid: str
+    Principal: Union[Literal["*"], Principal]
+    NotPrincipal: Principal
+    Action: Union[str, List[str]]
+    NotAction: Union[str, List[str]]
+    Resource: Union[str, List[str]]
+    NotResource: Union[str, List[str]]
+    Condition: Dict[str, Dict[str, Union[str, List[str]]]]
 
 
-class PolicyDocument(TypedDict, total=False):
+class _PolicyDocument(TypedDict):
+    """
+    Base class used to define required attributes
+    https://peps.python.org/pep-0589/#totality
+    """
+
+    Version: Literal["2012-10-17", "2008-10-17"]
+    Statement: Union[Statement, List[Statement]]
+
+
+class PolicyDocument(_PolicyDocument, total=False):
     """
     PolicyDocument
     https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html
 
     Attributes:
     ----------
-    Version: str
+    Version: Literal["2012-10-17", "2008-10-17"]
 
-    Id: Optional[str]
+    Statement: Union[:py:class:`Statement`, List[:py:class:`Statement`]]
 
-    Statement: List[:py:class:`Statement`]
+    Id: str
     """
 
-    Version: str
-    Id: Optional[str]
-    Statement: List[Statement]
+    Id: str
