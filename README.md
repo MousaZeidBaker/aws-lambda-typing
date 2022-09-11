@@ -90,6 +90,7 @@ def handler(event: events.SQSEvent, context: context_.Context) -> None:
 - APIGatewayAuthorizerResponse
 - APIGatewayProxyResponseV1
 - APIGatewayProxyResponseV2
+- DynamoDBBatchResponse
 - IoTPreProvisioningHookResponse
 - KinesisFirehoseTransformationResponse
 - S3BatchResponse
