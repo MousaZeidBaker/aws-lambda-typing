@@ -6,6 +6,7 @@ from .api_gateway_proxy import (
 from .api_gateway_proxy import (
     APIGatewayProxyResponseV2 as APIGatewayProxyResponseV2,
 )
+from .dynamodb_batch import DynamoDBBatchResponse as DynamoDBBatchResponse
 from .iot import (
     IoTPreProvisioningHookResponse as IoTPreProvisioningHookResponse,
 )
