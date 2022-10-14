@@ -95,6 +95,8 @@ class RequestContextV1(TypedDict, total=False):
 
     identity: :py:class:`RequestContextIdentity`
 
+    operationName: str
+
     path: str
 
     protocol: str
@@ -120,6 +122,7 @@ class RequestContextV1(TypedDict, total=False):
     extendedRequestId: Optional[str]
     httpMethod: str
     identity: RequestContextIdentity
+    operationName: Optional[str]
     path: str
     protocol: str
     requestId: str
