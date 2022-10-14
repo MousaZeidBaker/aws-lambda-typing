@@ -59,6 +59,7 @@ def test_api_gateway_proxy_event_v1() -> None:
             "requestTime": "10/Mar/2020:00:03:59 +0000",
             "path": "/Prod/",
             "accountId": "123456789012",
+            "operationName": "SomeOperation",
             "protocol": "HTTP/1.1",
             "stage": "Prod",
             "domainPrefix": "70ixmpl4fl",
