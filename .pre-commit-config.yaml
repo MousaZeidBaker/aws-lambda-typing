@@ -1,17 +1,28 @@
 repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
+  - repo: 'https://github.com/pre-commit/pre-commit-hooks'
     rev: v4.0.1
     hooks:
-    -   id: trailing-whitespace
-    -   id: end-of-file-fixer
-    -   id: check-json
-    -   id: check-yaml
-    -   id: check-toml
-
--   repo: local
+      - id: trailing-whitespace # https://github.com/pre-commit/pre-commit-hooks/tree/v4.3.0#trailing-whitespace
+      - id: end-of-file-fixer # https://github.com/pre-commit/pre-commit-hooks/tree/v4.3.0#end-of-file-fixer
+      - id: check-json # https://github.com/pre-commit/pre-commit-hooks/tree/v4.3.0#check-json
+      - id: check-yaml # https://github.com/pre-commit/pre-commit-hooks/tree/v4.3.0#check-yaml
+      - id: check-toml # https://github.com/pre-commit/pre-commit-hooks/tree/v4.3.0#check-toml
+  - repo: 'https://github.com/psf/black'
+    rev: 22.3.0
     hooks:
-    -   id: flake8
-        name: flake8
-        entry: flake8
-        language: system
-        types: [python]
+      - id: black
+        exclude: pypoetry
+  - repo: 'https://github.com/pycqa/isort'
+    rev: 5.10.1
+    hooks:
+      - id: isort
+        exclude: pypoetry
+  - repo: 'https://github.com/pycqa/flake8'
+    rev: 4.0.1
+    hooks:
+      - id: flake8
+        exclude: pypoetry
+        additional_dependencies:
+          - flake8-black
+          - flake8-isort
+          - flake8-eradicate
