@@ -106,7 +106,7 @@ poetry shell
 
 Install dependencies
 ```shell
-poetry install --remove-untracked
+poetry install --sync
 ```
 
 Install git hooks
@@ -114,24 +114,14 @@ Install git hooks
 pre-commit install --hook-type pre-commit
 ```
 
+Run pre-commit hook against all files
+```shell
+pre-commit run --all-files
+```
+
 Run tests
 ```shell
 mypy src tests
-```
-
-Run linter
-```shell
-flake8 .
-```
-
-Format code
-```shell
-black .
-```
-
-Sort imports
-```shell
-isort .
 ```
 
 ## Contributing

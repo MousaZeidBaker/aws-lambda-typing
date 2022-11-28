@@ -29,7 +29,7 @@ jobs:
           poetryup
           if [ -n "$(git status --porcelain)" ]; then
             # working tree NOT clean, bump project version
-            poetry version patch 
+            poetry version patch
           fi
 
       - name: Create Pull Request
