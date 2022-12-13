@@ -1,8 +1,7 @@
-# This workflow tests our package
+# Workflow to test our package
 
 name: Test
 
-# controls when the action will run
 on:
   pull_request:
     branches:
@@ -11,57 +10,41 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    environment: testpypi
     strategy:
       fail-fast: false
       matrix:
         python-version: [ '3.6', '3.7', '3.8', '3.9' ]
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
-      - name: Set up python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
+      - name: Setup Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install poetry 1.1.7
+      - name: Install poetry
         uses: snok/install-poetry@v1
         with:
-          version: 1.1.7
+          version: 1.3.0
 
       - name: Install dependencies
         run: poetry install
 
       - name: Lint
         run: |
-          source $(poetry env info --path)/bin/activate # activate virtual environment
+          source $(poetry env info --path)/bin/activate
+          pre-commit install --install-hooks
           pre-commit run --all-files
+          pre-commit run commitizen-branch --hook-stage push
 
       - name: Test
         run: |
-          source $(poetry env info --path)/bin/activate # activate virtual environment
+          source $(poetry env info --path)/bin/activate
           mypy src
           mypy tests
 
-      - name: Validate Project Version
-        run: |
-          source $(poetry env info --path)/bin/activate # activate virtual environment
-          NEW_VERSION=$(poetry version --short)
-          git fetch --no-tags && git checkout master
-          OLD_VERSION=$(poetry version --short)
-          echo "NEW_VERSION ${NEW_VERSION} OLD_VERSION ${OLD_VERSION}"
-          if [[ "$NEW_VERSION" == "$OLD_VERSION" ]]; then
-            echo "Make sure to bump project version"
-            exit 1 # operation not permitted
-          fi
-
       - name: Build
         run: poetry build
-
-      - name: Publish testpypi dry-run
-        env:
-          POETRY_REPOSITORIES_TESTPYPI_URL: https://test.pypi.org/legacy/
-          POETRY_HTTP_BASIC_TESTPYPI_USERNAME: __token__
-          POETRY_HTTP_BASIC_TESTPYPI_PASSWORD: ${{secrets.TESTPYPI_API_TOKEN}}
-        run: poetry publish -r testpypi --dry-run
