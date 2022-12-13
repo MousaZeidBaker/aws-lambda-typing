@@ -98,36 +98,12 @@ def handler(event: events.SQSEvent, context: context_.Context) -> None:
 ### Other
 - PolicyDocument
 
-## Develop
-Activate virtual environment
-```shell
-poetry shell
-```
-
-Install dependencies
-```shell
-poetry install --sync
-```
-
-Install git hooks
-```shell
-pre-commit install --hook-type pre-commit
-```
-
-Run pre-commit hook against all files
-```shell
-pre-commit run --all-files
-```
-
-Run tests
-```shell
-mypy src tests
-```
-
 ## Contributing
-Contributions are welcome via pull requests.
+
+Contributions are welcome! See the [Contributing Guide](https://github.com/MousaZeidBaker/aws-lambda-typing/blob/master/CONTRIBUTING.md).
 
 ## Issues
+
 If you encounter any problems, please file an
 [issue](https://github.com/MousaZeidBaker/aws-lambda-typing/issues) along with a
 detailed description.
