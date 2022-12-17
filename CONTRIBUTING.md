@@ -33,7 +33,7 @@ pytest tests
 Install current project from branch
 
 ```shell
-poetry add git+https://github.com/MousaZeidBaker/poetry-plugin-up.git#branch-name
+poetry add git+https://github.com/MousaZeidBaker/aws-lambda-typing.git#branch-name
 ```
 
 
