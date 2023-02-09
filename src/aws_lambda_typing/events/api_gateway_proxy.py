@@ -174,11 +174,11 @@ class APIGatewayProxyEventV1(TypedDict):
     requestContext: RequestContextV1
     headers: Dict[str, str]
     multiValueHeaders: Dict[str, List[str]]
-    queryStringParameters: Dict[str, str]
-    multiValueQueryStringParameters: Dict[str, List[str]]
-    pathParameters: Dict[str, str]
-    stageVariables: Dict[str, str]
-    body: str
+    queryStringParameters: Optional[Dict[str, str]]
+    multiValueQueryStringParameters: Optional[Dict[str, List[str]]]
+    pathParameters: Optional[Dict[str, str]]
+    stageVariables: Optional[Dict[str, str]]
+    body: Optional[str]
     isBase64Encoded: bool
 
 
