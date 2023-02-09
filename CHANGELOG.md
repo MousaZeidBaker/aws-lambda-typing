@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.16.4](https://github.com/MousaZeidBaker/aws-lambda-typing/compare/2.16.3...2.16.4) (2023-02-09)
+
+
+### 🐛 Bug Fixes
+
+* add Optional to api gateway event fields that can be null ([c55718e](https://github.com/MousaZeidBaker/aws-lambda-typing/commit/c55718e4d4f460fe35891f29f39d5bcbe6965e06))
+
 ## [2.16.3](https://github.com/MousaZeidBaker/aws-lambda-typing/compare/v2.16.2...2.16.3) (2022-12-17)
 
 
