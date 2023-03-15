@@ -1,4 +1,5 @@
 from .alb import ALBEvent as ALBEvent
+from .apache_kafka import ApacheKafkaEvent as ApacheKafkaEvent
 from .api_gateway_authorizer import (
     APIGatewayRequestAuthorizerEvent as APIGatewayRequestAuthorizerEvent,
 )
