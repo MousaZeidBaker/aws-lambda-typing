@@ -53,6 +53,7 @@ def handler(event: events.SQSEvent, context: context_.Context) -> None:
 
 ### Events
 - ALBEvent
+- ApacheKafkaEvent
 - APIGatewayRequestAuthorizerEvent
 - APIGatewayTokenAuthorizerEvent
 - APIGatewayProxyEventV1
