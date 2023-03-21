@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.17.0](https://github.com/MousaZeidBaker/aws-lambda-typing/compare/2.16.4...2.17.0) (2023-03-21)
+
+
+### 🚀 Features
+
+* add Apache Kafka event ([aab2195](https://github.com/MousaZeidBaker/aws-lambda-typing/commit/aab219528006777157897c99db60a1478afba999))
+
 ## [2.16.4](https://github.com/MousaZeidBaker/aws-lambda-typing/compare/2.16.3...2.16.4) (2023-02-09)
 
 

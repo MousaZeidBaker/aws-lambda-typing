@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "aws-lambda-typing"
-version = "2.16.4"
+version = "2.17.0"
 description = "A package that provides type hints for AWS Lambda event, context and response objects"
 authors = ["Mousa Zeid Baker"]
 license = "MIT"
