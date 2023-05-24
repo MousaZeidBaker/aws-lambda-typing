@@ -17,7 +17,7 @@ else:
 """
 
 
-class APIGatewayProxyResponseV1(TypedDict):
+class APIGatewayProxyResponseV1(TypedDict, total=False):
     """
     APIGatewayProxyResponseV1
     https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
