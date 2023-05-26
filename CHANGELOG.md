@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.17.1](https://github.com/MousaZeidBaker/aws-lambda-typing/compare/2.17.0...2.17.1) (2023-05-26)
+
+
+### 🐛 Bug Fixes
+
+* make APIGatewayProxyResponseV1 total=False ([3c7126c](https://github.com/MousaZeidBaker/aws-lambda-typing/commit/3c7126c4d99b3f411482465677afc2dea6d162da))
+
 ## [2.17.0](https://github.com/MousaZeidBaker/aws-lambda-typing/compare/2.16.4...2.17.0) (2023-03-21)
 
 
