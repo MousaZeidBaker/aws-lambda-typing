@@ -27,7 +27,8 @@ pre-commit run --all-files
 Run tests
 
 ```shell
-pytest tests
+mypy src
+mypy tests
 ```
 
 Install current project from branch
