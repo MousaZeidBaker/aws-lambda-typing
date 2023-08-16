@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.17.2](https://github.com/MousaZeidBaker/aws-lambda-typing/compare/2.17.1...2.17.2) (2023-08-16)
+
+
+### 📝 Documentation
+
+* fix run-tests section ([cbe86be](https://github.com/MousaZeidBaker/aws-lambda-typing/commit/cbe86beabb5670688c67b77844aec3e8643e62f5))
+
 ## [2.17.1](https://github.com/MousaZeidBaker/aws-lambda-typing/compare/2.17.0...2.17.1) (2023-05-26)
 
 
