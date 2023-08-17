@@ -68,6 +68,7 @@ def handler(event: events.SQSEvent, context: context_.Context) -> None:
 - ConfigEvent
 - DynamoDBStreamEvent
 - EventBridgeEvent
+- EC2ASGCustomTerminationPolicyEvent
 - IoTPreProvisioningHookEvent
 - KinesisFirehoseEvent
 - KinesisStreamEvent
