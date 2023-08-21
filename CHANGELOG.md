@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.18.0](https://github.com/MousaZeidBaker/aws-lambda-typing/compare/2.17.2...2.18.0) (2023-08-21)
+
+
+### 🚀 Features
+
+* add EC2 Auto Scaling Group custom termination policy event ([c24a852](https://github.com/MousaZeidBaker/aws-lambda-typing/commit/c24a85280332e1027dca6a9002b536595adc9e8b))
+
 ## [2.17.2](https://github.com/MousaZeidBaker/aws-lambda-typing/compare/2.17.1...2.17.2) (2023-08-16)
 
 
