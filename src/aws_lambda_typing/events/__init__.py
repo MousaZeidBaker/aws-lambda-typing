@@ -53,6 +53,9 @@ from .cognito_custom_message import (
 )
 from .config import ConfigEvent as ConfigEvent
 from .dynamodb_stream import DynamoDBStreamEvent as DynamoDBStreamEvent
+from .ec2_asg_custom_termination_policy import (
+    EC2ASGCustomTerminationPolicyEvent as EC2ASGCustomTerminationPolicyEvent,
+)
 from .event_bridge import EventBridgeEvent as EventBridgeEvent
 from .iot import IoTPreProvisioningHookEvent as IoTPreProvisioningHookEvent
 from .kinesis_firehose import KinesisFirehoseEvent as KinesisFirehoseEvent
