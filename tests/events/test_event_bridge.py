@@ -1,7 +1,7 @@
 from aws_lambda_typing.events import EventBridgeEvent
 
 
-def test_cloud_watch_events_message_event() -> None:
+def test_event_bridge_event() -> None:
     event: EventBridgeEvent = {
         "version": "0",
         "id": "fe8d3c65-xmpl-c5c3-2c87-81584709a377",

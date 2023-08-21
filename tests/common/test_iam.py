@@ -1,7 +1,7 @@
 from aws_lambda_typing.common import PolicyDocument
 
 
-def test_s3_batch_response() -> None:
+def iam_policy_document() -> None:
     document: PolicyDocument = {
         "Version": "2012-10-17",
         "Statement": [

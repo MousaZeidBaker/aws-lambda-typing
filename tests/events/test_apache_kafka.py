@@ -1,7 +1,7 @@
 from aws_lambda_typing.events import ApacheKafkaEvent
 
 
-def test_msk_event() -> None:
+def test_apache_kafka_event() -> None:
     event: ApacheKafkaEvent = {
         "eventSource": "SelfManagedKafka",
         "bootstrapServers": "myserver.local:9092",
