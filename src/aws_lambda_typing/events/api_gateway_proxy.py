@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import sys
+from typing import Generic, TypeVar, Union
 
 if sys.version_info >= (3, 8):
     from typing import Dict, List, Optional, TypedDict
@@ -279,7 +280,10 @@ class HTTP(TypedDict):
     userAgent: str
 
 
-class RequestContextV2(TypedDict, total=False):
+AuthorizerType = TypeVar('AuthorizerType', bound=Union[Authorizer, None])
+
+
+class RequestContextV2(Generic[AuthorizerType], TypedDict, total=False):
     """
     RequestContextV2
     https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
@@ -314,7 +318,7 @@ class RequestContextV2(TypedDict, total=False):
     accountId: str
     apiId: str
     authentication: Optional[Authentication]
-    authorizer: Optional[Authorizer]
+    authorizer: AuthorizerType
     domainName: Optional[str]
     domainPrefix: Optional[str]
     http: HTTP
@@ -325,7 +329,7 @@ class RequestContextV2(TypedDict, total=False):
     timeEpoch: int
 
 
-class APIGatewayProxyEventV2(TypedDict, total=False):
+class APIGatewayProxyEventV2(Generic[AuthorizerType], TypedDict, total=False):
     """
     APIGatewayProxyEventV2
     https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
@@ -367,7 +371,7 @@ class APIGatewayProxyEventV2(TypedDict, total=False):
     cookies: Optional[List[str]]
     headers: Dict[str, str]
     queryStringParameters: Dict[str, str]
-    requestContext: RequestContextV2
+    requestContext: RequestContextV2[AuthorizerType]
     body: str
     pathParameters: Dict[str, str]
     isBase64Encoded: bool
