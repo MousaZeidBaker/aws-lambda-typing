@@ -32,3 +32,20 @@ class APIGatewayAuthorizerResponse(TypedDict, total=False):
     policyDocument: PolicyDocument
     context: Optional[Dict[str, Any]]
     usageIdentifierKey: Optional[str]
+
+
+class APIGatewayAuthorizerResponseV2Simple(TypedDict, total=False):
+    """
+    https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html#http-api-lambda-authorizer.payload-format-response
+    """
+    isAuthorized: bool
+    context: Optional[Dict[str, Any]]
+
+
+class APIGatewayAuthorizerResponseV2IAM(TypedDict, total=False):
+    """
+    https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html#http-api-lambda-authorizer.payload-format-response
+    """
+    principalId: str
+    policyDocument: PolicyDocument
+    context: Optional[Dict[str, Any]]
