@@ -234,9 +234,11 @@ class JWT(TypedDict):
     ----------
 
     claims: Dict[str, str]
+    scopes: List[str]
     """
 
     claims: Dict[str, str]
+    scopes: List[str]
 
 
 class Authorizer(TypedDict):
@@ -250,7 +252,6 @@ class Authorizer(TypedDict):
     """
 
     jwt: JWT
-    scopes: List[str]
 
 
 class HTTP(TypedDict):
