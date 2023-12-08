@@ -5,14 +5,18 @@ import sys
 from aws_lambda_typing.common import PolicyDocument
 
 if sys.version_info >= (3, 8):
-    from typing import Any, Dict, Optional, TypedDict
+    from typing import Any, Generic, Mapping, Optional, TypedDict, TypeVar
 else:
-    from typing import Any, Dict, Optional
+    from typing import Any, Generic, Mapping, Optional, TypeVar
 
     from typing_extensions import TypedDict
 
 
-class APIGatewayAuthorizerResponse(TypedDict, total=False):
+# related: https://github.com/python/mypy/issues/4976#issuecomment-384719025
+AuthorizerType = TypeVar('AuthorizerType', bound=Optional[Mapping[str, Any]])
+
+
+class APIGatewayAuthorizerResponse(Generic[AuthorizerType], TypedDict, total=False):
     """
     APIGatewayAuthorizerResponse
     https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-lambda-authorizer-output.html
@@ -30,22 +34,22 @@ class APIGatewayAuthorizerResponse(TypedDict, total=False):
 
     principalId: str
     policyDocument: PolicyDocument
-    context: Optional[Dict[str, Any]]
+    context: Optional[AuthorizerType]
     usageIdentifierKey: Optional[str]
 
 
-class APIGatewayAuthorizerResponseV2Simple(TypedDict, total=False):
+class APIGatewayAuthorizerResponseV2Simple(Generic[AuthorizerType], TypedDict, total=False):
     """
     https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html#http-api-lambda-authorizer.payload-format-response
     """
     isAuthorized: bool
-    context: Optional[Dict[str, Any]]
+    context: Optional[AuthorizerType]
 
 
-class APIGatewayAuthorizerResponseV2IAM(TypedDict, total=False):
+class APIGatewayAuthorizerResponseV2IAM(Generic[AuthorizerType], TypedDict, total=False):
     """
     https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html#http-api-lambda-authorizer.payload-format-response
     """
     principalId: str
     policyDocument: PolicyDocument
-    context: Optional[Dict[str, Any]]
+    context: Optional[AuthorizerType]
