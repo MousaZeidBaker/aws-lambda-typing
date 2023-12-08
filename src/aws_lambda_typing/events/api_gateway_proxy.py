@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 
 import sys
-from typing import Generic, TypeVar, Union
+
+from aws_lambda_typing.responses.api_gateway_authorizer import AuthorizerType
 
 if sys.version_info >= (3, 8):
-    from typing import Dict, List, Optional, TypedDict
+    from typing import Dict, Generic, List, Optional, TypedDict
 else:
-    from typing import Dict, List, Optional
+    from typing import Dict, Generic, List, Optional
 
     from typing_extensions import TypedDict
 
@@ -242,7 +243,7 @@ class JWT(TypedDict):
     scopes: List[str]
 
 
-class Authorizer(TypedDict):
+class JWTAuthorizer(TypedDict):
     """
     Authorizer
 
@@ -253,6 +254,11 @@ class Authorizer(TypedDict):
     """
 
     jwt: JWT
+
+
+class Authorizer(JWTAuthorizer):
+    """Deprecated. Prefer JWTAuthorizer or custom TypedDict instead."""
+    pass
 
 
 class HTTP(TypedDict):
@@ -278,9 +284,6 @@ class HTTP(TypedDict):
     protocol: str
     sourceIp: str
     userAgent: str
-
-
-AuthorizerType = TypeVar('AuthorizerType', bound=Union[Authorizer, None])
 
 
 class RequestContextV2(Generic[AuthorizerType], TypedDict, total=False):
