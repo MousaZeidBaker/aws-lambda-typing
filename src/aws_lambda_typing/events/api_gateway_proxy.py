@@ -1,15 +1,15 @@
 #!/usr/bin/env python
 
 import sys
+from typing import Dict, Generic, List, Optional
+
+# TypedDict generic support added in 3.11
+if sys.version_info >= (3, 11):
+    from typing import TypedDict
+else:
+    from typing_extensions import TypedDict
 
 from aws_lambda_typing.responses.api_gateway_authorizer import AuthorizerType
-
-if sys.version_info >= (3, 8):
-    from typing import Dict, Generic, List, Optional, TypedDict
-else:
-    from typing import Dict, Generic, List, Optional
-
-    from typing_extensions import TypedDict
 
 
 """

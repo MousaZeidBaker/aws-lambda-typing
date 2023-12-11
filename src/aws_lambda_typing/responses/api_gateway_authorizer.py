@@ -1,15 +1,15 @@
 #!/usr/bin/env python
 
 import sys
+from typing import Any, Generic, Mapping, Optional, TypeVar
+
+# TypedDict generic support added in 3.11
+if sys.version_info >= (3, 11):
+    from typing import TypedDict
+else:
+    from typing_extensions import TypedDict
 
 from aws_lambda_typing.common import PolicyDocument
-
-if sys.version_info >= (3, 8):
-    from typing import Any, Generic, Mapping, Optional, TypedDict, TypeVar
-else:
-    from typing import Any, Generic, Mapping, Optional, TypeVar
-
-    from typing_extensions import TypedDict
 
 
 # related: https://github.com/python/mypy/issues/4976#issuecomment-384719025
