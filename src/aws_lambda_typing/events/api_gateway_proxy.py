@@ -9,7 +9,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import TypedDict
 
-from aws_lambda_typing.responses.api_gateway_authorizer import AuthorizerType
+from aws_lambda_typing.responses.api_gateway_authorizer import LambdaAuthorizerType
 
 
 """
@@ -228,7 +228,7 @@ class Authentication(TypedDict):
     clientCert: ClientCert
 
 
-class JWT(TypedDict):
+class JWTAuthorizer(TypedDict):
     """
     JWT
 
@@ -243,22 +243,13 @@ class JWT(TypedDict):
     scopes: List[str]
 
 
-class JWTAuthorizer(TypedDict):
-    """
-    Authorizer
+class Authorizer(Generic[LambdaAuthorizerType], TypedDict, total=False):
+    jwt: Optional[JWTAuthorizer]
 
-    Attributes:
-    ----------
-
-    jwt: :py:class:`JWT`
-    """
-
-    jwt: JWT
-
-
-class Authorizer(JWTAuthorizer):
-    """Deprecated. Prefer JWTAuthorizer or custom TypedDict instead."""
-    pass
+    # cannot declare "lambda" here as that's a keyword, but can't inherit from Generic with alternative syntax; so at
+    # least provide "lambda_" for IDE autocomplate, then users can manually remove the trailing underscore and use
+    # "# type:ignore" comments.
+    lambda_: Optional[LambdaAuthorizerType]
 
 
 class HTTP(TypedDict):
@@ -286,7 +277,7 @@ class HTTP(TypedDict):
     userAgent: str
 
 
-class RequestContextV2(Generic[AuthorizerType], TypedDict, total=False):
+class RequestContextV2(Generic[LambdaAuthorizerType], TypedDict, total=False):
     """
     RequestContextV2
     https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
@@ -321,7 +312,7 @@ class RequestContextV2(Generic[AuthorizerType], TypedDict, total=False):
     accountId: str
     apiId: str
     authentication: Optional[Authentication]
-    authorizer: AuthorizerType
+    authorizer: Authorizer[LambdaAuthorizerType]
     domainName: Optional[str]
     domainPrefix: Optional[str]
     http: HTTP
@@ -332,7 +323,7 @@ class RequestContextV2(Generic[AuthorizerType], TypedDict, total=False):
     timeEpoch: int
 
 
-class APIGatewayProxyEventV2(Generic[AuthorizerType], TypedDict, total=False):
+class APIGatewayProxyEventV2(Generic[LambdaAuthorizerType], TypedDict, total=False):
     """
     APIGatewayProxyEventV2
     https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html
@@ -374,7 +365,7 @@ class APIGatewayProxyEventV2(Generic[AuthorizerType], TypedDict, total=False):
     cookies: Optional[List[str]]
     headers: Dict[str, str]
     queryStringParameters: Dict[str, str]
-    requestContext: RequestContextV2[AuthorizerType]
+    requestContext: RequestContextV2[LambdaAuthorizerType]
     body: str
     pathParameters: Dict[str, str]
     isBase64Encoded: bool

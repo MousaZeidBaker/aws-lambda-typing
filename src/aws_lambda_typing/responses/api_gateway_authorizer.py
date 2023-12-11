@@ -13,10 +13,10 @@ from aws_lambda_typing.common import PolicyDocument
 
 
 # related: https://github.com/python/mypy/issues/4976#issuecomment-384719025
-AuthorizerType = TypeVar('AuthorizerType', bound=Optional[Mapping[str, Any]])
+LambdaAuthorizerType = TypeVar('LambdaAuthorizerType', bound=Optional[Mapping[str, Any]])
 
 
-class APIGatewayAuthorizerResponse(Generic[AuthorizerType], TypedDict, total=False):
+class APIGatewayAuthorizerResponse(Generic[LambdaAuthorizerType], TypedDict, total=False):
     """
     APIGatewayAuthorizerResponse
     https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-lambda-authorizer-output.html
@@ -34,22 +34,22 @@ class APIGatewayAuthorizerResponse(Generic[AuthorizerType], TypedDict, total=Fal
 
     principalId: str
     policyDocument: PolicyDocument
-    context: Optional[AuthorizerType]
+    context: Optional[LambdaAuthorizerType]
     usageIdentifierKey: Optional[str]
 
 
-class APIGatewayAuthorizerResponseV2Simple(Generic[AuthorizerType], TypedDict, total=False):
+class APIGatewayAuthorizerResponseV2Simple(Generic[LambdaAuthorizerType], TypedDict, total=False):
     """
     https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html#http-api-lambda-authorizer.payload-format-response
     """
     isAuthorized: bool
-    context: Optional[AuthorizerType]
+    context: Optional[LambdaAuthorizerType]
 
 
-class APIGatewayAuthorizerResponseV2IAM(Generic[AuthorizerType], TypedDict, total=False):
+class APIGatewayAuthorizerResponseV2IAM(Generic[LambdaAuthorizerType], TypedDict, total=False):
     """
     https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html#http-api-lambda-authorizer.payload-format-response
     """
     principalId: str
     policyDocument: PolicyDocument
-    context: Optional[AuthorizerType]
+    context: Optional[LambdaAuthorizerType]
