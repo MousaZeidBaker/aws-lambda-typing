@@ -32,13 +32,13 @@ class APIGatewayProxyResponseV1(TypedDict, total=False):
     ----------
     isBase64Encoded: bool
 
-    statusCode: int
+    statusCode: Required[int]
 
     headers: Dict[str, str]
 
     multiValueHeaders: Dict[str, List[str]]
 
-    body: str
+    body: Union[str, bytes]
     """
 
     isBase64Encoded: bool
