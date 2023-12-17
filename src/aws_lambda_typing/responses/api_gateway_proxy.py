@@ -8,6 +8,10 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import TypedDict
 
+if sys.version_info >= (3, 11):
+    from typing import Required
+else:
+    from typing_extensions import Required
 
 """
 ###############################################################################
@@ -38,7 +42,7 @@ class APIGatewayProxyResponseV1(TypedDict, total=False):
     """
 
     isBase64Encoded: bool
-    statusCode: int
+    statusCode: Required[int]
     headers: Dict[str, str]
     multiValueHeaders: Dict[str, List[str]]
     body: Union[str, bytes]
