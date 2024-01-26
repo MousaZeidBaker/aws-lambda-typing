@@ -51,6 +51,15 @@ from .cognito_custom_message import (
 from .cognito_custom_message import (
     CognitoCustomMessageVerifyUserAttributeEvent as CognitoCustomMessageVerifyUserAttributeEvent,
 )
+from .cognito_post_confirmation import (
+    CognitoPostConfirmationEvent as CognitoPostConfirmationEvent,
+)
+from .cognito_post_confirmation import (
+    CognitoPostConfirmationForgotPasswordEvent as CognitoPostConfirmationForgotPasswordEvent,
+)
+from .cognito_post_confirmation import (
+    CognitoPostConfirmationSignUpEvent as CognitoPostConfirmationSignUpEvent,
+)
 from .config import ConfigEvent as ConfigEvent
 from .dynamodb_stream import DynamoDBStreamEvent as DynamoDBStreamEvent
 from .ec2_asg_custom_termination_policy import (
