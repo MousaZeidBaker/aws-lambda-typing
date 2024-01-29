@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.19.0](https://github.com/MousaZeidBaker/aws-lambda-typing/compare/2.18.0...2.19.0) (2024-01-29)
+
+
+### 📝 Documentation
+
+* **Cognito:** listing newly supported CognitoPostConfirmationEvent in README ([57258df](https://github.com/MousaZeidBaker/aws-lambda-typing/commit/57258df59542324698fd2c7016990ebf2a847578))
+
+
+### 🚀 Features
+
+* **Cognito:** support for post confirmation Lambda trigger ([0cf3f1c](https://github.com/MousaZeidBaker/aws-lambda-typing/commit/0cf3f1c29497089088dd44e7cbc31104107c3045))
+
 ## [2.18.0](https://github.com/MousaZeidBaker/aws-lambda-typing/compare/2.17.2...2.18.0) (2023-08-21)
 
 
