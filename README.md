@@ -65,6 +65,7 @@ def handler(event: events.SQSEvent, context: context_.Context) -> None:
 - CodeCommitMessageEvent
 - CodePipelineEvent
 - CognitoCustomMessageEvent
+- CognitoPostConfirmationEvent
 - ConfigEvent
 - DynamoDBStreamEvent
 - EventBridgeEvent
