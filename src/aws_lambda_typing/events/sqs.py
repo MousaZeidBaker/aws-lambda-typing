@@ -24,6 +24,8 @@ class SQSAttributes(TypedDict, total=False):
 
     ApproximateFirstReceiveTimestamp: str
 
+    AWSTraceHeader: Optional[str]
+
     SequenceNumber: Optional[str] Only in FIFO queues
 
     MessageGroupId: Optional[str] Only in FIFO queues
@@ -35,6 +37,7 @@ class SQSAttributes(TypedDict, total=False):
     SentTimestamp: str
     SenderId: str
     ApproximateFirstReceiveTimestamp: str
+    AWSTraceHeader: Optional[str]
     SequenceNumber: Optional[str]
     MessageGroupId: Optional[str]
     MessageDeduplicationId: Optional[str]
