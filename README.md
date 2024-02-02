@@ -56,6 +56,7 @@ def handler(event: events.SQSEvent, context: context_.Context) -> None:
 - ApacheKafkaEvent
 - APIGatewayRequestAuthorizerEvent
 - APIGatewayTokenAuthorizerEvent
+- APIGatewayHTTPAuthorizerEventV2
 - APIGatewayProxyEventV1
 - APIGatewayProxyEventV2
 - AppSyncResolverEvent
@@ -91,6 +92,8 @@ def handler(event: events.SQSEvent, context: context_.Context) -> None:
 ### Responses
 - ALBResponse
 - APIGatewayAuthorizerResponse
+- APIGatewayAuthorizerResponseV2IAM
+- APIGatewayAuthorizerResponseV2Simple
 - APIGatewayProxyResponseV1
 - APIGatewayProxyResponseV2
 - DynamoDBBatchResponse
