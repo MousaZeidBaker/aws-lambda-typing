@@ -1,14 +1,17 @@
 #!/usr/bin/env python
 
 import sys
+from typing import Dict, List, Union
 
 if sys.version_info >= (3, 8):
-    from typing import Dict, List, TypedDict
+    from typing import TypedDict
 else:
-    from typing import Dict, List
-
     from typing_extensions import TypedDict
 
+if sys.version_info >= (3, 11):
+    from typing import Required
+else:
+    from typing_extensions import Required
 
 """
 ###############################################################################
@@ -29,20 +32,20 @@ class APIGatewayProxyResponseV1(TypedDict, total=False):
     ----------
     isBase64Encoded: bool
 
-    statusCode: int
+    statusCode: Required[int]
 
     headers: Dict[str, str]
 
     multiValueHeaders: Dict[str, List[str]]
 
-    body: str
+    body: Union[str, bytes]
     """
 
     isBase64Encoded: bool
-    statusCode: int
+    statusCode: Required[int]
     headers: Dict[str, str]
     multiValueHeaders: Dict[str, List[str]]
-    body: str
+    body: Union[str, bytes]
 
 
 """
