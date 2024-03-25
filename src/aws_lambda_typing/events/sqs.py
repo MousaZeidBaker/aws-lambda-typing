@@ -29,6 +29,10 @@ class SQSAttributes(TypedDict, total=False):
     MessageGroupId: Optional[str] Only in FIFO queues
 
     MessageDeduplicationId: Optional[str] Only in FIFO queues
+
+    DeadLetterQueueSourceArn: str
+
+    AWSTraceHeader: str
     """
 
     ApproximateReceiveCount: str
@@ -38,6 +42,8 @@ class SQSAttributes(TypedDict, total=False):
     SequenceNumber: Optional[str]
     MessageGroupId: Optional[str]
     MessageDeduplicationId: Optional[str]
+    DeadLetterQueueSourceArn: str
+    AWSTraceHeader: str
 
 
 class SQSMessageAttribute(TypedDict):
@@ -47,23 +53,29 @@ class SQSMessageAttribute(TypedDict):
 
     Attributes:
     ----------
-    BinaryValue: str
+    binaryValue: str
 
-    DataType: Literal['String', 'Number', 'Binary']
+    dataType: Literal['String', 'Number', 'Binary']
 
-    StringValue: str
+    stringValue: str
+
+    stringListValues: List[str]
+
+    binaryListValues: List[str]
     """
 
-    BinaryValue: str
-    DataType: Literal[
+    binaryValue: Optional[str]
+    dataType: Literal[
         "String",
         "Number",
         "Binary",
     ]
-    StringValue: str
+    stringValue: str
+    stringListValues: List[str]
+    binaryListValues: List[str]
 
 
-class SQSMessage(TypedDict):
+class SQSMessage(TypedDict, total=False):
     """
     SQSMessage
     https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_Message.html
@@ -82,6 +94,8 @@ class SQSMessage(TypedDict):
 
     md5OfBody: str
 
+    md5OfMessageAttributes: str
+
     eventSource: str
 
     eventSourceARN: str
@@ -95,6 +109,7 @@ class SQSMessage(TypedDict):
     attributes: SQSAttributes
     messageAttributes: Dict[str, SQSMessageAttribute]
     md5OfBody: str
+    md5OfMessageAttributes: str
     eventSource: str
     eventSourceARN: str
     awsRegion: str
