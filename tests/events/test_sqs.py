@@ -59,8 +59,42 @@ def test_sqs_event_fifo_queue() -> None:
                 "messageAttributes": {},
                 "md5OfBody": "e4e68fb7bd0e697a0ae8f1bb342846b3",
                 "eventSource": "aws:sqs",
-                "eventSourceARN": "arn:aws:sqs:us-east-2:123456789012:fifo.fifo",  # noqa: E501
+                "eventSourceARN": "arn:aws:sqs:us-east-2:123456789012:fifo",
                 "awsRegion": "us-east-2",
+            }
+        ]
+    }
+
+
+def test_sqs_event_message_attributes() -> None:
+    event: SQSEvent = {
+        "Records": [
+            {
+                "messageId": "b9d7aba9-30ea-4e72-8f44-585b8045fe2c",
+                "receiptHandle": "AQEB7+aJcKwp6VVxs0A7M8o7TMgB/QQb+...",
+                "body": "Test message.",
+                "attributes": {
+                    "DeadLetterQueueSourceArn": "arn:aws:sqs:us-east-1:123...",
+                    "ApproximateReceiveCount": "2",
+                    "AWSTraceHeader": "Root=1-afa8dcdd-00db74c9;Parent=6df...",
+                    "SentTimestamp": "1711115795107",
+                    "SenderId": "AIDAIO23YVJENQZJOL4VO:my-lambda",
+                    "ApproximateFirstReceiveTimestamp": "1711115795116",
+                },
+                "messageAttributes": {
+                    "attribute_1": {
+                        "stringValue": "value_1",
+                        "binaryValue": None,
+                        "stringListValues": [],
+                        "binaryListValues": [],
+                        "dataType": "String",
+                    }
+                },
+                "md5OfMessageAttributes": "d326d59e52374ec1d1ff87040b56c09d",
+                "md5OfBody": "e6c926f2b6defe3812e91283a68e5f43",
+                "eventSource": "aws:sqs",
+                "eventSourceARN": "arn:aws:sqs:us-east-1:123456789012:queue",
+                "awsRegion": "us-east-1",
             }
         ]
     }
