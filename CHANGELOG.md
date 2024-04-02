@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.20.0](https://github.com/MousaZeidBaker/aws-lambda-typing/compare/2.19.0...2.20.0) (2024-04-02)
+
+
+### 🚀 Features
+
+* complement various fields for SQS event ([46e9992](https://github.com/MousaZeidBaker/aws-lambda-typing/commit/46e9992f878ff32ca6d54ada708ee3944421db4c))
+
 ## [2.19.0](https://github.com/MousaZeidBaker/aws-lambda-typing/compare/2.18.0...2.19.0) (2024-01-29)
 
 
